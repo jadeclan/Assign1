@@ -1,11 +1,11 @@
 
-Title of First Assignment Goes Here ![GitHubLogo](images/logo.jpg)
+Data Driven PHP and JavaScript ![GitHubLogo](images/logo.jpg)
 ==================================
 
 ####As partial fulfilment of the requirements for COMP4513
 ####For the BCIS Degree at Mount Royal University
 ####Course Professor:&nbsp;&nbsp;&nbsp;_**Randy Connolly**_
-#
+
  - :arrow_right: [Contributors](#contributors)
  - :arrow_right: [Some Stats](#some-stats)
  - :arrow_right: [Special Thanks](#special-thanks)
@@ -17,7 +17,7 @@ Title of First Assignment Goes Here ![GitHubLogo](images/logo.jpg)
  >###&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sonia Pitrola :cat:
  >###&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nolan Walker :muscle: 
 
-## [GitHub Documentation](https://github.com/jadeclan/Assign1/documentation/getGoingGitHub.txt)
+### [GitHub Documentation](documentation/getGoingGitHub.md)
 
 ## **Some Stats**
  - Look at **CHANGELOG.MD** for this project (TBD)
