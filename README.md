@@ -17,6 +17,8 @@ Title of First Assignment Goes Here ![GitHubLogo](images/logo.jpg)
  >###&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sonia Pitrola :cat:
  >###&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nolan Walker :muscle: 
 
+## [GitHub Documentation](https://github.com/jadeclan/Assign1/documentation/getGoingGitHub.txt)
+
 ## **Some Stats**
  - Look at **CHANGELOG.MD** for this project (TBD)
  - Look at **PUNCHCARD.MD** for this project (TBD)
