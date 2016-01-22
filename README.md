@@ -13,6 +13,7 @@ Title of First Assignment Goes Here ![GitHubLogo](images/logo.jpg)
 ## *Contributors*
 
  >###&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;James Bergeron :maple_leaf:
+ >###&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mark O'Donnell :beer:
  >###&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sonia Pitrola :cat:
  >###&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nolan Walker :muscle: 
 
