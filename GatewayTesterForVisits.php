@@ -3,7 +3,7 @@
    Use this page to test each one of your table gateway classes.
 */
 
-require_once('lib/helpers/visits-setup.inc.php');
+require_once('./helpers/visits-setup.inc.php');
 ?>
 
 <html>
