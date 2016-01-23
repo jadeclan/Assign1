@@ -1,7 +1,10 @@
-fdshfaksdhfdsjhfdskjfdskjfSince we will be making extensive use of branching when we start developing this project,
-it will become easy to get lost as to what branch we are making changes on.  The following
+#Showing Git status in your prompt
+
+When not using an IDE to use Git and making use of branching,
+it becomes easy to get lost as to what branch changes are being made on.  The following
 changes to your linux .bashrc file will put which branch you are modifying and include
 a * if there are unstaged modifications and a + if there are staged modifications.
+The prompt only shows up in directories that you have git initialized.
 This should help you know what you are changing.
 
 So, here are the steps:
@@ -28,8 +31,3 @@ All modified files are staged:		[james (master +)] $
 Staged files and then modified some	[james (master *+)] $
 
 When I leaave the git initialized directory, my prompt returns to normal.
-	
-	
-
-I'm hoping this helps.
-

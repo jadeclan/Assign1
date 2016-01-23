@@ -18,6 +18,7 @@ Data Driven PHP and JavaScript ![GitHubLogo](images/logo.jpg)
  >###&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nolan Walker :muscle: 
 
 ### [GitHub Documentation](documentation/getGoingGitHub.md)
+### [Git Status in Command Line Prompt Documentation](documentation/showBranchInPrompt.md)
 
 ## **Some Stats**
  - Look at **CHANGELOG.MD** for this project (TBD)
