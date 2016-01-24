@@ -18,6 +18,9 @@
              echo $row->id . " - " . $row->name . "<br/>";
           }
       ?>
-      <?php include 'helpers/visits-footer.inc.php'; ?>    
+      <?php include 'helpers/visits-footer.inc.php'; ?>
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
    </body>
 </html>                                                                                             
