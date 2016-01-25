@@ -12,10 +12,11 @@
           var browserStats = <?php echo json_encode($browsersHitsResults); ?>;
       </script>
    </head>
-   <body>  
+   <body>
+     <div class="container">
       <?php include 'helpers/visits-header.inc.php'; ?>
       <h1>All Our Code Goes here - Data required for cards 1 and 2 shown below</h1>
-      <table>
+      <table class="striped">
         <tr>
             <th>Browser ID</th>
             <th>Browser Name</th>
@@ -28,10 +29,11 @@
         <?php createOptionList($browsersHitsResults); ?>
       </select>
       <p id="browserBox"></p>
+    </div>
       <?php include 'helpers/visits-footer.inc.php'; ?>
       <!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<!--      <script type="text/javascript" src="javaScript/materialize.js"></script>  -->
+     <script type="text/javascript" src="javaScript/materialize.js"></script>
       <script type="text/javascript" src="javaScript/card2.js"></script>
    </body>
-</html>                                                                                             
+</html>
