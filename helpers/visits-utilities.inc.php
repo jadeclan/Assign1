@@ -13,3 +13,13 @@ function createTableRows($inArray){
         echo "</tr>" . PHP_EOL;
     }
 }
+/* function to display a list of options
+ *
+ * $inArray an array of browser names and id's
+ */
+function createOptionList($inArray){
+    echo '<option>Select a Browser</option>' . PHP_EOL;
+    foreach($inArray as $row){
+        echo '<option value="' . $row->name. '">' . $row->name . '</option>' . PHP_EOL;
+    }
+}
