@@ -1,4 +1,5 @@
 <?php
+//test
    require_once('helpers/visits-setup.inc.php');
    $browsersHitsGate = new BrowserHitsTableGateway($dbAdapter);
    $browsersHitsResults = $browsersHitsGate->findAll();
