@@ -9,7 +9,6 @@ function createContinentBox(inArray){
     tableRef = document.getElementById('continentBox').getElementsByTagName('tbody')[0];
     for (var i = 0; i < inArray.length; i++) {
         if (inArray[i].continentName == selectedContinent) {
-            console.log(inArray[i].countryName);
             var row = tableRef.insertRow(tableRef.rows.length);
             var cell1 = row.insertCell(0);
             var cell2 = row.insertCell(1);
