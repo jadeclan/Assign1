@@ -1,7 +1,7 @@
 <?php
 /* function to display table rows of the number of hits by browser type
  *
- * $inArray an array of browerHits objects
+ * $inArray an array of browserHits objects
  */
 function createTableRows($inArray){
     foreach ($inArray as $row){
@@ -15,11 +15,26 @@ function createTableRows($inArray){
 }
 /* function to display a list of options
  *
- * $inArray an array of browser names and id's
+ * $inArray an array containing browser names
  */
-function createOptionList($inArray){
+function createBrowserOptionList($inArray){
     echo '<option>Select a Browser</option>' . PHP_EOL;
     foreach($inArray as $row){
         echo '<option value="' . $row->name. '">' . $row->name . '</option>' . PHP_EOL;
+    }
+}
+
+/* function to display a list of options
+ *
+ * $inArray an array containing continent names
+ */
+function createContinentOptionList($inArray){
+    $continentList = Array();
+    echo '<option>Select a Continent</option>' . PHP_EOL;
+    foreach($inArray as $row){
+        if(!in_array($row->continentName, $continentList)){
+            $continentList[] = $row->continentName;
+            echo '<option value="' . $row->continentName. '">' . $row->continentName . '</option>' . PHP_EOL;
+        }
     }
 }
