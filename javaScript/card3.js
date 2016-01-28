@@ -5,9 +5,13 @@ function createContinentBox(inArray){
     var selectedContinent = document.getElementById('cSelection').value;
     var table = document.getElementById('continentBox');
     table.className = "";
+    var rows = table.rows.length;
+    for(var i=rows;i>2;i--){
+        table.deleteRow(i-1);
+    }
     table.setAttribute('display','block');
     tableRef = document.getElementById('continentBox').getElementsByTagName('tbody')[0];
-    for (var i = 0; i < inArray.length; i++) {
+    for (i = 0; i < inArray.length; i++) {
         if (inArray[i].continentName == selectedContinent) {
             var row = tableRef.insertRow(tableRef.rows.length);
             var cell1 = row.insertCell(0);

@@ -30,7 +30,7 @@ function createBrowserOptionList($inArray){
  */
 function createContinentOptionList($inArray){
     $continentList = Array();
-    echo '<option>Select a Continent</option>' . PHP_EOL;
+    echo '<option disabled selected>Select a Continent</option>' . PHP_EOL;
     foreach($inArray as $row){
         if(!in_array($row->continentName, $continentList)){
             $continentList[] = $row->continentName;
