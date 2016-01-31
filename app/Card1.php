@@ -8,11 +8,6 @@ use Framework\View;
 
 class Card1Model extends Model
 {
-    public function __construct()
-    {
-        parent::__construct(DB_TYPE, DB_HOST, DB_NAME, DB_USER, DB_PASS);
-    }
-
     public function getBrowserVisits() {
         $result = self::$db->query("SELECT browsers.id,
                                            name,

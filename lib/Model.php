@@ -15,13 +15,13 @@ abstract class Model
 {
 	protected static $db;
 
-	public function __construct($type, $host, $name, $user, $pass)
+	public function __construct()
 	{
 		// Singleton pattern :(
 		if (self::$db == null) {
 
 			// Connect to database
-			self::$db = new PDO("$type:dbhost=$host;dbname=$name", $user, $pass);
+			self::$db = new PDO(DB_TYPE.":dbhost=".DB_HOST.";dbname=".DB_NAME, DB_USER, DB_PASS);
 
 			// Enable exceptions
 			self::$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

@@ -25,9 +25,6 @@ class Site extends Application
 
     public function __construct()
     {
-        // Initialize our model
-        $this->model = new SiteModel();
-
         // Initialize Controllers
         parent::__construct('Site', [
             new Header(),
@@ -70,13 +67,5 @@ class Footer extends Controller
     public function Content()
     {
         return new View('Footer.tpl');
-    }
-}
-
-class SiteModel extends Model
-{
-    public function __construct()
-    {
-        parent::__construct(DB_TYPE, DB_HOST, DB_NAME, DB_USER, DB_PASS);
     }
 }
