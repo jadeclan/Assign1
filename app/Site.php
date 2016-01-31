@@ -8,7 +8,6 @@ use Framework\Model;
 use Framework\View;
 use Framework\Controller;
 
-include "Model.php";
 include "Card1.php";
 include "Card2.php";
 include "Card3.php";
@@ -22,9 +21,13 @@ include "Card3.php";
 class Site extends Application
 {
     private $title = "POW-B Analytics";
+    private $model;
 
     public function __construct()
     {
+        // Initialize our model
+        $this->model = new SiteModel();
+
         // Initialize Controllers
         parent::__construct('Site', [
             new Header(),
@@ -35,7 +38,7 @@ class Site extends Application
         ]);
     }
 
-    public function Content(Model $m = null)
+    public function Content()
     {
         return new View('Index.tpl', [
             'themedir' => View::getTemplatePath(),
@@ -51,7 +54,7 @@ class Header extends Controller
         parent::__construct('Header');
     }
 
-    public function Content(Model $m = null)
+    public function Content()
     {
         return new View('Header.tpl');
     }
@@ -64,8 +67,16 @@ class Footer extends Controller
         parent::__construct('Footer');
     }
 
-    public function Content(Model $m = null)
+    public function Content()
     {
         return new View('Footer.tpl');
+    }
+}
+
+class SiteModel extends Model
+{
+    public function __construct()
+    {
+        parent::__construct(DB_TYPE, DB_HOST, DB_NAME, DB_USER, DB_PASS);
     }
 }

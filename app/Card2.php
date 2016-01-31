@@ -13,7 +13,7 @@ class Card2 extends Controller
         parent::__construct('Card2');
     }
 
-    public function Content(Model $m = null)
+    public function Content()
     {
         return new View('Card2.tpl');
     }

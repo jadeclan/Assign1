@@ -72,10 +72,10 @@ abstract class Controller
 	}
 	
 	/**
-	 * This function will be called by the renderer. 
+	 * This function will be called by the when this controller is routed.
 	 * It is expected to return a valid View object or null.
 	 */
-	protected abstract function Content(Model $m = null);
+	protected abstract function Content();
 	
 	/**
 	 * Returns the route of this controller.
