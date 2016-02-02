@@ -5,11 +5,12 @@ namespace Framework;
 use PDO;
 
 /**
- * PDO wrapper? To much work for too little payoff. There are a lot of
- * elegant libraries out there that are worth looking into...
+ * Abstract Model class used to create the database PDO
  *
- * @author mark
+ * Developed by: Bergeron, O'Donnell, Pitrolia, Walker
+ * January - February, 2016
  *
+ * Database Access Constants are set on the mvc.php page
  */
 abstract class Model
 {

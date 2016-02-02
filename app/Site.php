@@ -1,5 +1,10 @@
 <?php
-
+/*
+ * Establishes the Site, header and footer classes
+ *
+ * Developed by: Bergeron, O'Donnell, Pitrolia, Walker
+ * January - February, 2016
+ */
 namespace Application;
 
 use Framework\Application;
@@ -15,8 +20,6 @@ include "Card3.php";
 
 /**
  * The Site class. This class will serve as the root of the controller hierarchy.
- * @author mark
- *
  */
 class Site extends Application
 {
@@ -25,7 +28,10 @@ class Site extends Application
 
     public function __construct()
     {
-        // Initialize Controllers
+        /* Initialize Controllers to be used
+         * A page (aka site) is constructed based on including
+         * a appropriate parts of the desired page.
+         */
         parent::__construct('Site', [
             new Header(),
             new Footer(),
@@ -34,7 +40,12 @@ class Site extends Application
             new Card3(),
         ]);
     }
-
+    /*
+     * function used by controller to include the view.
+     *
+     * themedir     directory to get the data for the view class
+     * tite         provides created view with this sites title
+     */
     public function Content()
     {
         return new View('Index.tpl', [
@@ -43,7 +54,10 @@ class Site extends Application
         ]);
     }
 }
-
+/*
+ * Constructs the Header function from the header.tpl file
+ * tpl file must be in the theme/default/assets directory
+ */
 class Header extends Controller
 {
     public function __construct()
@@ -51,19 +65,23 @@ class Header extends Controller
         parent::__construct('Header');
     }
 
+    // function used by controller to include the view
     public function Content()
     {
         return new View('Header.tpl');
     }
 }
-
+/*
+ * Constructs the Footer function from the footer.tpl file
+ * tpl file must be in the theme/default/assets directory
+ */
 class Footer extends Controller
 {
     public function __construct()
     {
         parent::__construct('Footer');
     }
-
+    // function used by controller to include the view
     public function Content()
     {
         return new View('Footer.tpl');

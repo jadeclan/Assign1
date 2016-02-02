@@ -7,12 +7,22 @@ use Exception;
 /**
  * The application class. The application layer is the top-level 
  * controller and the root of the controller hierarchy.
- * @author mark
+ *
+ * Developed by: Bergeron, O'Donnell, Pitrolia, Walker
+ * January - February, 2016
  */
 abstract class Application extends Controller
 {
+    //
 	private $url;
-	
+
+    /*
+     * Constructor used to create the application class
+     * Used only my the Site class
+     *
+     * $id is the name of the class that has a controller
+     * $controller array is all the controllers used in this project
+     */
 	public function __construct($id, array $controllers = [])
 	{
 		parent::__construct($id, $controllers);
@@ -25,7 +35,9 @@ abstract class Application extends Controller
 		}
 
 	}
-
+    /*
+     * Function to
+     */
     public function __get($route)
     {
 

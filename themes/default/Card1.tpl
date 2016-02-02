@@ -1,4 +1,4 @@
-
+<!-- HTML used to create the Card1 Table view -->
 <table class="striped">
     <tr>
         <th>Browser ID</th>

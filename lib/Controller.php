@@ -6,7 +6,9 @@ use RuntimeException;
 
 /**
  * The controller class. All controllers are expected to derive from this class.
- * @author mark
+ *
+ * Developed by: Bergeron, O'Donnell, Pitrolia, Walker
+ * January - February, 2016
  *
  */
 abstract class Controller
@@ -18,25 +20,29 @@ abstract class Controller
 	protected $parent = null;
 	
 	/**
-	 * An array of controllers this controller is parented to.
+	 * An array of controllers which are under this controller
+	 * (parent, grand parent, great grand parent ........)
 	 * @var array
 	 */
 	protected $controllers = [];
 	
 	/**
 	 * This controllers id, used for routing.
+	 * Each instance of a controller has a unique $id
 	 * @var string
 	 */
 	protected $id;
 	
 	/**
-	 * This controllers name, useful for titles/breadcrumbs
+	 * Each controllers name, useful for titles/breadcrumbs
+	 * Each instance of a controller has a name
 	 * @var string
 	 */
 	protected $name;
 	
 	/**
 	 * The arguments passed to this controller during routing.
+	 * Each instance of a controller may have arguments passed to it
 	 * @var array
 	 */
 	protected $arguments;
@@ -58,7 +64,9 @@ abstract class Controller
 		// The ID will determine routing, so force lower case
 		$this->id = strtolower($id);
 
-		// Set parent (build controller hierarchy)
+		/* Set parent (build controller hierarchy)
+		 * using recursive calls
+		 */
 		if (!empty($children)) {
 			foreach ($children as $child) {
 				if (!isset($this->controllers[$child->id])) {
@@ -124,8 +132,8 @@ abstract class Controller
 	}
 	
 	/**
-	 * Returns the root controller in the hierarchy.
-	 * @return Framework\Controller The root controller.
+	 * Returns the root controller in the hierarchy (Recursive calls)
+	 * @return Framework Controller The root controller.
 	 */
 	public function getRoot()
 	{
@@ -142,7 +150,7 @@ abstract class Controller
 	 * route will be used as the controllers arguments. Includes standard
 	 * path support, (root, current and previous paths).
 	 * @param mixed $args The route of the controller we are looking for.
-	 * @return Framework\Controller The controller specified.
+	 * @return Framework Controller The controller specified.
 	 */
 	public function __get($args)
 	{
