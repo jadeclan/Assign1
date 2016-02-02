@@ -16,6 +16,7 @@ use Framework\Controller;
 include "Card1.php";
 include "Card2.php";
 include "Card3.php";
+include "About.php";
 
 
 /**
@@ -35,9 +36,8 @@ class Site extends Application
         parent::__construct('Site', [
             new Header(),
             new Footer(),
-            new Card1(),
-            new Card2(),
-            new Card3(),
+            new Dashboard(),
+            new About()
         ]);
     }
     /*
@@ -85,5 +85,22 @@ class Footer extends Controller
     public function Content()
     {
         return new View('Footer.tpl');
+    }
+}
+
+class Dashboard extends Controller
+{
+    public function __construct()
+    {
+        parent::__construct('Dashboard', [
+            new Card1(),
+            new Card2(),
+            new Card3()
+        ]);
+    }
+
+    public function Content()
+    {
+        return new View('Dashboard.tpl');
     }
 }

@@ -133,7 +133,7 @@ abstract class Controller
 	
 	/**
 	 * Returns the root controller in the hierarchy (Recursive calls)
-	 * @return Framework Controller The root controller.
+	 * @return Framework\Controller The root controller.
 	 */
 	public function getRoot()
 	{
