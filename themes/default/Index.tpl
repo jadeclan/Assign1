@@ -19,14 +19,9 @@
 
 </head>
 <body>
+    <?= $app->{"/header"}; ?>
 
     <div class="container">
-
-        <div class="row">
-            <div class="col s12">
-                <?= $app->{"/header"}; ?>
-            </div>
-        </div>
 
         <div class="row">
             <div class="col s5">
@@ -46,14 +41,9 @@
             </div>
         </div><!-- /.row -->
 
-        <div class="row">
-            <div class="col s12">
-                <?= $app->{"/footer"} ?>
-            </div>
-        </div><!-- /.row -->
-
     </div><!-- /.container -->
 
+    <?= $app->{"/footer"} ?>
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="<?= $themedir ?>/assets/materialize/js/materialize.js"></script>

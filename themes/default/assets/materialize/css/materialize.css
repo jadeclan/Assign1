@@ -2915,7 +2915,7 @@ ul.staggered-list li {
 footer.page-footer {
   margin-top: 20px;
   padding-top: 20px;
-  background-color: #ee6e73;
+  background-color: #bf360c;
 }
 
 footer.page-footer .footer-copyright {
@@ -7303,8 +7303,8 @@ nav ul a span.badge {
 }
 
 nav {
-  color: #fff;
-  background-color: #ee6e73;
+  color: #bf360c;
+  background-color: #fff;
   width: 100%;
   height: 56px;
   line-height: 56px;
@@ -7349,11 +7349,12 @@ nav .button-collapse i {
 
 nav .brand-logo {
   position: absolute;
-  color: #fff;
+  color: #bf360c;
   display: inline-block;
   font-size: 2.1rem;
   padding: 0;
   white-space: nowrap;
+  margin-left: 1%;
 }
 
 nav .brand-logo.center {
@@ -7404,7 +7405,7 @@ nav ul li.active {
 nav ul a {
   transition: background-color .3s;
   font-size: 1rem;
-  color: #fff;
+  color: #bf360c;
   display: block;
   padding: 0 15px;
   cursor: pointer;
