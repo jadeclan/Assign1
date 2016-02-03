@@ -13,7 +13,8 @@ class View
 	// default directory for all views (.tpl files)
 	private static $templatePath = 'themes/default';
 	/*
-	 * Need to include description of these
+	 * $template contains the name of the tpl file being constructed
+	 * $data is an array of data needed to construct the tpl page
 	 */
 	private $template;
 	private $data;
@@ -29,7 +30,8 @@ class View
 	}
 	/*
 	 * Function __construct
-	 * Need description
+	 * Constructs a specific template using routing path
+	 * and template name (ie card1.tpl)
 	 */
 	public function __construct($template, array $data = [])
 	{
