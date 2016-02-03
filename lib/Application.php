@@ -14,7 +14,7 @@ use Exception;
 abstract class Application extends Controller
 {
     //
-	private $url;
+	protected $url;
 
     /*
      * Constructor used to create the application class
@@ -32,6 +32,7 @@ abstract class Application extends Controller
 			unset($_GET['url']);
 		}
 
+        // add the content dummy controller
         array_push($controllers, new Content($this->url));
 
         parent::__construct($id, $controllers);
@@ -55,12 +56,16 @@ abstract class Application extends Controller
     }
 }
 
+/**
+ * Content controller.
+ * @package Framework
+ */
 class Content extends Controller
 {
     private $route;
 
-    public function __construct($route) {
-
+    public function __construct($route)
+    {
         parent::__construct('Content');
 
         $this->route = $route;
@@ -68,24 +73,6 @@ class Content extends Controller
 
     public function Content()
     {
-        $app = $this->getRoot();
-
-        return $app->Render($this->route);
-
-        /*
-        $controller = parent::__get($this->route);
-
-        try {
-            $view = $controller->Content();
-        } catch (Exception $e) {
-            if (DEBUG) {
-                $view = new View('Exception.tpl', ['e' => $e]);
-            } else {
-                $view = new View('Message.tpl', ['msg' => 'There was an error accessing this module.']);
-            }
-        }
-
-        return empty($view) ? '' : $view->render($this->getRoot());
-        */
+        return $this->getRoot()->__get($this->route)->Content();
     }
 }

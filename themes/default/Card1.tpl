@@ -1,3 +1,4 @@
+
 <!-- HTML used to create the Card1 Table view -->
 <table class="striped">
     <tr>
@@ -12,8 +13,8 @@
     <tr>
         <td><?= $browser['id'] ?></td>
         <td><?= $browser['name'] ?></td>
-        <td><?= $browser['visits'] ?></td>
-        <td><?= $browser['percent'] ?></td>
+        <td><?= $browser['hits'] ?></td>
+        <td><?= $browser['percentage'] ?></td>
     </tr>
 
     <?php endforeach; ?>

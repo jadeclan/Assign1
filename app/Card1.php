@@ -17,8 +17,8 @@ class Card1Model extends Model
     public function getBrowserVisits() {
         $result = self::$db->query("SELECT browsers.id,
                                            name,
-                                           count(*) AS visits,
-                                           ((count(*)/(SELECT count(*) FROM visits)) * 100) AS percent
+                                           count(*) AS hits,
+                                           ((count(*)/(SELECT count(*) FROM visits)) * 100) AS percentage
                                     FROM browsers
                                       JOIN visits ON browsers.id = visits.browser_id
                                     GROUP BY name");

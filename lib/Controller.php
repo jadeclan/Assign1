@@ -64,9 +64,7 @@ abstract class Controller
 		// The ID will determine routing, so force lower case
 		$this->id = strtolower($id);
 
-		/* Set parent (build controller hierarchy)
-		 * using recursive calls
-		 */
+		// Set parent (build controller hierarchy)
 		if (!empty($children)) {
 			foreach ($children as $child) {
 				if (!isset($this->controllers[$child->id])) {
@@ -133,7 +131,7 @@ abstract class Controller
 	
 	/**
 	 * Returns the root controller in the hierarchy (Recursive calls)
-	 * @return Framework\Controller The root controller.
+	 * @return Controller The root controller.
 	 */
 	public function getRoot()
 	{
@@ -150,7 +148,7 @@ abstract class Controller
 	 * route will be used as the controllers arguments. Includes standard
 	 * path support, (root, current and previous paths).
 	 * @param mixed $args The route of the controller we are looking for.
-	 * @return Framework Controller The controller specified.
+	 * @return Controller The controller specified.
 	 */
 	public function __get($args)
 	{
@@ -186,7 +184,7 @@ abstract class Controller
 			if (isset($this->controllers[$first]))
 				return $this->controllers[$first]->__get($args);
 			
-			// Not found, assume argument
+			// Not found, assume remainder of route are arguments to controller
 			array_unshift($args, $first);
 		}
 		
@@ -198,7 +196,7 @@ abstract class Controller
 	/**
 	 * Returns an array containing all controllers in the hierarchy
 	 * that implement Navable, begining with the current controller.
-	 * The array is indexed by the object's getNavString() function.
+	 * The array is indexed by the controller's getNavString() function.
 	 * @param array $navables
 	 * @return array
 	 */
