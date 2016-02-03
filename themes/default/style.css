@@ -1,3 +1,22 @@
 nav{
+    color: #bf360c;
+    background-color: #fff;
     margin-bottom: 2%;
+    box-shadow: 0 2px 5px 0 #ff8a65;
 }
+
+nav .brand-logo{
+    color: #bf360c;
+}
+
+nav ul a{
+    color: #bf360c;
+}
+
+
+footer.page-footer{
+    background-color: #bf360c;
+}
+
+
+/*#ee6e73*/
