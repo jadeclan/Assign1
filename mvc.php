@@ -15,6 +15,10 @@
  *
  *  NOTES:
  *   - Requires PHP 5 >= 5.3.0 (anonymous functions)
+ *   - While credit is given to all members for development,
+ *     Mark O'Donnell wrote the controller functionality
+ *     with minor adjustments and documentation from other team
+ *     members.
  */
 
 // Enable debug mode

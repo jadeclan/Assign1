@@ -13,12 +13,12 @@ use Exception;
  */
 abstract class Application extends Controller
 {
-    //
+    // Used to pass route as well as query string items to calling class.
 	protected $url;
 
     /*
      * Constructor used to create the application class
-     * Used only my the Site class
+     * Used only by the Site class
      *
      * $id is the name of the class that has a controller
      * $controller array is all the controllers used in this project
@@ -28,6 +28,7 @@ abstract class Application extends Controller
         $this->url = RS;
 
 		if (isset($_GET['url'])) {
+            // Doing a basic query string tampering protection
 			$this->url = filter_var($_GET['url'], FILTER_SANITIZE_URL);
 			unset($_GET['url']);
 		}
@@ -37,7 +38,10 @@ abstract class Application extends Controller
 
         parent::__construct($id, $controllers);
 	}
-
+    /*
+     * Function to render content on a page (view).
+     * On fail, throws an exception message.
+     */
     public function Render($route) {
 
         $controller = parent::__get($route);
@@ -57,7 +61,7 @@ abstract class Application extends Controller
 }
 
 /**
- * Content controller.
+ * Content controller used to get the content that will be rendered on a particular page.
  * @package Framework
  */
 class Content extends Controller

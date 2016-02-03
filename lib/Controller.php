@@ -14,7 +14,7 @@ use RuntimeException;
 abstract class Controller
 {
 	/**
-	 * This controllers parent.
+	 * Parent of this instance of the controller
 	 * @var Controller 
 	 */
 	protected $parent = null;
@@ -28,6 +28,8 @@ abstract class Controller
 	
 	/**
 	 * This controllers id, used for routing.
+	 * Note all routing id's are in lower case only.
+	 * Class id's are uppercase first letter followed by lower case following
 	 * Each instance of a controller has a unique $id
 	 * @var string
 	 */
@@ -78,7 +80,9 @@ abstract class Controller
 	}
 	
 	/**
-	 * This function will be called by the when this controller is routed.
+	 * This function will be called by each class that extends
+	 * the controller controller class when this instance
+	 * of the controller is routed.
 	 * It is expected to return a valid View object or null.
 	 */
 	protected abstract function Content();
