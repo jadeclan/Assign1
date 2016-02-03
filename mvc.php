@@ -62,8 +62,7 @@ use Application\Site;
 try {
     // Instantiates a new site.
     $site = new Site();
-
-    echo $site->{"/"};
+    echo $site->Render("/");
 
 } catch (Exception $e) {
     header($_SERVER['SERVER_PROTOCOL'] . ' 500 Internal Server Error', true, 500);

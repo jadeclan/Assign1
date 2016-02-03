@@ -25,8 +25,6 @@ abstract class Application extends Controller
      */
 	public function __construct($id, array $controllers = [])
 	{
-		parent::__construct($id, $controllers);
-
         $this->url = RS;
 
 		if (isset($_GET['url'])) {
@@ -34,20 +32,17 @@ abstract class Application extends Controller
 			unset($_GET['url']);
 		}
 
-	}
-    /*
-     * Function to
-     */
-    public function __get($route)
-    {
+        array_push($controllers, new Content($this->url));
 
-        if (is_array($route))
-            return parent::__get($route);
+        parent::__construct($id, $controllers);
+	}
+
+    public function Render($route) {
 
         $controller = parent::__get($route);
 
         try {
-            $view = $controller->Content(null);
+            $view = $controller->Content();
         } catch (Exception $e) {
             if (DEBUG) {
                 $view = new View('Exception.tpl', ['e' => $e]);
@@ -57,5 +52,40 @@ abstract class Application extends Controller
         }
 
         return empty($view) ? '' : $view->render($this);
+    }
+}
+
+class Content extends Controller
+{
+    private $route;
+
+    public function __construct($route) {
+
+        parent::__construct('Content');
+
+        $this->route = $route;
+    }
+
+    public function Content()
+    {
+        $app = $this->getRoot();
+
+        return $app->Render($this->route);
+
+        /*
+        $controller = parent::__get($this->route);
+
+        try {
+            $view = $controller->Content();
+        } catch (Exception $e) {
+            if (DEBUG) {
+                $view = new View('Exception.tpl', ['e' => $e]);
+            } else {
+                $view = new View('Message.tpl', ['msg' => 'There was an error accessing this module.']);
+            }
+        }
+
+        return empty($view) ? '' : $view->render($this->getRoot());
+        */
     }
 }

@@ -19,11 +19,12 @@
 
 </head>
 <body>
-    <?= $app->{"/header"}; ?>
 
-    <?= $app->Content(); ?>
+    <?= $app->Render("header"); ?>
 
-    <?= $app->{"/footer"} ?>
+    <?= $app->Render("content"); ?>
+
+    <?= $app->Render("footer"); ?>
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="<?= $themedir ?>/assets/materialize/js/materialize.js"></script>
