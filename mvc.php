@@ -60,8 +60,14 @@ use Application\Site;
 
 // ...and away we go!
 try {
+    // TODO: this should not be here!!
+    if (empty($_GET['url']))
+        $_GET['url'] = '/dashboard';
+
+
     // Instantiates a new site.
     $site = new Site();
+
     echo $site->Render("/");
 
 } catch (Exception $e) {

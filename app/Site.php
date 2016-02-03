@@ -9,15 +9,14 @@ namespace Application;
 
 use Framework\Application;
 
-use Framework\Model;
 use Framework\View;
 use Framework\Controller;
 
-include "Card1.php";
-include "Card2.php";
-include "Card3.php";
 include "About.php";
-
+include "Dashboard.php";
+include "Documentation.php";
+include "Header.php";
+include "Footer.php";
 
 /**
  * The Site class. This class will serve as the root of the controller hierarchy.
@@ -37,6 +36,7 @@ class Site extends Application
             new Header(),
             new Footer(),
             new Dashboard(),
+            new Documentation(),
             new About()
         ]);
     }
@@ -52,55 +52,5 @@ class Site extends Application
             'themedir' => View::getTemplatePath(),
             'title' => $this->title
         ]);
-    }
-}
-/*
- * Constructs the Header function from the header.tpl file
- * tpl file must be in the theme/default/assets directory
- */
-class Header extends Controller
-{
-    public function __construct()
-    {
-        parent::__construct('Header');
-    }
-
-    // function used by controller to include the view
-    public function Content()
-    {
-        return new View('Header.tpl');
-    }
-}
-/*
- * Constructs the Footer function from the footer.tpl file
- * tpl file must be in the theme/default/assets directory
- */
-class Footer extends Controller
-{
-    public function __construct()
-    {
-        parent::__construct('Footer');
-    }
-    // function used by controller to include the view
-    public function Content()
-    {
-        return new View('Footer.tpl');
-    }
-}
-
-class Dashboard extends Controller
-{
-    public function __construct()
-    {
-        parent::__construct('Dashboard', [
-            new Card1(),
-            new Card2(),
-            new Card3()
-        ]);
-    }
-
-    public function Content()
-    {
-        return new View('Dashboard.tpl');
     }
 }
