@@ -27,7 +27,7 @@
     </div>
     <div>
         <p>Mark O'Donnell</p>
-        <img src="./images/Donald-Trump-Wrestling-Rosie-o-Donnell.jpg" alt="Rosie and Donald" title="Rosie and Donald">
+        <img src="./images/Donald-Trump-Wrestling-Rosie-O-Donnell.jpg" alt="Rosie and Donald" title="Rosie and Donald">
         <p style="display: none">Source: http://www.freakingnews.com/funny-pictures/rosie-pictures.asp</p>
         <p>
             Crazy Irish?  Have you seen the code he wrote for the MVC controller?
