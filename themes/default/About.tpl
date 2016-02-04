@@ -1,7 +1,7 @@
 <div>
     <div>
         <p>Sonia Pitrolia</p>
-        <img src="/images/cat_mosaic.jpg" alt="Italian Cat Mosaic" title="Italian Cat Mosaic">
+        <img src="./images/cat_mosaic.jpg" alt="Italian Cat Mosaic" title="Italian Cat Mosaic">
         <p>
             Smart, committed, capable and hard working.  Oh wait .....
             Cute, friendly, caring, wee bit shy, Italian chick.  Oh wait .....
@@ -13,7 +13,7 @@
     </div>
     <div>
         <p>Nolan Walker</p>
-        <img src="/images/Philadelphia Flyers Banner.jpg" alt="Flyers Banner" title="Flyers Banner">
+        <img src="./images/Philadelphia Flyers Banner.jpg" alt="Flyers Banner" title="Flyers Banner">
         <p style="display: none">Source: http://www.gpsgiftgallery.com</p>
         <p>
             When the world sees red, Nolan sees orange.  When his buddies
@@ -27,7 +27,7 @@
     </div>
     <div>
         <p>Mark O'Donnell</p>
-        <img src="" alt="" title="">
+        <img src="./images/Donald-Trump-Wrestling-Rosie-o-Donnell.jpg" alt="Rosie and Donald" title="Rosie and Donald">
         <p style="display: none">Source: http://www.freakingnews.com/funny-pictures/rosie-pictures.asp</p>
         <p>
             Crazy Irish?  Have you seen the code he wrote for the MVC controller?
@@ -45,7 +45,7 @@
     </div>
     <div>
         <p>James Bergeron</p>
-        <img src="/images/fupfever.png" alt="Circular Loop" title="Circular Loop">
+        <img src="./images/fupfever.png" alt="Circular Loop" title="Circular Loop">
         <p style="display: none">Source: http://theprofitablefirm.com</p>
         <p>
             Wise, handsome, athletic, we could go on, but it would only embarass him.
