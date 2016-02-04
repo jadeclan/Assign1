@@ -17,3 +17,26 @@ nav ul a{
 footer.page-footer{
     background-color: #bf360c;
 }
+
+img{
+    height: 186px;
+    width: 270px;
+
+}
+
+.card-panel{
+    box-shadow: 0 2px 5px 0 #ff8a65, 0 2px 10px 0 #ff8a65;
+}
+
+h1, h2, h3, h4, h5, h6{
+    color: #006064;
+}
+
+.card-title{
+    color: #e0f7fa;
+    background-color: #263238;
+}
+
+#cardTitle {
+    padding: 8px;
+}
