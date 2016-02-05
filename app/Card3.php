@@ -6,18 +6,37 @@ use Framework\Model;
 use Framework\View;
 use Framework\Controller;
 
+class Card3Model extends Model
+{
+    public function getContinents()
+    {
+        $result = self::$db->query("SELECT ContinentName
+                                    FROM continents
+                                    ORDER BY ContinentName;");
+
+        return $result->fetchAll();
+    }
+}
+
 class Card3 extends Controller
 {
+    private $model;
+
     public function __construct()
     {
         parent::__construct('Card3');
+
+        $this->model = new Card3Model();
     }
 
     public function Content()
     {
-        return new View('Card3.tpl');
+        return new View('Card3.tpl', [
+            'continents' => $this->model->getContinents()
+        ]);
     }
 }
+
 /*
  *     // implement any setters that need input checking/validation
     public function jsonSerialize () {
