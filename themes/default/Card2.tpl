@@ -1,10 +1,20 @@
 <!-- HTML used to create the Card2 view -->
+                        <script>
+                            var deviceList =;
+                            <
+                            ? php echo;
+                            json_encode($devices);
+                            ?
+                            >
+                        </script>
+                        <select id="dSelection" name="deviceName" style="display: block">
+                            <option>Select a Device</option>
 
-<!-- Needs revision to javaScript + layout to reflect programming
-     approach used in Card1.tpl
-      -->
+                            <?php foreach($devices as $device): ?>
 
-<select id="bSelection" name="browserName" onchange="createBrowserBox(browserStats)" >
-    <?php //createBrowserOptionList($browsersHitsResults); ?>
-</select>
-<p id="browserBox"></p>
+                            <option value='<?= $device["deviceBrand"] ?>' ><?= $device['deviceBrand'] ?></option>
+
+                            <?php endforeach; ?>
+
+                        </select>
+                        <p id="deviceBox"></p>
