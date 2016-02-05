@@ -3,8 +3,7 @@
 </select>
 <table id="continentBox" class="hide">
     <thead>
-    <tr id="selectedContinent"></tr>
-    <tr>
+    <tr id="selectedContinent">
         <th>Country</th>
         <th>Visits</th>
     </tr>
