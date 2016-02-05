@@ -54,7 +54,16 @@
                     </div>
                     <div class="card-content">
                         <p>
-                            Crazy Irish?  Have you seen the code he wrote for the MVC  controller? Crazy Irish?  Did he really convince the group to follow him down the MVC rabbit hole? Crazy Irish?  Coach, educator, facilitator, thinker Need to see recursive code in action? Want to see minimalistic PHP coding style? Looking for obscure PHP commands to do a job perfectly? Yup Crazy is right!  No idea about the Irish part. The strong, silent type - almost apologetic about helping his team mates reach professional understandings of php /  javascript / mysql and server management. On top of all that flattery, he enjoys a good beer! Ooops wrong O'Donnell on the picture.
+                            Crazy Irish?  Have you seen the code he wrote for the MVC  controller?
+                            Crazy Irish?  Did he really convince the group to follow him down the MVC rabbit hole?
+                            Crazy Irish?  Coach, educator, facilitator, thinker Need to see recursive code in action?
+                            Want to see minimalistic PHP coding style?
+                            Looking for obscure PHP commands to do a job perfectly? Yup Crazy is right!
+                            No idea about the Irish part.
+                            The strong, silent type - almost apologetic about helping his team mates reach
+                            professional understandings of php /  javascript / mysql and server management.
+                            On top of all that flattery, he enjoys a good beer!
+                            Ooops wrong O'Donnell on the picture.
                         </p>
                     </div>
                 </div>
