@@ -18,3 +18,14 @@ class Card2 extends Controller
         return new View('Card2.tpl');
     }
 }
+/*
+/* function to display a list of options
+ *
+ * $inArray an array containing browser names
+
+function createBrowserOptionList($inArray){
+    echo '<option>Select a Browser</option>' . PHP_EOL;
+    foreach($inArray as $row){
+        echo '<option value="' . $row->name. '">' . $row->name . '</option>' . PHP_EOL;
+    }
+ */
