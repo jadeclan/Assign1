@@ -6,9 +6,8 @@ use Framework\Controller;
 use Framework\View;
 
 /*
- * Function card1.  creates the Card1 controller class,
- * instantiates it with the Card1Model and includes the
- * Card1 view.
+ * Card1 class used to create the Card1 view using
+ * data obtained from the Card1Model.
  */
 class Card1 extends Controller
 {
@@ -20,7 +19,10 @@ class Card1 extends Controller
 
         $this->model = new Card1Model();
     }
-
+    /*
+     * Function to obtain view of Card1 from data obtained
+     * from data obtained from the Card1Model.
+     */
     public function Content()
     {
         return new View('Card1.tpl', [

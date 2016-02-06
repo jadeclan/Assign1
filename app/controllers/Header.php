@@ -7,7 +7,6 @@ use Framework\Controller;
 
 /*
  * Constructs the Header function from the header.tpl file
- * tpl file must be in the theme/default directory
  */
 class Header extends Controller
 {

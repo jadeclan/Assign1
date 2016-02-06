@@ -5,6 +5,13 @@ namespace Application;
 use Framework\Model;
 use Framework\View;
 use FRamework\Controller;
+/**
+ * The Card2Model class. Extends the model class (Database Access)
+ * Provides the functionality to query the database
+ *
+ * Developed by: Bergeron, O'Donnell, Pitrolia, Walker
+ * January - February, 2016
+ */
 class Card2Model extends Model implements \JsonSerializable
 {
     public function getDeviceBrandUsage() {

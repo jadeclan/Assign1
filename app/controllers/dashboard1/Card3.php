@@ -5,7 +5,10 @@ namespace Application;
 use Framework\Model;
 use Framework\View;
 use Framework\Controller;
-
+/*
+ * Class that controls the creation of Card3 view
+ * with data obtained from the Card3Model.
+ */
 class Card3 extends Controller
 {
     private $model;
@@ -16,7 +19,10 @@ class Card3 extends Controller
 
         $this->model = new Card3Model();
     }
-
+    /*
+     * Function get view of card3 created using data
+     * obtained from the Card3Model.
+     */
     public function Content()
     {
         return new View('Card3.tpl', [

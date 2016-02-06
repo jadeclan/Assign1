@@ -7,7 +7,6 @@ use Framework\Controller;
 
 /*
  * Constructs the Footer function from the footer.tpl file
- * tpl file must be in the theme/default directory
  */
 class Footer extends Controller
 {
