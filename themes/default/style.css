@@ -40,3 +40,11 @@ a:hover, .tabs .tab a:hover{
 #card1 .card-title{
     color: #0d47a1;
 }
+
+#card2{
+    box-shadow: 0 5px 11px 0 #1b5e20 , 0 4px 15px 0 #1b5e20;
+}
+
+#card2 .card-title{
+    color: #1b5e20;
+}
