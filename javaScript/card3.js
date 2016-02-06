@@ -4,7 +4,7 @@ $('#cSelection').on('change',function(){
     var table = document.getElementById('continentBox');
     table.className = "";
     var rows = table.rows.length;
-    for(var i=rows;i>2;i--){
+    for(var i=rows;i>1;i--){
         table.deleteRow(i-1);
     }
     table.setAttribute('display','block');
