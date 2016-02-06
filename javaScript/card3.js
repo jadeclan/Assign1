@@ -1,7 +1,5 @@
-/**
- * Created by james on 26/01/16.
- */
-function createContinentBox(inArray){
+$('#cSelection').on('change',function(){
+    var inArray = continentData;
     var selectedContinent = document.getElementById('cSelection').value;
     var table = document.getElementById('continentBox');
     table.className = "";
@@ -20,4 +18,4 @@ function createContinentBox(inArray){
             cell2.innerHTML = inArray[i].hits;
         }
     }
-}
+});
