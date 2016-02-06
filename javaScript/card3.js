@@ -1,12 +1,10 @@
-/**
- * Created by james on 26/01/16.
- */
-function createContinentBox(inArray){
+$('#cSelection').on('change',function(){
+    var inArray = continentData;
     var selectedContinent = document.getElementById('cSelection').value;
     var table = document.getElementById('continentBox');
     table.className = "";
     var rows = table.rows.length;
-    for(var i=rows;i>2;i--){
+    for(var i=rows;i>1;i--){
         table.deleteRow(i-1);
     }
     table.setAttribute('display','block');
@@ -20,4 +18,4 @@ function createContinentBox(inArray){
             cell2.innerHTML = inArray[i].hits;
         }
     }
-}
+});

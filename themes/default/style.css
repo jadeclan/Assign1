@@ -9,19 +9,8 @@ nav .brand-logo{
     color: #bf360c;
 }
 
-nav ul a{
-    color: #bf360c;
-}
-
-
 footer.page-footer{
     background-color: #bf360c;
-}
-
-img{
-    height: 186px;
-    width: 270px;
-
 }
 
 .card-panel{
@@ -32,11 +21,30 @@ h1, h2, h3, h4, h5, h6{
     color: #006064;
 }
 
-.card-title{
-    color: #e0f7fa;
-    background-color: #263238;
+.tabs{
+    overflow-x: hidden;
 }
 
-#cardTitle {
-    padding: 8px;
+a, .tabs .tab a, nav ul a{
+    color: #bf360c;
+}
+
+a:hover, .tabs .tab a:hover{
+    color: #006064;
+}
+
+#card1{
+    box-shadow: 0 5px 11px 0 #01579b , 0 4px 15px 0 #01579b;
+}
+
+#card1 .card-title{
+    color: #0d47a1;
+}
+
+#card2{
+    box-shadow: 0 5px 11px 0 #1b5e20 , 0 4px 15px 0 #1b5e20;
+}
+
+#card2 .card-title{
+    color: #1b5e20;
 }

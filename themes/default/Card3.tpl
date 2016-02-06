@@ -1,13 +1,25 @@
-<select id="cSelection" name="continent" onchange="createContinentBox(continentStats)" >
-    <?php //createContinentOptionList($continentVisitsResults); ?>
-</select>
+<script>
+    var continentData=<?php echo json_encode($continentData); ?>
+</script>
+<div class="input-field col s12">
+    <div class="select-wrapper">
+    <select id="cSelection" name="continent" class="initialized" style="display:inline;">
+        <option value="" disabled selected>Select a Continent</option>
+        <?php foreach($continents as $continent): ?>
+            <option value="<?=$continent['continentName']?>"><?= $continent['continentName'] ?></option>
+        <?php endforeach;?>
+    </select>
+    </div>
+</div>
+
+
 <table id="continentBox" class="hide">
     <thead>
-    <tr id="selectedContinent"></tr>
-    <tr>
+    <tr id="selectedContinent">
         <th>Country</th>
         <th>Visits</th>
     </tr>
     </thead>
-    <tbody></tbody>
+    <tbody>
+    </tbody>
 </table>
