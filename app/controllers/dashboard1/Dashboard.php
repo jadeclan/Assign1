@@ -8,7 +8,10 @@ use Framework\Navable;
 
 include "Card1.php";
 include "Card2.php";
-include "Card3.php";
+include "Card3.php";/*
+include "../models/Card1.php";
+include "../models/Card2.php";
+include "../models/Card3.php";*/
 
 class Dashboard extends Controller implements Navable
 {

@@ -12,11 +12,14 @@ use Framework\Application;
 use Framework\View;
 use Framework\Controller;
 
-include "About.php";
-include "Dashboard.php";
-include "Documentation.php";
-include "Header.php";
-include "Footer.php";
+include "controllers/About.php";
+include "controllers/dashboard1/Dashboard.php";
+include "controllers/Documentation.php";
+include "controllers/Header.php";
+include "controllers/Footer.php";
+include "models/Card1.php";
+include "models/Card2.php";
+include "models/Card3.php";
 
 /**
  * The Site class. This class will serve as the root of the controller hierarchy.

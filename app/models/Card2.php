@@ -26,20 +26,3 @@ class Card2Model extends Model implements \JsonSerializable
         ];
     }
 }
-
-class Card2 extends Controller
-{
-    public function __construct()
-    {
-        parent::__construct('Card2');
-
-        $this->model = new Card2Model();
-    }
-
-    public function Content()
-    {
-        return new View('Card2.tpl', [
-        'devices' => $this->model->getDeviceBrandUsage()
-        ]);
-    }
-}
