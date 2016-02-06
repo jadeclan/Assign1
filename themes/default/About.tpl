@@ -20,7 +20,7 @@
     </div>
     <div class="row">
         <div class="col s12 m6">
-            <div class="card-panel medium hoverable">
+            <div class="card-panel medium">
                 <h5 class="center-align">Sonia Pitrola</h5>
                 <img class="responsive-img center-block" src="./images/cat_mosaic.jpg" alt="Italian Cat Mosaic" title="Italian Cat Mosaic">
                 <p>
@@ -36,7 +36,7 @@
         </div>
 
         <div class="col s12 m6">
-            <div class="card-panel medium hoverable">
+            <div class="card-panel medium">
                 <h5 class="center-align">Nolan Walker</h5>
                 <img class="responsive-img center-block" src="./images/Philadelphia Flyers Banner.jpg" alt="Flyers Banner" title="Flyers Banner">
                 <p>
@@ -54,7 +54,7 @@
 
     <div class="row">
         <div class="col s12 m6">
-            <div class="card-panel medium hoverable">
+            <div class="card-panel medium">
                 <h5 class="center-align">Mark O'Donnell</h5>
                 <img class="responsive-img center-block" src="./images/Donald-Trump-Wrestling-Rosie-O-Donnell.jpg" alt="Rosie and Donald" title="Rosie and Donald">
                 <p>
@@ -64,7 +64,7 @@
         </div>
 
         <div class="col s12 m6">
-            <div class="card-panel medium hoverable">
+            <div class="card-panel medium">
                 <h5 class="center-align">James Bergeron</h5>
                 <img class="responsive-img center-block" src="./images/fupfever.png" alt="Circular Loop" title="Circular Loop">
                 <p>
