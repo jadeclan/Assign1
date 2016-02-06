@@ -18,4 +18,4 @@ $('#cSelection').on('change',function(){
             cell2.innerHTML = inArray[i].hits;
         }
     }
-});
+});   
