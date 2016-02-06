@@ -26,7 +26,7 @@
 
     <?= $app->Render("footer"); ?>
 
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="<?= $themedir ?>/assets/jquery-2.2.0.js"></script>
     <script type="text/javascript" src="<?= $themedir ?>/assets/materialize/js/materialize.js"></script>
     <script type="text/javascript" src="javaScript/card2.js"></script>
     <script type="text/javascript" src="javaScript/card3.js"></script>

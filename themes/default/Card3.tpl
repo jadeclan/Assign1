@@ -1,5 +1,5 @@
 <script>
-    var continentData=<?php echo json_encode($continentData); ?>
+    var continentData = <?php echo json_encode($continentData); ?>;
 </script>
 <div class="input-field col s12">
     <div class="select-wrapper">
@@ -20,6 +20,6 @@
         <th>Visits</th>
     </tr>
     </thead>
-    <tbody>
+    <tbody id="contBody">
     </tbody>
 </table>
