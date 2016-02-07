@@ -1,3 +1,5 @@
+<!-- begin Card3.tpl -->
+
 <script>
     var continentData = <?php echo json_encode($continentData); ?>;
 </script>
@@ -28,3 +30,6 @@
         </table>
     </div>
 </div>
+
+<script type="text/javascript" src="<?= $themedir ?>/js/card3.js"></script>
+<!-- end Card3.tpl -->
