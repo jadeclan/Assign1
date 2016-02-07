@@ -15,7 +15,7 @@
     <link type="text/css" rel="stylesheet" href="<?= $themedir ?>/assets/materialize/css/materialize.css"/>
 
     <!-- Custom styles -->
-    <link type="text/css" rel="stylesheet" href="<?= $themedir ?>/style.css"/>
+    <link type="text/css" rel="stylesheet" href="<?= $themedir ?>/css/style.css"/>
 
     <script type="text/javascript" src="<?= $themedir ?>/assets/jquery-2.2.0.js"></script>
     <script type="text/javascript" src="<?= $themedir ?>/assets/materialize/js/materialize.js"></script>
