@@ -18,16 +18,6 @@ interface Navable
 }
 
 /**
- * Interface APIEndPoint. Controllers implementing this interface
- * will be treated as API endpoints during the routing process.
- * @package Framework
- */
-interface APIEndPoint
-{
-    // TODO
-}
-
-/**
  * The controller class. All controllers are expected to derive from this class.
  *
  * Developed by: Bergeron, O'Donnell, Pitrolia, Walker

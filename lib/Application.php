@@ -2,6 +2,8 @@
 
 namespace Framework;
 
+require_once "APIController.php";
+
 /**
  * The application class. The application layer is the top-level 
  * controller and the root of the controller hierarchy.
@@ -25,17 +27,15 @@ abstract class Application extends Controller
 
         $controller = $this->Route($route);
 
-        if ($controller instanceof APIEndPoint) {
-            header('Content-type: application/json');
+        if ($controller instanceof APIController) {
 
-            // TODO: placeholder...
-            echo "{}";
+            echo $controller->Content();
 
         } else {
             // add the content dummy controller
             $this->controllers['content'] = $controller;
 
-            // render application
+            // render root controller
             echo $this->Render("/");
         }
     }

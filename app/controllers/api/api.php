@@ -10,50 +10,49 @@ namespace Application;
 
 use RuntimeException;
 
-use Framework\APIEndPoint;
 use Framework\Controller;
+use Framework\APIController;
 
 class API extends Controller
 {
     public function __construct()
     {
-        parent::__construct('API');
+        parent::__construct('API', [
+            new Browsers()
+        ]);
     }
 
     public function Content()
     {
-        throw new RuntimeException("don't call me!");
+        throw new RuntimeException("attempted to route api stub");
     }
 }
 
-class Browsers extends Controller implements APIEndPoint
+class Browsers extends APIController
 {
     public function __construct()
     {
         parent::__construct('Browsers');
     }
 
-    public function Content()
+    public function get()
+    {
+        return json_encode([
+            "message" => "call me at /api/browsers"
+        ]);
+    }
+
+    public function put()
     {
 
     }
 
-    private function get()
+    public function post()
     {
 
     }
 
-    private function put()
-    {
-
-    }
-
-    private function post()
-    {
-
-    }
-
-    private function delete()
+    public function delete()
     {
 
     }
