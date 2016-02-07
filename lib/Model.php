@@ -10,7 +10,7 @@ use PDO;
  * Developed by: Bergeron, O'Donnell, Pitrolia, Walker
  * January - February, 2016
  *
- * Database Access Constants are set on the mvc.php page
+ * Database Access Constants are set on the index.php page
  */
 abstract class Model
 {

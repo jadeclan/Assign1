@@ -2,8 +2,6 @@
 
 namespace Framework;
 
-use RuntimeException;
-
 /**
  * The application class. The application layer is the top-level 
  * controller and the root of the controller hierarchy.
