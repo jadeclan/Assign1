@@ -2,6 +2,8 @@
 
 namespace Framework;
 
+use RuntimeException;
+
 require_once "APIController.php";
 
 /**
@@ -13,11 +15,11 @@ require_once "APIController.php";
  */
 abstract class Application extends Controller
 {
-    protected $defaultRoute = RS;
+    protected $defaultController = null;
 
     public function Run()
     {
-        $route = $this->defaultRoute;
+        $route = RS;
 
         if (isset($_GET['url'])) {
             // Doing a basic query string tampering protection
@@ -27,6 +29,9 @@ abstract class Application extends Controller
 
         $controller = $this->Route($route);
 
+        if ($controller === $this)
+            $controller = $this->defaultController;
+
         if ($controller instanceof APIController) {
 
             echo $controller->Content();
@@ -35,8 +40,8 @@ abstract class Application extends Controller
             // add the content dummy controller
             $this->controllers['content'] = $controller;
 
-            // render root controller
-            echo $this->Render("/");
+            // render application
+            echo $this->Render();
         }
     }
 }

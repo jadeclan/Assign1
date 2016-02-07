@@ -214,9 +214,16 @@ abstract class Controller
 	 * Function to render content on a page (view).
 	 * On fail, throws an exception message.
 	 */
-	public function Render($route) {
+	public function Render($route = null) {
 
-		$controller = $this->Route($route);
+
+        if (empty($route))
+            $controller = $this;
+        else
+		    $controller = $this->Route($route);
+
+        if (empty($controller))
+            return '';
 
 		try {
 			$view = $controller->Content();

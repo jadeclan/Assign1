@@ -14,6 +14,8 @@ include "app/models/Card2.php";
  */
 class Card2 extends Controller
 {
+    private $model;
+
     public function __construct()
     {
         parent::__construct('Card2');

@@ -26,8 +26,6 @@ class Site extends Application
 
     public function __construct()
     {
-        $this->defaultRoute = "/dashboard";
-
         /* Initialize Controllers to be used
          * A page (aka site) is constructed based on including
          * a appropriate parts of the desired page.
@@ -40,6 +38,9 @@ class Site extends Application
             new About(),
             new API()
         ]);
+
+
+        $this->defaultController = $this->Route("/dashboard");
 
     }
     /*
