@@ -15,18 +15,6 @@ abstract class Application extends Controller
 {
     protected $defaultRoute = RS;
 
-    /*
-     * Constructor used to create the application class
-     * Used only by the Site class
-     *
-     * $id is the name of the class that has a controller
-     * $controller array is all the controllers used in this project
-     */
-	public function __construct($id, array $controllers = [])
-	{
-        parent::__construct($id, $controllers);
-    }
-
     public function Run()
     {
         $route = $this->defaultRoute;
