@@ -44,16 +44,16 @@ class Browsers extends APIController
 
     public function put()
     {
-
+        throw new RuntimeException("not implemented");
     }
 
     public function post()
     {
-
+        throw new RuntimeException("not implemented");
     }
 
     public function delete()
     {
-
+        throw new RuntimeException("not implemented");
     }
 }

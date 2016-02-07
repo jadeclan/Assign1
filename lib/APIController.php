@@ -13,12 +13,16 @@ abstract class APIController extends Controller
         switch ($_SERVER['REQUEST_METHOD']) {
             case 'GET':
                 return $this->get();
+
             case 'PUT':
                 return $this->put();
-            CASE 'POST':
+
+            case 'POST':
                 return $this->post();
+
             case 'DELETE':
-                return $this->post();
+                return $this->delete();
+
             default:
                 throw new RuntimeException("Unexpected request method.");
         }
