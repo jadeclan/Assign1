@@ -48,3 +48,26 @@ a:hover, .tabs .tab a:hover{
 #card2 .card-title{
     color: #1b5e20;
 }
+
+#card3{
+    box-shadow: 0 5px 11px 0 #6a1b9a, 0 4px 15px 0 #6a1b9a;
+}
+
+#card3 .card-title{
+    color: #6a1b9a;
+}
+
+#continentBox{
+    margin-top: 1em;
+}
+
+.striped #contBody tr:nth-child(odd){
+    background-color: #e1bee7;
+}
+
+#continentBox thead tr th{
+    color: #6a1b9a;
+
+}
+
+
