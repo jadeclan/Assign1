@@ -3,8 +3,7 @@
 namespace Application;
 
 use Framework\Model;
-use Framework\View;
-use FRamework\Controller;
+
 /**
  * The Card2Model class. Extends the model class (Database Access)
  * Provides the functionality to query the database

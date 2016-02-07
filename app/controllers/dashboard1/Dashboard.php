@@ -9,11 +9,8 @@ use Framework\Navable;
 include "Card1.php";
 include "Card2.php";
 include "Card3.php";
-/*
-include "../../models/Card1.php";
-include "../../models/Card2.php";
-include "../../models/Card3.php";
-*/
+
+
 /*
  * Dashboard controller pulls together the needed models and controllers
  * in order to create content to deliver to the dashboard view.

@@ -1,9 +1,9 @@
 <?php
+
 namespace Application;
 
 use Framework\Model;
-use Framework\Controller;
-use Framework\View;
+
 
 /**
  * The Card1Model class. Extends the model class (Database Access)

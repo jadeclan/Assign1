@@ -1,4 +1,4 @@
-<!-- HTML used to create the Card2 view -->
+<!-- begin Card2.tpl -->
 <script>
     var deviceList=<?php echo json_encode($devices); ?>
 </script>
@@ -28,3 +28,6 @@
     </div>
 </div>
 
+<script type="text/javascript" src="<?= $themedir ?>/js/card2.js"></script>
+
+<!-- end Card2.tpl -->

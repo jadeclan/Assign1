@@ -11,7 +11,7 @@ namespace Framework;
 class View
 {
 	// default directory for all views (.tpl files)
-	private static $templatePath = 'themes/default';
+	private static $templatePath = 'app/views';
 	/*
 	 * $template contains the name of the tpl file being constructed
 	 * $data is an array of data needed to construct the tpl page
@@ -42,8 +42,11 @@ class View
 	 * function render
 	 * Need description
 	 */
-	public function render(Application $app)
+	public function render(Controller $c)
 	{
+		// automatically inject $themedir into every template
+		$themedir = self::getTemplatePath();
+
 		extract($this->data);
 		
 		ob_start();

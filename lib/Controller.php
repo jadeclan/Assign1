@@ -2,7 +2,30 @@
 
 namespace Framework;
 
+use Exception;
 use RuntimeException;
+
+
+/**
+ * Interface Navable. Controllers implementing this
+ * interface will be called while gathering nav links.
+ * @author mark
+ *
+ */
+interface Navable
+{
+    public function getNavString();
+}
+
+/**
+ * Interface APIEndPoint. Controllers implementing this interface
+ * will be treated as API endpoints during the routing process.
+ * @package Framework
+ */
+interface APIEndPoint
+{
+    // TODO
+}
 
 /**
  * The controller class. All controllers are expected to derive from this class.
@@ -81,12 +104,12 @@ abstract class Controller
 	
 	/**
 	 * This function will be called by each class that extends
-	 * the controller controller class when this instance
+	 * the controller class when this instance
 	 * of the controller is routed.
 	 * It is expected to return a valid View object or null.
 	 */
 	protected abstract function Content();
-	
+
 	/**
 	 * Returns the route of this controller.
 	 * @return string
@@ -154,7 +177,7 @@ abstract class Controller
 	 * @param mixed $args The route of the controller we are looking for.
 	 * @return Controller The controller specified.
 	 */
-	public function __get($args)
+	public function Route($args)
 	{
 		// Explode
 		if (!is_array($args)) {
@@ -163,7 +186,7 @@ abstract class Controller
 			// Path is an absolute path...
 			if (count($args) > 0 && empty($args[0])) {
 				array_shift($args);
-				return $this->getRoot()->__get($args);
+				return $this->getRoot()->Route($args);
 			}
 		}
 		
@@ -173,20 +196,20 @@ abstract class Controller
 			
 			// Current
 			if (empty($first) || $first === '.')
-				return $this->__get($args);
+				return $this->Route($args);
 			
 			// Previous
 			if ($first === '..') {
 				if (isset($this->parent))
-					return $this->parent->__get($args);
+					return $this->parent->Route($args);
 				
 				// Ignore if we have no parent
-				return $this->__get($args);
+				return $this->Route($args);
 			}
 			
 			// Controller
 			if (isset($this->controllers[$first]))
-				return $this->controllers[$first]->__get($args);
+				return $this->controllers[$first]->Route($args);
 			
 			// Not found, assume remainder of route are arguments to controller
 			array_unshift($args, $first);
@@ -195,6 +218,27 @@ abstract class Controller
 		$this->arguments = $args;
 		
 		return $this;
+	}
+
+	/*
+	 * Function to render content on a page (view).
+	 * On fail, throws an exception message.
+	 */
+	public function Render($route) {
+
+		$controller = $this->Route($route);
+
+		try {
+			$view = $controller->Content();
+		} catch (Exception $e) {
+			if (DEBUG) {
+				$view = new View('Exception.tpl', ['e' => $e]);
+			} else {
+				$view = new View('Message.tpl', ['msg' => 'There was an error accessing this module.']);
+			}
+		}
+
+		return empty($view) ? '' : $view->render($controller);
 	}
 		
 	/**
@@ -239,33 +283,3 @@ abstract class Controller
 		return $nav;
 	}
 }
-
-/**
- * The Navable interface. Controllers implementing this 
- * interface will be called while gathering nav links.
- * @author mark
- *
- */
-interface Navable
-{
-	public function getNavString();
-}
-
-/**
- * The Favoritable interface. Controllers implementing this
- * interface will be favoritable. If the "Add to favorites"
- * link is clicked, this function should return the name of
- * the favorite and its route.
- * @author mark
- *
- */
-interface Favoritable
-{
-	public function getFavorite();
-}
-
-interface Breadcrumb
-{
-	public function getBreadcrumb();
-}
-

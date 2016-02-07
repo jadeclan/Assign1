@@ -17,18 +17,16 @@
     <!-- Custom styles -->
     <link type="text/css" rel="stylesheet" href="<?= $themedir ?>/style.css"/>
 
+    <script type="text/javascript" src="<?= $themedir ?>/assets/jquery-2.2.0.js"></script>
+    <script type="text/javascript" src="<?= $themedir ?>/assets/materialize/js/materialize.js"></script>
 </head>
 <body>
 
-    <?= $app->Render("header"); ?>
+    <?= $c->Render("header"); ?>
 
-    <?= $app->Render("content"); ?>
+    <?= $c->Render("content"); ?>
 
-    <?= $app->Render("footer"); ?>
+    <?= $c->Render("footer"); ?>
 
-    <script type="text/javascript" src="<?= $themedir ?>/assets/jquery-2.2.0.js"></script>
-    <script type="text/javascript" src="<?= $themedir ?>/assets/materialize/js/materialize.js"></script>
-    <script type="text/javascript" src="javaScript/card2.js"></script>
-    <script type="text/javascript" src="javaScript/card3.js"></script>
 </body>
 </html>

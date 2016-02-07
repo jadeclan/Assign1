@@ -1,4 +1,5 @@
-<!-- HTML used to create the Card1 Table view -->
+<!-- begin Card1.tpl -->
+
 <div class="row">
     <div class="col12 m6">
         <div class="card z-depth-1-half" id="card1">
@@ -28,3 +29,5 @@
         </div>
     </div>
 </div>
+
+<!-- end Card1.tpl -->

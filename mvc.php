@@ -64,15 +64,10 @@ use Application\Site;
 
 // ...and away we go!
 try {
-    // TODO: this should not be here!!
-    if (empty($_GET['url']))
-        $_GET['url'] = '/dashboard';
-
 
     // Instantiates a new site.
     $site = new Site();
-
-    echo $site->Render("/");
+    $site->Run();
 
 } catch (Exception $e) {
     header($_SERVER['SERVER_PROTOCOL'] . ' 500 Internal Server Error', true, 500);

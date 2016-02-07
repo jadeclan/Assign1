@@ -2,7 +2,7 @@
 
 namespace Framework;
 
-use Exception;
+use RuntimeException;
 
 /**
  * The application class. The application layer is the top-level 
@@ -13,8 +13,7 @@ use Exception;
  */
 abstract class Application extends Controller
 {
-    // Used to pass route as well as query string items to calling class.
-	protected $url;
+    protected $defaultRoute = RS;
 
     /*
      * Constructor used to create the application class
@@ -25,58 +24,33 @@ abstract class Application extends Controller
      */
 	public function __construct($id, array $controllers = [])
 	{
-        $this->url = RS;
-
-		if (isset($_GET['url'])) {
-            // Doing a basic query string tampering protection
-			$this->url = filter_var($_GET['url'], FILTER_SANITIZE_URL);
-			unset($_GET['url']);
-		}
-
-        // add the content dummy controller
-        array_push($controllers, new Content($this->url));
-
         parent::__construct($id, $controllers);
-	}
-    /*
-     * Function to render content on a page (view).
-     * On fail, throws an exception message.
-     */
-    public function Render($route) {
+    }
 
-        $controller = parent::__get($route);
+    public function Run()
+    {
+        $route = $this->defaultRoute;
 
-        try {
-            $view = $controller->Content();
-        } catch (Exception $e) {
-            if (DEBUG) {
-                $view = new View('Exception.tpl', ['e' => $e]);
-            } else {
-                $view = new View('Message.tpl', ['msg' => 'There was an error accessing this module.']);
-            }
+        if (isset($_GET['url'])) {
+            // Doing a basic query string tampering protection
+            $route = filter_var($_GET['url'], FILTER_SANITIZE_URL);
+            unset($_GET['url']);
         }
 
-        return empty($view) ? '' : $view->render($this);
-    }
-}
+        $controller = $this->Route($route);
 
-/**
- * Content controller used to get the content that will be rendered on a particular page.
- * @package Framework
- */
-class Content extends Controller
-{
-    private $route;
+        if ($controller instanceof APIEndPoint) {
+            header('Content-type: application/json');
 
-    public function __construct($route)
-    {
-        parent::__construct('Content');
+            // TODO: placeholder...
+            echo "{}";
 
-        $this->route = $route;
-    }
+        } else {
+            // add the content dummy controller
+            $this->controllers['content'] = $controller;
 
-    public function Content()
-    {
-        return $this->getRoot()->__get($this->route)->Content();
+            // render application
+            echo $this->Render("/");
+        }
     }
 }

@@ -3,8 +3,7 @@
 namespace Application;
 
 use Framework\Model;
-use Framework\View;
-use Framework\Controller;
+
 /**
  * The Card3Model class. Extends the model class (Database Access)
  * Provides the functionality to query the database
@@ -12,7 +11,7 @@ use Framework\Controller;
  * Developed by: Bergeron, O'Donnell, Pitrolia, Walker
  * January - February, 2016
  */
-class Card3Model extends Model implements \jsonSerializable
+class Card3Model extends Model
 {
 
     public function getContinents()
@@ -32,14 +31,5 @@ class Card3Model extends Model implements \jsonSerializable
          group by countryName order by ContinentName, CountryName");
 
         return $result->fetchAll();
-    }
-
-    public function jsonSerialize()
-    {
-        return array(
-            'continentName' => $this->continentName,
-            'countryName' => $this->countryName,
-            'hits' => $this->hits,
-        );
     }
 }

@@ -8,18 +8,14 @@
 namespace Application;
 
 use Framework\Application;
-
 use Framework\View;
-use Framework\Controller;
 
 include "controllers/About.php";
 include "controllers/dashboard1/Dashboard.php";
 include "controllers/Documentation.php";
 include "controllers/Header.php";
 include "controllers/Footer.php";
-include "models/Card1.php";
-include "models/Card2.php";
-include "models/Card3.php";
+include "controllers/api/api.php";
 
 /**
  * The Site class. This class will serve as the root of the controller hierarchy.
@@ -27,10 +23,11 @@ include "models/Card3.php";
 class Site extends Application
 {
     private $title = "POW-B Analytics";
-    private $model;
 
     public function __construct()
     {
+        $this->defaultRoute = "/dashboard";
+
         /* Initialize Controllers to be used
          * A page (aka site) is constructed based on including
          * a appropriate parts of the desired page.
@@ -40,8 +37,10 @@ class Site extends Application
             new Footer(),
             new Dashboard(),
             new Documentation(),
-            new About()
+            new About(),
+            new API()
         ]);
+
     }
     /*
      * function used by controller to include the view.
@@ -52,7 +51,6 @@ class Site extends Application
     public function Content()
     {
         return new View('Index.tpl', [
-            'themedir' => View::getTemplatePath(),
             'title' => $this->title
         ]);
     }

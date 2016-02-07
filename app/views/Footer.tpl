@@ -1,3 +1,4 @@
+<!-- begin footer.tpl -->
 <footer class="page-footer">
     <div class="container">
         <div class="row">
@@ -15,3 +16,4 @@
         </div>
     </div>
 </footer>
+<!-- end footer.tpl -->
