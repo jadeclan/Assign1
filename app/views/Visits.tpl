@@ -93,17 +93,22 @@
             $('.pagination').empty();
 
             // add left chevron
-            $('<li>').addClass(startPage == 1 ? 'disabled' : '').append($('<a>').append($('<i>').addClass('material-icons').text('chevron_left'))).appendTo('.pagination');
+            $('<li>').addClass(startPage == 1 ? 'disabled' : '').append($('<a>').attr('id', 'page-left').append($('<i>').addClass('material-icons').text('chevron_left'))).appendTo('.pagination');
 
             // add pages
             for (var i = startPage; i <= endPage; i++)
-                $('<li>').addClass(currentPage == i ? 'active' : 'waves-effect').append($('<a>').text(i)).appendTo('.pagination');
+                $('<li>').addClass(currentPage == i ? 'active' : 'waves-effect').data('page', i).append($('<a>').text(i)).on('click', function() {
+                    $('.pagination .active').removeClass('active');
+                    $(this).addClass('active');
+
+                    updateVisits($(this).data('page'));
+                }).appendTo('.pagination');
 
             // add right chevron
             $('<li>').addClass(endPage == totalPages ? 'disabled' : '').append($('<a>').append($('<i>').addClass('material-icons').text('chevron_right'))).appendTo('.pagination');
         };
 
-        var updateVisits = function() {
+        var updateVisits = function(page) {
             // base uri
             var uri = '<?= $siteurl ?>/?url=api/visits';
 
@@ -134,7 +139,8 @@
                 uri += '&os=' + encodeURIComponent(os);
 
             // add pagination filters
-            //uri += '&page=10';
+            if (page)
+                uri += '&page=' + encodeURIComponent(page);
 
             // Apparently, the $("#visits tbody") syntax is horribly inefficient...
             // see: http://stackoverflow.com/questions/12674591/inefficient-jquery-usage-warnings-in-phpstorm-ide
@@ -143,6 +149,7 @@
             $("#visits").find('tbody').empty();
 
             // TODO: loading animation...
+            var $loading = $('<tr>').append($('<td>').text('Loading...')).appendTo('#visits');
 
             // ajax
             $.get(uri)
@@ -159,31 +166,25 @@
                                     $('<td>').text(item.visitTime),
                                     $('<td>').text(item.ipAddress),
                                     $('<td>').text(item.countryName),
-                                    $('<td>').append($('<button>', {
-                                        'class': 'details btn',
-                                        'text': 'Details',
-                                        'data-index': index
+                                    $('<td>').append($('<button>').addClass('btn').data('index', index).text('Details').on('click', function() {
+                                        // details event handler
+                                        var visit = visits[$(this).data('index')];
+
+                                        // update modal details
+                                        $("#visitDate").text(visit.visitDate);
+                                        $("#visitTime").text(visit.visitTime);
+                                        $("#ipAddress").text(visit.ipAddress);
+                                        $("#country").text(visit.countryName);
+                                        $("#deviceType").text(visit.deviceType);
+                                        $("#deviceBrand").text(visit.deviceBrand);
+                                        $("#browser").text(visit.browserName);
+                                        $("#referrer").text(visit.referrerName);
+                                        $("#os").text(visit.operatingSystem);
+
+                                        // show modal
+                                        $('#visit-details-modal').openModal();
                                     }))
                                 ).appendTo('#visits');
-                            });
-
-                            // details event handler
-                            $('.details').on('click', function() {
-                                var visit = visits[$(this).data('index')];
-
-                                // update modal details
-                                $("#visitDate").text(visit.visitDate);
-                                $("#visitTime").text(visit.visitTime);
-                                $("#ipAddress").text(visit.ipAddress);
-                                $("#country").text(visit.countryName);
-                                $("#deviceType").text(visit.deviceType);
-                                $("#deviceBrand").text(visit.deviceBrand);
-                                $("#browser").text(visit.browserName);
-                                $("#referrer").text(visit.referrerName);
-                                $("#os").text(visit.operatingSystem);
-
-                                // show modal
-                                $('#visit-details-modal').openModal();
                             });
 
                             // pagination
@@ -202,7 +203,7 @@
                     })
 
                     .always(function () {
-
+                        $loading.remove();
                     });
         };
 
