@@ -176,15 +176,15 @@ class Visits extends APIController
 
         $browser = null;
         if (isset($_GET['browser']))
-            $deviceBrand = $_GET['browser'];
+            $browser = $_GET['browser'];
 
         $referrer = null;
         if (isset($_GET['referrer']))
-            $deviceBrand = $_GET['referrer'];
+            $referrer = $_GET['referrer'];
 
         $os = null;
         if (isset($_GET['os']))
-            $deviceBrand = $_GET['os'];
+            $os = $_GET['os'];
 
         $page = 1;
         if (isset($_GET['page']) && is_numeric($_GET['page']))

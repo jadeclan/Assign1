@@ -98,7 +98,10 @@
             // add pages
             for (var i = startPage; i <= endPage; i++)
                 $('<li>').addClass(currentPage == i ? 'active' : 'waves-effect').data('page', i).append($('<a>').text(i)).on('click', function() {
-                    $('.pagination .active').removeClass('active');
+                    if ($(this).hasClass('active'))
+                        return;
+
+                    $('.pagination').find('.active').removeClass('active');
                     $(this).addClass('active');
 
                     updateVisits($(this).data('page'));
@@ -199,7 +202,9 @@
                     })
 
                     .fail(function () {
-
+                        $('<tr>').append(
+                            $('<td>').text('Error loading data.')
+                        ).appendTo('#visits');
                     })
 
                     .always(function () {
