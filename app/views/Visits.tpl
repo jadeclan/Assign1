@@ -42,6 +42,7 @@
                     <th>Visit Time</th>
                     <th>IP Address</th>
                     <th>Country</th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -51,10 +52,33 @@
     </div>
 </div>
 
+<div id="visit-details-modal" class="modal">
+    <div class="modal-content">
+        <span id="visitDate"></span>
+        <br/>
+        <span id="visitTime"></span>
+        <br/>
+        <span id="ipAddress"></span>
+        <br/>
+        <span id="country"></span>
+        <br/>
+        <span id="deviceType"></span>
+        <br/>
+        <span id="deviceBrand"></span>
+        <br/>
+        <span id="browser"></span>
+        <br/>
+        <span id="referrer"></span>
+        <br/>
+        <span id="os"></span>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+    </div>
+</div>
+
 <script>
     $(function() {
-        var visits = [];
-
         var updateVisits = function() {
             // base uri
             var uri = '<?= $siteurl ?>/?url=api/visits';
@@ -85,28 +109,58 @@
             if (os)
                 uri += '&os=' + encodeURIComponent(os);
 
+            // Apparently, the $("#visits tbody") syntax is horribly inefficient...
+            // see: http://stackoverflow.com/questions/12674591/inefficient-jquery-usage-warnings-in-phpstorm-ide
+
+            // clear table
+            $("#visits").find('tbody').empty();
+
+            // TODO: loading animation...
+
             // ajax
             $.get(uri)
 
                     .done(function (data) {
-                        visits = data;
-
-                        // Apparently, the $("#visits tbody") syntax is horribly inefficient...
-                        // see: http://stackoverflow.com/questions/12674591/inefficient-jquery-usage-warnings-in-phpstorm-ide
-
-                        // clear table
-                        $("#visits").find('tbody').empty();
+                        // save for later...
+                        var visits = data;
 
                         // add results
                         if (visits.length) {
-                            visits.forEach(function (item) {
+                            visits.forEach(function(item, index) {
                                 $('<tr>').append(
-                                        $('<td>').text(item.visitDate),
-                                        $('<td>').text(item.visitTime),
-                                        $('<td>').text(item.ipAddress),
-                                        $('<td>').text(item.countryName)
-                                ).attr('data-id', item.id).appendTo('#visits');
+                                    $('<td>').text(item.visitDate),
+                                    $('<td>').text(item.visitTime),
+                                    $('<td>').text(item.ipAddress),
+                                    $('<td>').text(item.countryName),
+                                    $('<td>').append($('<button>', {
+                                        'class': 'details btn',
+                                        'text': 'Details',
+                                        'data-index': index
+                                    }))
+                                ).appendTo('#visits');
                             });
+
+                            $('.details').on('click', function() {
+                                var visit = visits[$(this).data('index')];
+
+                                // update modal details
+                                $("#visitDate").text(visit.visitDate);
+                                $("#visitTime").text(visit.visitTime);
+                                $("#ipAddress").text(visit.ipAddress);
+                                $("#country").text(visit.countryName);
+                                $("#deviceType").text(visit.deviceType);
+                                $("#deviceBrand").text(visit.deviceBrand);
+                                $("#browser").text(visit.browserName);
+                                $("#referrer").text(visit.referrerName);
+                                $("#os").text(visit.operatingSystem);
+
+                                // show modal
+                                $('#visit-details-modal').openModal();
+                            });
+                        } else {
+                            $('<tr>').append(
+                                $('<td>').text('No results found...')
+                            ).appendTo('#visits');
                         }
                     })
 
@@ -143,6 +197,7 @@
 
         // populate device brands filter
         $.get('<?= $siteurl ?>/?url=api/deviceBrands')
+
                 .done(function(data) {
                     data.forEach(function(item) {
                         $('<option>').val(item.ID).text(item.name).appendTo("#deviceBrandFilter");
@@ -153,6 +208,7 @@
 
         // populate browser filter
         $.get('<?= $siteurl ?>/?url=api/browsers')
+
                 .done(function(data) {
                     data.forEach(function(item) {
                         $('<option>').val(item.ID).text(item.name).appendTo("#browserFilter");
@@ -163,6 +219,7 @@
 
         // populate referrer filter
         $.get('<?= $siteurl ?>/?url=api/referrers')
+
                 .done(function(data) {
                     data.forEach(function(item) {
                         $('<option>').val(item.id).text(item.name).appendTo("#referrerFilter");
@@ -173,6 +230,7 @@
 
         // populate os filter
         $.get('<?= $siteurl ?>/?url=api/os')
+
                 .done(function(data) {
                     data.forEach(function(item) {
                         $('<option>').val(item.ID).text(item.name).appendTo("#osFilter");

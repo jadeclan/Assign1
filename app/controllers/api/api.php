@@ -187,11 +187,11 @@ class Visits extends APIController
             $deviceBrand = $_GET['os'];
 
         $page = 1;
-        if (isset($_GET['page']))
+        if (isset($_GET['page']) && is_numeric($_GET['page']))
             $page = $_GET['page'];
 
-        $limit = 100;
-        if (isset($_GET['limit']))
+        $limit = 10;
+        if (isset($_GET['limit']) && is_numeric($_GET['limit']))
             $limit = $_GET['limit'];
 
         $visits = $this->model->search($country, $deviceType, $deviceBrand, $browser, $referrer, $os, $page, $limit);
