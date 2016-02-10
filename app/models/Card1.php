@@ -15,7 +15,7 @@ use Framework\Model;
 class Card1Model extends Model
 {
     public function getBrowserVisits() {
-        $result = self::$db->query("SELECT browsers.id,
+        $result = $this->db->query("SELECT browsers.id,
                                            name,
                                            count(*) AS hits,
                                            ((count(*)/(SELECT count(*) FROM visits)) * 100) AS percentage

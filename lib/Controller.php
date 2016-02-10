@@ -214,26 +214,22 @@ abstract class Controller
 	 * Function to render content on a page (view).
 	 * On fail, throws an exception message.
 	 */
-	public function Render($route = null) {
-
-
+	public function Render($route = null)
+    {
         if (empty($route))
             $controller = $this;
         else
-		    $controller = $this->Route($route);
+            $controller = $this->Route($route);
 
-        if (empty($controller))
-            return '';
-
-		try {
-			$view = $controller->Content();
-		} catch (Exception $e) {
-			if (DEBUG) {
-				$view = new View('Exception.tpl', ['e' => $e]);
-			} else {
-				$view = new View('Message.tpl', ['msg' => 'There was an error accessing this module.']);
-			}
-		}
+        try {
+            $view = $controller->Content();
+        } catch (Exception $e) {
+            if (DEBUG) {
+                $view = new View('Exception.tpl', ['e' => $e]);
+            } else {
+                $view = new View('Message.tpl', ['msg' => 'There was an error accessing this module.']);
+            }
+        }
 
 		return empty($view) ? '' : $view->render($controller);
 	}

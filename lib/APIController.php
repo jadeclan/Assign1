@@ -14,6 +14,7 @@ abstract class APIController extends Controller
             case 'GET':
                 return $this->get();
 
+            /*
             case 'PUT':
                 return $this->put();
 
@@ -22,6 +23,7 @@ abstract class APIController extends Controller
 
             case 'DELETE':
                 return $this->delete();
+            */
 
             default:
                 throw new RuntimeException("Unexpected request method.");
@@ -29,7 +31,7 @@ abstract class APIController extends Controller
     }
 
     public abstract function get();
-    public abstract function put();
-    public abstract function post();
-    public abstract function delete();
+    //public abstract function put();
+    //public abstract function post();
+    //public abstract function delete();
 }

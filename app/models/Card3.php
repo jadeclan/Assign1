@@ -16,7 +16,7 @@ class Card3Model extends Model
 
     public function getContinents()
     {
-        $result = self::$db->query("SELECT continentName
+        $result = $this->db->query("SELECT continentName
                                     FROM continents
                                     ORDER BY continentName;");
 
@@ -25,7 +25,7 @@ class Card3Model extends Model
 
     public function getContinentList()
     {
-        $result = self::$db->query("select continentName, countryName, count(*) as hits
+        $result = $this->db->query("select continentName, countryName, count(*) as hits
          from ((continents inner join countries on continents.ContinentCode=countries.Continent)
          inner join visits on countries.ISO=visits.country_code)
          group by countryName order by ContinentName, CountryName");

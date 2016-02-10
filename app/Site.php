@@ -11,6 +11,7 @@ use Framework\Application;
 use Framework\View;
 
 include "controllers/About.php";
+include "controllers/Visits.php";
 include "controllers/dashboard1/Dashboard.php";
 include "controllers/Documentation.php";
 include "controllers/Header.php";
@@ -34,15 +35,15 @@ class Site extends Application
             new Header(),
             new Footer(),
             new Dashboard(),
+            new VisitBrowser(),
             new Documentation(),
             new About(),
             new API()
         ]);
 
-
         $this->defaultController = $this->Route("/dashboard");
-
     }
+
     /*
      * function used by controller to include the view.
      *

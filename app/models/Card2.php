@@ -14,7 +14,7 @@ use Framework\Model;
 class Card2Model extends Model implements \JsonSerializable
 {
     public function getDeviceBrandUsage() {
-        $result = self::$db->query("SELECT device_brands.name as deviceBrand, count(*) as hits
+        $result = $this->db->query("SELECT device_brands.name as deviceBrand, count(*) as hits
                                     From visits
                                     join device_brands on device_brands.ID=visits.device_brand_id
                                     group by device_brands.name");

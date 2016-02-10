@@ -14,21 +14,27 @@ use PDO;
  */
 abstract class Model
 {
-	protected static $db;
+	private static $instance;
+
+	protected $db;
 
 	public function __construct()
 	{
 		// Singleton pattern :(
-		if (self::$db == null) {
+		if (self::$instance == null) {
 
 			// Connect to database
-			self::$db = new PDO(DB_TYPE.":dbhost=".DB_HOST.";dbname=".DB_NAME, DB_USER, DB_PASS);
+			self::$instance = new PDO(DB_TYPE.":dbhost=".DB_HOST.";dbname=".DB_NAME, DB_USER, DB_PASS);
 
 			// Enable exceptions
-			self::$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			self::$instance->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 			// Set fetch mode
-			self::$db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+			self::$instance->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 		}
+
+		$this->db = self::$instance;
 	}
+
+
 }

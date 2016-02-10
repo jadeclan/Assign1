@@ -47,6 +47,12 @@ class View
 		// automatically inject $themedir into every template
 		$themedir = self::getTemplatePath();
 
+		// also inject our site url
+		$siteurl = "http://" . $_SERVER['SERVER_NAME'];
+
+		if ($_SERVER['SERVER_PORT'] !== 80)
+			$siteurl .= ":" . $_SERVER['SERVER_PORT'];
+
 		extract($this->data);
 		
 		ob_start();
