@@ -194,8 +194,6 @@ class Visits extends APIController
         if (isset($_GET['limit']) && is_numeric($_GET['limit']))
             $limit = $_GET['limit'];
 
-        $visits = $this->model->search($country, $deviceType, $deviceBrand, $browser, $referrer, $os, $page, $limit);
-
-        return json_encode($visits);
+        return json_encode($this->model->search($country, $deviceType, $deviceBrand, $browser, $referrer, $os, $page, $limit));
     }
 }

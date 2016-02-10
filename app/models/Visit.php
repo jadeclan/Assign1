@@ -10,15 +10,23 @@ class VisitModel extends Model
     {
         $sql = $this->buildSearch($countryCode, $deviceTypeId, $deviceBrandId, $browserId, $referrerId, $osId);
 
+        $result = $this->db->query("SELECT COUNT(*) AS total FROM ($sql) search");
+
+        $total = $result->fetch()['total'];
+
         // Pagination
-        $page = ($page - 1) * $limit;
-        $sql .= " LIMIT $page,$limit";
+        $start = ($page - 1) * $limit;
+        $sql .= " LIMIT $start,$limit";
 
         // Execute
         $result = $this->db->query($sql);
 
         // Return results
-        return $result->fetchAll();
+        return [
+            'page' => $page,
+            'pages' => ceil($total / $limit),
+            'visits' => $result->fetchAll()
+        ];
     }
 
     private function buildSearch($countryCode = null, $deviceTypeId = null, $deviceBrandId = null, $browserId = null, $referrerId = null, $osId = null)

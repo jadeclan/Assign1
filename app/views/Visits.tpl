@@ -50,6 +50,12 @@
             </table>
         </div>
     </div>
+    <div class="row">
+        <div class="col m6 offset-m3 center">
+            <ul class="pagination">
+            </ul>
+        </div>
+    </div>
 </div>
 
 <div id="visit-details-modal" class="modal">
@@ -79,6 +85,24 @@
 
 <script>
     $(function() {
+        var updatePagination = function(currentPage, totalPages) {
+            var startPage = currentPage > 5 ? currentPage - 5 : 1;
+            var endPage = (startPage + 9 > totalPages) ? totalPages : startPage + 9;
+
+            // clear pages
+            $('.pagination').empty();
+
+            // add left chevron
+            $('<li>').addClass(startPage == 1 ? 'disabled' : '').append($('<a>').append($('<i>').addClass('material-icons').text('chevron_left'))).appendTo('.pagination');
+
+            // add pages
+            for (var i = startPage; i <= endPage; i++)
+                $('<li>').addClass(currentPage == i ? 'active' : 'waves-effect').append($('<a>').text(i)).appendTo('.pagination');
+
+            // add right chevron
+            $('<li>').addClass(endPage == totalPages ? 'disabled' : '').append($('<a>').append($('<i>').addClass('material-icons').text('chevron_right'))).appendTo('.pagination');
+        };
+
         var updateVisits = function() {
             // base uri
             var uri = '<?= $siteurl ?>/?url=api/visits';
@@ -109,6 +133,9 @@
             if (os)
                 uri += '&os=' + encodeURIComponent(os);
 
+            // add pagination filters
+            //uri += '&page=10';
+
             // Apparently, the $("#visits tbody") syntax is horribly inefficient...
             // see: http://stackoverflow.com/questions/12674591/inefficient-jquery-usage-warnings-in-phpstorm-ide
 
@@ -122,7 +149,7 @@
 
                     .done(function (data) {
                         // save for later...
-                        var visits = data;
+                        var visits = data.visits;
 
                         // add results
                         if (visits.length) {
@@ -140,6 +167,7 @@
                                 ).appendTo('#visits');
                             });
 
+                            // details event handler
                             $('.details').on('click', function() {
                                 var visit = visits[$(this).data('index')];
 
@@ -157,6 +185,11 @@
                                 // show modal
                                 $('#visit-details-modal').openModal();
                             });
+
+                            // pagination
+                            updatePagination(data.page, data.pages);
+
+
                         } else {
                             $('<tr>').append(
                                 $('<td>').text('No results found...')
