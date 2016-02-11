@@ -53,6 +53,8 @@ class View
 		if ($_SERVER['SERVER_PORT'] !== 80)
 			$siteurl .= ":" . $_SERVER['SERVER_PORT'];
 
+		$siteurl .= explode('?', $_SERVER['REQUEST_URI'], 2)[0];
+
 		extract($this->data);
 		
 		ob_start();

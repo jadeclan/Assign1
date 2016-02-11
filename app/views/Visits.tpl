@@ -113,7 +113,7 @@
 
         var updateVisits = function(page) {
             // base uri
-            var uri = '<?= $siteurl ?>/?url=api/visits';
+            var uri = '<?= $siteurl ?>?url=api/visits';
 
             // build filters
             var countryCode = $("#countryFilter").val();
@@ -212,7 +212,7 @@
         };
 
         // populate country filter
-        $.get('<?= $siteurl ?>/?url=api/countries')
+        $.get('<?= $siteurl ?>?url=api/countries')
 
                 .done(function(data) {
                     data.forEach(function(item) {
@@ -223,10 +223,10 @@
                 });
 
         // populate device type filter
-        $.get('<?= $siteurl ?>/?url=api/deviceTypes')
+        $.get('<?= $siteurl ?>?url=api/deviceTypes')
 
                 .done(function(data) {
-                    data.forEach(function (item) {
+                    data.forEach(function(item) {
                         $('<option>').val(item.ID).text(item.name).appendTo("#deviceTypeFilter");
                     });
 
@@ -234,7 +234,7 @@
                 });
 
         // populate device brands filter
-        $.get('<?= $siteurl ?>/?url=api/deviceBrands')
+        $.get('<?= $siteurl ?>?url=api/deviceBrands')
 
                 .done(function(data) {
                     data.forEach(function(item) {
@@ -245,7 +245,7 @@
                 });
 
         // populate browser filter
-        $.get('<?= $siteurl ?>/?url=api/browsers')
+        $.get('<?= $siteurl ?>?url=api/browsers')
 
                 .done(function(data) {
                     data.forEach(function(item) {
@@ -256,7 +256,7 @@
                 });
 
         // populate referrer filter
-        $.get('<?= $siteurl ?>/?url=api/referrers')
+        $.get('<?= $siteurl ?>?url=api/referrers')
 
                 .done(function(data) {
                     data.forEach(function(item) {
@@ -267,7 +267,7 @@
                 });
 
         // populate os filter
-        $.get('<?= $siteurl ?>/?url=api/os')
+        $.get('<?= $siteurl ?>?url=api/os')
 
                 .done(function(data) {
                     data.forEach(function(item) {
