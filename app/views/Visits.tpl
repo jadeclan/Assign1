@@ -190,10 +190,6 @@
                                 ).appendTo('#visits');
                             });
 
-                            // pagination
-                            updatePagination(data.page, data.pages);
-
-
                         } else {
                             $('<tr>').append(
                                 $('<td>').text('No results found...')
@@ -201,14 +197,17 @@
                         }
                     })
 
-                    .fail(function () {
+                    .fail(function() {
                         $('<tr>').append(
                             $('<td>').text('Error loading data.')
                         ).appendTo('#visits');
                     })
 
-                    .always(function () {
+                    .always(function(data) {
                         $loading.remove();
+
+                        // pagination
+                        updatePagination(data.page, data.pages);
                     });
         };
 

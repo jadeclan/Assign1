@@ -2,6 +2,7 @@
 
 namespace Framework;
 
+use Exception;
 use RuntimeException;
 
 abstract class APIController extends Controller
@@ -10,23 +11,35 @@ abstract class APIController extends Controller
     {
         header('Content-type: application/json');
 
-        switch ($_SERVER['REQUEST_METHOD']) {
-            case 'GET':
-                return $this->get();
+        try {
+            switch ($_SERVER['REQUEST_METHOD']) {
+                case 'GET':
+                    return json_encode($this->get());
 
-            /*
-            case 'PUT':
-                return $this->put();
+                /*
+                case 'PUT':
+                    return json_encode($this->put());
 
-            case 'POST':
-                return $this->post();
+                case 'POST':
+                    return json_encode($this->post());
 
-            case 'DELETE':
-                return $this->delete();
-            */
+                case 'DELETE':
+                    return json_encode($this->delete());
+                */
 
-            default:
-                throw new RuntimeException("Unexpected request method.");
+                default:
+                    throw new RuntimeException("Unexpected request method.");
+            }
+        } catch (Exception $e) {
+            header($_SERVER['SERVER_PROTOCOL'] . ' 500 Internal Server Error', true, 500);
+
+            if (DEBUG)
+                return json_encode($e);
+
+            return json_encode([
+                "error" => $e->getMessage(),
+                "code" => $e->getCode()
+            ]);
         }
     }
 

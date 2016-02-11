@@ -57,9 +57,9 @@ class Countries extends APIController
     public function get()
     {
         if (count($this->arguments) > 0)
-            return json_encode($this->model->getByCountryCode($this->arguments[0]));
+            return $this->model->getByCountryCode($this->arguments[0]);
         else
-            return json_encode($this->model->getAll());
+            return $this->model->getAll();
     }
 }
 
@@ -77,7 +77,7 @@ class DeviceTypes extends APIController
 
     public function get()
     {
-        return json_encode($this->model->getAll());
+        return $this->model->getAll();
     }
 }
 
@@ -94,7 +94,7 @@ class DeviceBrands extends APIController
 
     public function get()
     {
-        return json_encode($this->model->getAll());
+        return $this->model->getAll();
     }
 }
 
@@ -111,7 +111,7 @@ class Browsers extends APIController
 
     public function get()
     {
-        return json_encode($this->model->getAll());
+        return $this->model->getAll();
     }
 }
 
@@ -128,7 +128,7 @@ class Referrers extends APIController
 
     public function get()
     {
-        return json_encode($this->model->getAll());
+        return $this->model->getAll();
     }
 }
 
@@ -145,7 +145,7 @@ class OperatingSystems extends APIController
 
     public function get()
     {
-        return json_encode($this->model->getAll());
+        return $this->model->getAll();
     }
 }
 
@@ -194,6 +194,6 @@ class Visits extends APIController
         if (isset($_GET['limit']) && is_numeric($_GET['limit']))
             $limit = $_GET['limit'];
 
-        return json_encode($this->model->search($country, $deviceType, $deviceBrand, $browser, $referrer, $os, $page, $limit));
+        return $this->model->search($country, $deviceType, $deviceBrand, $browser, $referrer, $os, $page, $limit);
     }
 }
