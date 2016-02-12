@@ -147,7 +147,7 @@ abstract class Controller
 	}
 	
 	/**
-	 * Returns the root controller in the hierarchy (Recursive calls)
+	 * Returns the root controller in the hierarchy.
 	 * @return Controller The root controller.
 	 */
 	public function getRoot()
@@ -210,9 +210,17 @@ abstract class Controller
 		return $this;
 	}
 
-	/*
-	 * Function to render content on a page (view).
-	 * On fail, throws an exception message.
+	/**
+	 * Renders the controller specified in $route. If no route is specified,
+	 * render this controller.
+	 *
+	 * The controller is rendered by calling its Content function, which is
+	 * expected to return a View object. If the controller throws an exception,
+	 * we will render the Exception or Message template depending if the DEBUG
+	 * flag is set. This prevents leaking stack traces in production.
+	 *
+	 * @param string $route
+	 * @return string
 	 */
 	public function Render($route = null)
     {

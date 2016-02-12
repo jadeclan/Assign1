@@ -4,43 +4,58 @@ namespace Framework;
 
 /**
  * The View class. Every controller is expected to return an object of this type.
+ *
  * Developed by: Bergeron, O'Donnell, Pitrolia, Walker
  * January - February, 2016
  *
  */
 class View
 {
-	// default directory for all views (.tpl files)
-	private static $templatePath = 'app/views';
-	/*
-	 * $template contains the name of the tpl file being constructed
-	 * $data is an array of data needed to construct the tpl page
+	/**
+	 * Default directory for views (.tpl) files.
+	 * @var string
 	 */
-	private $template;
-	private $data;
+	private static $templatePath = 'app/views';
 
-
-	// Basic setter
 	public static function setTemplatePath($path) {
 		self::$templatePath = $path;
 	}
-	// Basic getter
+
 	public static function getTemplatePath() {
 		return self::$templatePath;
 	}
-	/*
-	 * Function __construct
-	 * Constructs a specific template using routing path
-	 * and template name (ie card1.tpl)
+
+	/**
+	 * The template file to render.
+	 * @var string
+	 */
+	private $template;
+
+	/**
+	 * A data array that will be extracted and 'injected' into the template.
+	 * @var array
+	 */
+	private $data;
+
+
+	/**
+	 * View constructor.
+	 * @param $template
+	 * @param array $data
 	 */
 	public function __construct($template, array $data = [])
 	{
 		$this->template = self::$templatePath.DS.$template;
 		$this->data = $data;
 	}
-	/*
-	 * function render
-	 * Need description
+
+	/**
+	 * Renders a template file. The template file will be included within the scope
+	 * of this function, meaning any variables declared or passed to this function
+	 * will be available to the view. The included file is returned as a string.
+	 *
+	 * @param Controller $c
+	 * @return string
 	 */
 	public function render(Controller $c)
 	{
