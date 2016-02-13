@@ -152,7 +152,7 @@
             $("#visits").find('tbody').empty();
 
             // TODO: loading animation...
-            var $loading = $('<tr>').append($('<td>').text('Loading...')).appendTo('#visits');
+            var $loading = $('<div class="progress">').append($('<div class="indeterminate"></div></div>')).appendTo("#visits");
 
             // ajax
             $.get(uri)
