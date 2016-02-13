@@ -5,7 +5,7 @@ use Framework\Model;
 use Framework\Controller;
 use Framework\View;
 
-include "app/models/Card1.php";
+require_once "app/models/Card1.php";
 
 /*
  * Card1 class used to create the Card1 view using

@@ -1,16 +1,18 @@
 <?php
 namespace Application;
 
+use RuntimeException;
+
+use Framework\APIController;
 use Framework\Model;
-use Framework\Controller;
 use Framework\View;
 
-include "app/models/Chart3Model.php";
+require_once "app/models/Chart3Model.php";
 /*
  * Chart3 class used to create the Chart3 view using
  * data obtained from the Chart3Model.
  */
-class Chart3 extends Controller
+class Chart3 extends APIController
 {
     private $model;
 
@@ -20,15 +22,8 @@ class Chart3 extends Controller
 
         $this->model = new Chart3Model();
     }
-
-    /*
-     * Function to obtain view of Chart3 from data obtained
-     * from data obtained from the Chart3Model.
-     */
-    public function Content()
-    {
-        return new View('Chart3.tpl', [
-            'dailyVisits' => $this->model->getMonthVisitsCountry()
-        ]);
+    function get(){
+        // TODO Need to implement this method
+        return $this->model->getAll();
     }
 }

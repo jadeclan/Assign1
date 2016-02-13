@@ -14,15 +14,40 @@ use Framework\Model;
  */
 class Chart1Model extends Model
 {
-    public function getMonthDailyVisits() {
-      /*  $result = $this->db->query("SELECT browsers.id,
-                                           name,
-                                           count(*) AS hits,
-                                           ((count(*)/(SELECT count(*) FROM visits)) * 100) AS percentage
-                                    FROM browsers
-                                      JOIN visits ON browsers.id = visits.browser_id
-                                    GROUP BY name");
+    public function search($year = 2016, $month = 1)
+    {
+             $sql = $this->buildSearch($year, $month);
 
-        return $result->fetchAll(); */
+             // Execute
+             $result = $this->db->query($sql);
+
+             // Return results
+
+             return $result->fetchAll();
+    }
+
+    private function buildSearch($year = 2016, $month = 1)
+    {
+        // Build filters (includes year flexibility)
+        $where = [];
+        $where['EXTRACT(YEAR FROM visits.visit_date)'] = $year;
+        $where['EXTRACT(MONTH FROM visits.visit_date)'] = $month;
+
+        $sql = "SELECT EXTRACT(DAY FROM visit_date) as day,
+                       count(*) as monthDailyVisits
+                FROM visits";
+
+        // Convert filters to proper where clause
+        if (count($where) > 0) {
+            foreach ($where as $k => $v)
+                    $where[$k] = "$k = $v";
+
+                    $sql .= " WHERE " . implode(" AND ", $where);
+        }
+
+        $sql .= " GROUP BY day";
+        $sql .= " ORDER BY day";
+
+        return $sql;
     }
 }

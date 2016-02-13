@@ -6,9 +6,9 @@ use Framework\View;
 use Framework\Controller;
 use Framework\Navable;
 
-include "Card1.php";
-include "Card2.php";
-include "Card3.php";
+require_once "Card1.php";
+require_once "Card2.php";
+require_once "Card3.php";
 
 
 /*

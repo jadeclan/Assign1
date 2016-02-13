@@ -1,20 +1,22 @@
 <?php
 namespace Application;
 
-use Framework\View;
-use Framework\Controller;
-use Framework\Navable;
-use Framework\Model;
+use RuntimeException;
 
-include "Chart1.php";
-include "Chart2.php";
-include "Chart3.php";
+use Framework\APIController;
+use Framework\Model;
+use Framework\View;
+use Framework\Navable;
+
+require_once "Chart1.php";
+require_once "Chart2.php";
+require_once "Chart3.php";
 
 
 /*
  *
  */
-class Charts extends Controller implements Navable
+class Charts extends APIController implements Navable
 {
     public function __construct()
     {
@@ -24,6 +26,7 @@ class Charts extends Controller implements Navable
             new Chart3()
         ]);
     }
+
     /*
      * function to provide the navigation links for the charts page
      */
@@ -31,11 +34,8 @@ class Charts extends Controller implements Navable
     {
         return "Charts";
     }
-    /*
-     * function to return content rendered by the Charts template
-     */
-    public function Content()
-    {
-        return new View('Charts.tpl');
+    public function get(){
+        //TODO fill this in
+        return $this;
     }
 }

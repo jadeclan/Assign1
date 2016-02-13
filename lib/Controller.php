@@ -224,7 +224,7 @@ abstract class Controller
 	 */
 	public function Render($route = null)
     {
-        if (empty($route))
+       	if (empty($route))
             $controller = $this;
         else
             $controller = $this->Route($route);
@@ -238,7 +238,6 @@ abstract class Controller
                 $view = new View('Message.tpl', ['msg' => 'There was an error accessing this module.']);
             }
         }
-
 		return empty($view) ? '' : $view->render($controller);
 	}
 		

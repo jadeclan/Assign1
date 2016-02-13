@@ -1,6 +1,7 @@
 <?php
     $areaChartData = [ 1000,2000,3000,4000,5000,4000,3000,6000,7000 ];
     $month_names = array("January","February","March","April","May","June","July","August","September","October","November","December");
+    echo "got to Chart1.tpl'; exit(0);
 ?>
 <!-- Begin Chart One TPL -->
 
@@ -23,23 +24,56 @@
                     </div>
                 </div>
             </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-<script type="text/javascript">
+<script>
+    $(function() {
+        var updateChart1 = function () {
+            // base uri
+            var uri = '<?= $siteurl ?>?url=api/Charts';
+
+            var year = '2016';
+            var month = '1';
+
+            if (year)
+                uri += '&year=' + encodeURIComponent(year);
+
+            if (month)
+                uri += '&month=' + encodeURIComponent(month);
+
+            var $loading = $('<div class="progress">').append($('<div class="indeterminate"></div></div>')).appendTo("#chart1");
+
+            // ajax
+            console.log(uri);
+            var monthsData;
+            $.get(uri)
+
+                    .done(function (data) {
+                        // save for later...
+                        monthsData = data.Chart1;
+                        console.log(monthsData);
+
+                    })
+
+                    .fail(function () {
+                        ($('<H1>').text('Error loading data.')
+                        ).appendTo('#chart1');
+                        alert('Fail');
+                    })
+
+                    .always(function (data) {
+                        $loading.remove();
+                        alert('Always');
+                    });
+        };
+        updateChart1();
+    });
+
     google.load("visualization", "1", {packages:['corechart']});
     google.setOnLoadCallback(drawChart);
     function drawChart() {
         data = new google.visualization.DataTable();
         data.addColumn('number','Day');
         data.addColumn('number', 'Hits');
-        data.addRows(<?php
-            echo '['.PHP_EOL;
-            for($i=0; $i<count($areaChartData);$i++){
-                echo '['.$i.', '.(int)$areaChartData[$i].']';
-                if($i != count($areaChartData)-1){echo ', '.PHP_EOL;}
-            }
-            echo PHP_EOL . ']';
-            ?>);
+        data.addRows(monthsData);
     var options = {
         theme: 'maximized',
         legend: { position: 'bottom' },

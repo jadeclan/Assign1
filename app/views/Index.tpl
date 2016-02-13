@@ -19,6 +19,8 @@
 
     <script type="text/javascript" src="<?= $themedir ?>/assets/jquery-2.2.0.js"></script>
     <script type="text/javascript" src="<?= $themedir ?>/assets/materialize/js/materialize.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 </head>
 <body>
 

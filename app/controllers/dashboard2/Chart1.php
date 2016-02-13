@@ -7,16 +7,18 @@
  */
 namespace Application;
 
+use RuntimeException;
+
+use Framework\APIController;
 use Framework\Model;
-use Framework\Controller;
 use Framework\View;
 
-include "app/models/Chart1Model.php";
+require_once "app/models/Chart1Model.php";
 /*
  * Chart1 class used to create the Chart1 view using
  * data obtained from the Chart1Model.
  */
-class Chart1 extends Controller
+class Chart1 extends APIController
 {
     private $model;
 
@@ -26,14 +28,17 @@ class Chart1 extends Controller
 
         $this->model = new Chart1Model();
     }
-    /*
-     * Function to obtain view of Chart1 from data obtained
-     * from data obtained from the Chart1Model.
-     */
-    public function Content()
+
+    public function get()
     {
-        return new View('Chart1.tpl', [
-            'dailyVisits' => $this->model->getMonthDailyVisits()
-        ]);
+        $year = 2016;
+        if (isset($_GET['year']))
+            $year = $_GET['year'];
+
+        $month = 1;
+        if (isset($_GET['month']))
+            $month = $_GET['month'];
+
+        return $this->model->search($year, $month);
     }
 }

@@ -7,16 +7,18 @@
  */
 namespace Application;
 
+use RuntimeException;
+
+use Framework\APIController;
 use Framework\Model;
-use Framework\Controller;
 use Framework\View;
 
-include "app/models/Chart2Model.php";
+require_once "app/models/Chart2Model.php";
 /*
  * Chart2 class used to create the Chart view using
  * data obtained from the Chart2Model.
  */
-class Chart2 extends Controller
+class Chart2 extends APIController
 {
     private $model;
 
@@ -26,15 +28,8 @@ class Chart2 extends Controller
 
         $this->model = new Chart2Model();
     }
-
-    /*
-     * Function to obtain view of Chart2 from data obtained
-     * from data obtained from the Chart2Model.
-     */
-    public function Content()
-    {
-        return new View('Chart2.tpl', [
-            // 'dailyVisits' => $this->model->getSomeDataForYourChart()
-        ]);
+    public function get(){
+        // TODO  need to implement this method
+        return $this->model->getAll();
     }
 }

@@ -6,7 +6,7 @@ use Framework\Model;
 use Framework\View;
 use Framework\Controller;
 
-include "app/models/Card3.php";
+require_once "app/models/Card3.php";
 
 /*
  * Class that controls the creation of Card3 view

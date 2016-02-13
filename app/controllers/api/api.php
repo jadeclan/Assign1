@@ -19,6 +19,9 @@ require_once "app/models/DeviceBrand.php";
 require_once "app/models/Browser.php";
 require_once "app/models/Referrer.php";
 require_once "app/models/OperatingSystem.php";
+require_once "app/models/Chart1Model.php";
+//require_once "app/models/Chart2Model.php";
+//require_once "app/models/Chart3Model.php";
 
 require_once "app/models/Visit.php";
 
@@ -33,7 +36,11 @@ class API extends Controller
             new DeviceBrands(),
             new Browsers(),
             new Referrers(),
-            new OperatingSystems()
+            new OperatingSystems(),
+            new Chart1(),
+            //new Chart2(),
+            //new Chart3(),
+            new Charts()
         ]);
     }
 
