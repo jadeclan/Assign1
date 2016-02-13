@@ -28,7 +28,7 @@ class Chart3 extends Controller
     public function Content()
     {
         return new View('Chart3.tpl', [
-            //'dailyVisits' => $this->model->getMonthDailyVisits()
+            'dailyVisits' => $this->model->getMonthVisitsCountry()
         ]);
     }
 }

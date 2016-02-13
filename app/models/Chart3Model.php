@@ -14,7 +14,7 @@ use Framework\Model;
  */
 class Chart3Model extends Model
 {
-    public function getSomeDataForYourChart() {
+    public function getMonthVisitsCountry() {
         /*  $result = $this->db->query("SELECT browsers.id,
                                              name,
                                              count(*) AS hits,
