@@ -37,6 +37,7 @@ class Site extends Application
             new Footer(),
             new Dashboard(),
             new VisitBrowser(),
+            new Charts(),
             new Documentation(),
             new About(),
             new API()
