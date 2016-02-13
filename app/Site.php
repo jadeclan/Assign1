@@ -17,6 +17,7 @@ include "controllers/Documentation.php";
 include "controllers/Header.php";
 include "controllers/Footer.php";
 include "controllers/api/api.php";
+include "controllers/dashboard2/Charts.php";
 
 /**
  * The Site class. This class will serve as the root of the controller hierarchy.
