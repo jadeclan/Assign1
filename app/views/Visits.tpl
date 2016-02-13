@@ -60,23 +60,37 @@
 
 <div id="visit-details-modal" class="modal">
     <div class="modal-content">
-        <span id="visitDate"></span>
-        <br/>
-        <span id="visitTime"></span>
-        <br/>
-        <span id="ipAddress"></span>
-        <br/>
-        <span id="country"></span>
-        <br/>
-        <span id="deviceType"></span>
-        <br/>
-        <span id="deviceBrand"></span>
-        <br/>
-        <span id="browser"></span>
-        <br/>
-        <span id="referrer"></span>
-        <br/>
-        <span id="os"></span>
+        <h4>Visits</h4>
+        <hr>
+        <div class="row">
+            <div class="col s6">
+                <ul class="collection">
+                    <li class="collection-item"><b>Date: </b><span id="visitDate"></span></li>
+                    <li class="collection-item"><b>Time: </b><span id="visitTime"></span></li>
+                </ul>
+            </div>
+            <div class="col s6">
+                <ul class="collection">
+                    <li class="collection-item"><b>IP Address: </b><span id="ipAddress"></span></li>
+                    <li class="collection-item"><b>Country: </b><span id="country"></span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s6">
+                <ul class="collection">
+                    <li class="collection-item"><b>Device Type: </b><span id="deviceType"></span></li>
+                    <li class="collection-item"><b>Device Brand: </b><span id="deviceBrand"></span></li>
+                </ul>
+            </div>
+            <div class="col s6">
+                <ul class="collection">
+                    <li class="collection-item"><b>Browser: </b><span id="browser"></span></li>
+                    <li class="collection-item"><b>Referrer: </b><span id="referrer"></span></li>
+                    <li class="collection-item"><b>Operating System: </b><span id="os"></span></li>
+                </ul>
+            </div>
+        </div>
     </div>
     <div class="modal-footer">
         <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>

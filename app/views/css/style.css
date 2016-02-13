@@ -70,4 +70,22 @@ a:hover, .tabs .tab a:hover{
 
 }
 
+.btn{
+    background-color: #bf360c;
+}
 
+.btn:hover{
+    background-color: #006064;
+}
+
+input.select-dropdown{
+    color: #006064;
+}
+
+.progress{
+    background-color: #ff9e80;
+}
+
+.progress .indeterminate{
+    background-color: #bf360c;
+}

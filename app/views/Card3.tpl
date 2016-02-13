@@ -7,7 +7,7 @@
 
 <div class="card z-depth-1-half" id="card3">
     <div class="card-content hoverable">
-        <span class="card-title">Card 3 Mofo's</span>
+        <span class="card-title">Country Statistics</span>
         <div class="input-field">
         <select id="cSelection" name="continent" class="initialized" style="display:block;">
             <option value="" disabled selected>Select a Continent</option>
