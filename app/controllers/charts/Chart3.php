@@ -3,7 +3,7 @@ namespace Application;
 
 use RuntimeException;
 
-use Framework\APIController;
+use Framework\Controller;
 use Framework\Model;
 use Framework\View;
 
@@ -12,7 +12,7 @@ require_once "app/models/Chart3Model.php";
  * Chart3 class used to create the Chart3 view using
  * data obtained from the Chart3Model.
  */
-class Chart3 extends APIController
+class Chart3 extends Controller
 {
     private $model;
 
@@ -22,8 +22,9 @@ class Chart3 extends APIController
 
         $this->model = new Chart3Model();
     }
-    function get(){
-        // TODO Need to implement this method
-        return $this->model->getAll();
+
+    public function Content()
+    {
+        return new View('Chart3.tpl');
     }
 }

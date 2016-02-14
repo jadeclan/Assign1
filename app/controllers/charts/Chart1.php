@@ -9,7 +9,7 @@ namespace Application;
 
 use RuntimeException;
 
-use Framework\APIController;
+use Framework\Controller;
 use Framework\Model;
 use Framework\View;
 
@@ -18,7 +18,7 @@ require_once "app/models/Chart1Model.php";
  * Chart1 class used to create the Chart1 view using
  * data obtained from the Chart1Model.
  */
-class Chart1 extends APIController
+class Chart1 extends Controller
 {
     private $model;
 
@@ -26,19 +26,11 @@ class Chart1 extends APIController
     {
         parent::__construct('Chart1');
 
-        $this->model = new Chart1Model();
+       //  $this->model = new Chart1Model();
+
     }
 
-    public function get()
-    {
-        $year = 2016;
-        if (isset($_GET['year']))
-            $year = $_GET['year'];
-
-        $month = 1;
-        if (isset($_GET['month']))
-            $month = $_GET['month'];
-
-        return $this->model->search($year, $month);
+    public function Content(){
+        return new View('Chart1.tpl');
     }
 }

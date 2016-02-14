@@ -8,7 +8,7 @@ class CountryModel extends Model
 {
     public function getAll()
     {
-        $sql = "SELECT * FROM countries ORDER BY CountryName";
+        $sql = "SELECT ISO, CountryName FROM countries ORDER BY CountryName";
 
         return $this->db->query($sql)->fetchAll();
     }

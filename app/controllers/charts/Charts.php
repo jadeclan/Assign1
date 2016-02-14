@@ -3,7 +3,7 @@ namespace Application;
 
 use RuntimeException;
 
-use Framework\APIController;
+use Framework\Controller;
 use Framework\Model;
 use Framework\View;
 use Framework\Navable;
@@ -16,7 +16,7 @@ require_once "Chart3.php";
 /*
  *
  */
-class Charts extends APIController implements Navable
+class Charts extends Controller implements Navable
 {
     public function __construct()
     {
@@ -34,8 +34,8 @@ class Charts extends APIController implements Navable
     {
         return "Charts";
     }
-    public function get(){
-        //TODO fill this in
-        return $this;
+
+    public function Content(){
+        return new View('Charts.tpl');
     }
 }

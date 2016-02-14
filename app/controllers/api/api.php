@@ -37,10 +37,7 @@ class API extends Controller
             new Browsers(),
             new Referrers(),
             new OperatingSystems(),
-            new Chart1(),
-            //new Chart2(),
-            //new Chart3(),
-            new Charts()
+            new Chart1B()
         ]);
     }
 
@@ -202,5 +199,30 @@ class Visits extends APIController
             $limit = $_GET['limit'];
 
         return $this->model->search($country, $deviceType, $deviceBrand, $browser, $referrer, $os, $page, $limit);
+    }
+
+}
+class Chart1B extends APIController
+{
+    private $model;
+
+    public function __construct()
+    {
+        parent::__construct('Chart1');
+
+        $this->model = new Chart1Model();
+    }
+
+    public function get()
+    {
+        $year = 2016;
+        if (isset($_GET['year']) && is_numeric($_GET['year']))
+            $year = $_GET['year'];
+
+        $month = 1;
+        if (isset($_GET['month']) && is_numeric($_GET['month'])  && $_GET['month']>0 && $_GET['month']<13)
+            $month = $_GET['month'];
+
+        return $this->model->search($year, $month);
     }
 }
