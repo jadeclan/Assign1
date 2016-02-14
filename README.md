@@ -1,5 +1,5 @@
 
-Data Driven PHP and JavaScript ![GitHubLogo](images/logo.jpg)
+Data Driven PHP and JavaScript ![GitHubLogo](app/views/images/logo.jpg)
 ==================================
 
 ####As partial fulfilment of the requirements for COMP4513
