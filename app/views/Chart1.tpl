@@ -82,11 +82,12 @@
     google.setOnLoadCallback(drawChart);
     function drawChart() {
         data = new google.visualization.DataTable();
-        data.addColumn('number','Day');
+        data.addColumn('number', 'Day');
         data.addColumn('number', 'Hits');
-        var areaChartData =data.addRows(<?php
+        var areaChartData = data.addRows(<?php
     echo '['.PHP_EOL;
-    for($i=0; $i<count($areaChartData);$i++){
+    for($i=0; $i
+        <count($areaChartData);$i++){
         echo '['.$i.', '.(int)$areaChartData[$i].']';
         if($i != count($areaChartData)-1){echo ', '.PHP_EOL;}
     }
@@ -98,6 +99,7 @@
         hAxis: {title: 'Day of Month' },
         vAxis: {title: 'Number of Visits' }
     }
-    var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+    var chart = new google.visualization.AreaChart(document.getElementById('chart1'));
         chart.draw(data,options);
+    }
 </script>
