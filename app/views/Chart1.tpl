@@ -27,12 +27,11 @@
                 </div>
             </div>
 
-
 <script>
     $(function() {
-        var month_names = ["January","February","March","April",
-                           "May","June","July","August",
-                           "September","October","November","December"];
+        var month_names = ["January", "February", "March", "April",
+            "May", "June", "July", "August",
+            "September", "October", "November", "December"];
         var chart1Year = '2016';
         var chart1Month = '1';
         var chart1Title;
@@ -48,7 +47,7 @@
             if (chart1Month)
                 uri += '&month=' + encodeURIComponent(chart1Month);
 
-            chart1Title = month_names[chart1Month-1];
+            chart1Title = month_names[chart1Month - 1];
 
             var $loading = $('<div class="progress">').append($('<div class="indeterminate"></div></div>')).appendTo("#chart1");
 
@@ -57,53 +56,48 @@
             $.get(uri)
 
                     .done(function (data) {
-                        console.log(data);
                         // save for later...
                         monthsData = data;
                         //TODO Check for no rows
                         //TODO Check to see if monthsData array needs to have all
                         //     days of the month if no data is available.
-                        displayChart1();
 
                     })
 
                     .fail(function () {
                         ($('<H1>').text('Error loading data.')
                         ).appendTo('#chart1');
-                        //alert('Fail');
                     })
 
                     .always(function (data) {
-                        //$loading.remove();
-                        //alert('Always');
+                        $loading.remove();
                     });
         };
-        updateChart1();
-
-        $('#mSelect').on('change', function(e) {
-            chart1Month = e.target.val();
-            updateChart1();
-            displayChart1();
-        });
-
-        function displayChart1() {
-            google.load("visualization", "1", {packages:['corechart']});
-            google.setOnLoadCallback(drawChart);
-            function drawChart() {
-                data = new google.visualization.DataTable();
-                data.addColumn('number', 'Day');
-                data.addColumn('number', 'Hits');
-                data.addRows(monthsData);
-                var options = {
-                    title: chart1Title,
-                    theme: 'maximized',
-                    legend: {position: 'bottom'},
-                    hAxis: {title: 'Day of Month' },
-                    vAxis: {title: 'Number of Visits' }
-                    };
-                var chart = new google.visualization.AreaChart(document.getElementById('chart1'));
-                chart.draw(data, options);
-            }
-        }
     })
+</script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+    google.load("visualization", "1", {packages:['corechart']});
+    google.setOnLoadCallback(drawChart);
+    function drawChart() {
+        data = new google.visualization.DataTable();
+        data.addColumn('number','Day');
+        data.addColumn('number', 'Hits');
+        var areaChartData =data.addRows(<?php
+    echo '['.PHP_EOL;
+    for($i=0; $i<count($areaChartData);$i++){
+        echo '['.$i.', '.(int)$areaChartData[$i].']';
+        if($i != count($areaChartData)-1){echo ', '.PHP_EOL;}
+    }
+    echo PHP_EOL . ']';
+    ?>);
+    var options = {
+        theme: 'maximized',
+        legend: {position: 'bottom' },
+        hAxis: {title: 'Day of Month' },
+        vAxis: {title: 'Number of Visits' }
+    }
+    var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+        chart.draw(data,options);
 </script>
