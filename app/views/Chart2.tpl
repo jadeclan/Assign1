@@ -1,10 +1,11 @@
 <!-- Begin Chart Two TPL -->
 <div class="card" id="card3">
     <div class="card-content hoverable">
-        <span class="card-title">Geo Chart</span>
+        <span class="card-title">Geo Chart - Visits per Country</span>
         <div class="input-field">
             <select id="months" name="monthPicked" class="initialized" style="display: inline-block"></select>
         </div>
+        <div id="nodata"></div>
         <div id="chart2Div" style="width: 670px; height: 500px;">
         </div>
     </div>
@@ -17,21 +18,22 @@
     function drawRegionsMap() {
         $(function(){
             //this is temp month array (needs to change in my opinion)
-            var months = ['January', 'February', 'March',
+            var months = ['','January', 'February', 'March',
                 'April', 'May', 'June',
-                'July', 'August', 'October',
-                'November', 'December'];
+                'July', 'August', 'September',
+                'October', 'November', 'December'];
 
             //dropdown for selecting a month
             var selectElement = $('#months');
-            for(var i = 0; i < months.length; i++){
+            for(var i = 1; i <= 12; i++){
                 var countryOpt = $('<option></option>').attr("value", i).html(months[i]);
                 $(selectElement).append(countryOpt);
             }
 
-            var chartYear = '2016';
-            var chartMonth = 1;
             var updateChart2 = function(){
+                var chartYear = '2016';
+                var chartMonth = $("#months").val();
+
                 //base uri
                 var uri = '<?= $siteurl ?>?url=api/chart2';
                 if(chartYear)
@@ -43,12 +45,17 @@
                 $.get(uri)
                         .done(function (data) {
                             if(data.length){
+                                if($("#nodata")){
+                                    $("h5").remove();
+                                }
+                                $('#chart2Div').css("height", 500);
                                 var countryArray = [[{label: 'Country', type: 'string'},
                                     {label: 'Visits', type: 'number'}]];
 
                                 var options = {
                                     colorAxis: {colors: ['#f48fb1', '#c51162', '#880e4f']},
-                                    defaultColor: '#f5f5f5'
+                                    defaultColor: '#cfd8dc',
+                                    datalessRegionColor: '#cfd8dc'
                                 };
 
                                 data.forEach(function(item, index){
@@ -57,12 +64,27 @@
 
                                 var countryData = google.visualization.arrayToDataTable(countryArray);
 
-                                var chart = new google.visualization.GeoChart(document.getElementById('chart2Div'));
+                                chart = new google.visualization.GeoChart(document.getElementById('chart2Div'));
                                 chart.draw(countryData, options);
+                            }else{
+                                if($("#nodata")){
+                                    $("h5").remove();
+                                }
+                                $('<h5 class="center-align">').text('No visits for this month.').appendTo('#nodata');
+                                chart.clearChart();
+                                $('#chart2Div').css("height", 100);
                             }
+                        })
+                        .fail(function() {
+                            $('div').append($('span').text('Error loading data.').appendTo('#chart2Div'));
+                        })
+
+                        .always(function(data) {
+                            $loading.remove();
                         });
 
             };
+            $('select').on('change', updateChart2);
             updateChart2();
         });
     }
