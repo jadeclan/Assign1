@@ -17,6 +17,7 @@
     google.charts.setOnLoadCallback(drawRegionsMap);
     function drawRegionsMap() {
         $(function(){
+            var $loading = $('<div class="progress">').append($('<div class="indeterminate"></div></div>')).appendTo("#chart2Div");
             //this is temp month array (needs to change in my opinion)
             var months = ['','January', 'February', 'March',
                 'April', 'May', 'June',
@@ -40,7 +41,6 @@
                     uri += '&year=' + encodeURIComponent(chartYear);
                 if(chartMonth)
                     uri += '&month=' + encodeURIComponent(chartMonth);
-                var $loading = $('<div class="progress">').append($('<div class="indeterminate"></div></div>')).appendTo("#chart2Div");
                 
                 $.get(uri)
                         .done(function (data) {
