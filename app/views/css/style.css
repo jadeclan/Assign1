@@ -89,3 +89,8 @@ input.select-dropdown{
 .progress .indeterminate{
     background-color: #bf360c;
 }
+
+iframe{
+    width: 843px;
+    height: 800px;
+}

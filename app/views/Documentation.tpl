@@ -16,13 +16,12 @@
         </div>
         <div id="assign" class="col s12">
             <div class="card-panel">
-
                 <span><iframe src="documentation/COMP4513_Assignment_1(vers 2).pdf"></iframe></span>
             </div>
         </div>
         <div id="as" class="col s12">
             <div class="card-panel">
-                <span><iframe src="documentation/MVC_Structure_Explained.pdf"></span>
+                <span><iframe src="documentation/MVC_Structure_Explained.pdf"></iframe></span>
             </div>
         </div>
         <div id="git" class="col s12">
@@ -32,14 +31,27 @@
         </div>
         <div id="es" class="col s12">
             <div class="card-panel">
-                <p>Material Design</p>
-                <p>Google Material Icons and Fonts</p>
-                <p>Google Charts</p>
-                <p>Jquery</p>
+                <table class="centered">
+                    <tr>
+                        <td>
+                            Material Design
+                        </td>
+                        <td>
+                            Google Material Icons and Fonts
+                        </td>
+                        <td>
+                            Google Charts
+                        </td>
+                        <td>
+                            JQuery
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
         <div id="cl" class="col s12">
             <div class="card-panel">
+                Add checklist here
             </div>
         </div>
     </div>
