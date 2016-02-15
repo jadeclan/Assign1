@@ -18,7 +18,7 @@ include "controllers/Header.php";
 include "controllers/Footer.php";
 include "controllers/api/api.php";
 include "controllers/charts/Charts.php";
-
+include "controllers/dashboard2/Dashboard2.php";
 /**
  * The Site class. This class will serve as the root of the controller hierarchy.
  */
@@ -36,6 +36,7 @@ class Site extends Application
             new Header(),
             new Footer(),
             new Dashboard(),
+            new Dashboard2(),
             new VisitBrowser(),
             new Charts(),
             new Documentation(),

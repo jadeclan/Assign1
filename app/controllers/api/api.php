@@ -22,6 +22,9 @@ require_once "app/models/OperatingSystem.php";
 require_once "app/models/Chart1Model.php";
 require_once "app/models/Chart2Model.php";
 //require_once "app/models/Chart3Model.php";
+//require_once "app/models/Card1Dash2Model.php";
+//require_once "app/models/Card2Dash2Model.php";
+//require_once "app/models/Card3Dash2Model.php";
 
 require_once "app/models/Visit.php";
 
@@ -39,6 +42,10 @@ class API extends Controller
             new OperatingSystems(),
             new Chart1B(),
             new Chart2B()
+//            new Chart3B(),
+//            new Card1D2(),
+//            new Card2D2(),
+//            new Card3D2()
         ]);
     }
 
@@ -252,3 +259,103 @@ class Chart2B extends APIController
         return $this->model->search($year, $month);
     }
 }
+
+//class Chart3B extends APIController
+//{
+//    private $model;
+//
+//    public function __construct()
+//    {
+//        parent::__construct('Chart3');
+//
+//        $this->model = new Chart3Model();
+//    }
+//
+//    public function get()
+//    {
+//        $year = 2016;
+//        if (isset($_GET['year']) && is_numeric($_GET['year']))
+//            $year = $_GET['year'];
+//
+//        $month = 1;
+//        if (isset($_GET['month']) && is_numeric($_GET['month'])  && $_GET['month']>0 && $_GET['month']<13)
+//            $month = $_GET['month'];
+//
+//        return $this->model->search($year, $month);
+//    }
+//}
+
+//class Card1D2 extends APIController
+//{
+//    private $model;
+//
+//    public function __construct()
+//    {
+//        parent::__construct('Card1D2');
+//
+//        $this->model = new Card1Dash2Model();
+//    }
+//
+//    public function get()
+//    {
+//        $year = 2016;
+//        if (isset($_GET['year']) && is_numeric($_GET['year']))
+//            $year = $_GET['year'];
+//
+//        $month = 1;
+//        if (isset($_GET['month']) && is_numeric($_GET['month'])  && $_GET['month']>0 && $_GET['month']<13)
+//            $month = $_GET['month'];
+//
+//        return $this->model->search($year, $month);
+//    }
+//}
+
+//class Card2D2 extends APIController
+//{
+//    private $model;
+//
+//    public function __construct()
+//    {
+//        parent::__construct('Card2D2');
+//
+//        $this->model = new Card2Dash2Model();
+//    }
+//
+//    public function get()
+//    {
+//        $year = 2016;
+//        if (isset($_GET['year']) && is_numeric($_GET['year']))
+//            $year = $_GET['year'];
+//
+//        $month = 1;
+//        if (isset($_GET['month']) && is_numeric($_GET['month'])  && $_GET['month']>0 && $_GET['month']<13)
+//            $month = $_GET['month'];
+//
+//        return $this->model->search($year, $month);
+//    }
+//}
+
+//class Card3D2 extends APIController
+//{
+//    private $model;
+//
+//    public function __construct()
+//    {
+//        parent::__construct('Card3D2');
+//
+//        $this->model = new Card3Dash2Model();
+//    }
+
+//    public function get()
+//    {
+//        $year = 2016;
+//        if (isset($_GET['year']) && is_numeric($_GET['year']))
+//            $year = $_GET['year'];
+//
+//        $month = 1;
+//        if (isset($_GET['month']) && is_numeric($_GET['month'])  && $_GET['month']>0 && $_GET['month']<13)
+//            $month = $_GET['month'];
+//
+//        return $this->model->search($year, $month);
+//    }
+//}
