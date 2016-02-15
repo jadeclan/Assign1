@@ -19,11 +19,9 @@ class Chart1Model extends Model
              $sql = $this->buildSearch($year, $month);
 
              // Execute
-             $result = $this->db->query($sql);
+             $result = $this->db->query($sql)->fetchAll();
 
-             // Return results
-
-             return $result->fetchAll();
+             return $result;
     }
 
     private function buildSearch($year = 2016, $month = 1)

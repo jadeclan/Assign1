@@ -26,8 +26,6 @@ class Chart1 extends Controller
     {
         parent::__construct('Chart1');
 
-       //  $this->model = new Chart1Model();
-
     }
 
     public function Content(){

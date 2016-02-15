@@ -15,22 +15,26 @@
         </div>
         <div id="assign" class="col s12">
             <div class="card-panel">
-                <span>Add Assignment Here!!!</span>
+                <span><iframe src="documentation/COMP4513_Assignment_1(vers 2).pdf"></iframe></span>
             </div>
         </div>
         <div id="as" class="col s12">
             <div class="card-panel">
-                <span>Application Structure Description</span>
+                <span><iframe src="documentation/MVC_Structure_Explained.pdf"></span>
             </div>
         </div>
         <div id="git" class="col s12">
             <div class="card-panel">
-                <span>Git Documentation</span>
+                <span><iframe src="documentation/Git_Starter_Package.pdf"></span>
             </div>
         </div>
         <div id="es" class="col s12">
             <div class="card-panel">
-                <span>External Sources</span>
+                <p>Material Design</p>
+                <p>Google Material Icons and Fonts</p>
+                <p>Google Charts</p>
+                <p>Jquery</p>
+
             </div>
         </div>
     </div>
