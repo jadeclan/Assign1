@@ -84,7 +84,7 @@
                         });
 
             };
-            $('select').on('change', updateChart2);
+            $('#months').on('change', updateChart2);
             updateChart2();
         });
     }
