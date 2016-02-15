@@ -14,15 +14,13 @@ use Framework\Model;
  */
 class Chart2Model extends Model
 {
-    public function getMonthVisitsCountry() {
-        /*  $result = $this->db->query("SELECT browsers.id,
-                                             name,
-                                             count(*) AS hits,
-                                             ((count(*)/(SELECT count(*) FROM visits)) * 100) AS percentage
-                                      FROM browsers
-                                        JOIN visits ON browsers.id = visits.browser_id
-                                      GROUP BY name");
-
-          return $result->fetchAll(); */
+    public function search($year, $month){
+        $sql = $this->buildSearch($year, $month);
+        $result = $this->db->query($sql);
+        return $result->fetchAll();
+    }
+    public function buildSearch($year, $month) {
+        $sql = "SELECT visits.visit_date, countryName, count(*) as visitsCount FROM continents, countries, visits WHERE (continents.ContinentCode = countries.Continent) AND (countries.ISO = visits.country_code) AND (EXTRACT(year from visits.visit_date) = $year) AND (EXTRACT( month from visits.visit_date) = $month) GROUP BY countryName HAVING visitsCount >= 10";
+        return $sql;
     }
 }

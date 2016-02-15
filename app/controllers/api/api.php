@@ -20,7 +20,7 @@ require_once "app/models/Browser.php";
 require_once "app/models/Referrer.php";
 require_once "app/models/OperatingSystem.php";
 require_once "app/models/Chart1Model.php";
-//require_once "app/models/Chart2Model.php";
+require_once "app/models/Chart2Model.php";
 //require_once "app/models/Chart3Model.php";
 
 require_once "app/models/Visit.php";
@@ -37,7 +37,8 @@ class API extends Controller
             new Browsers(),
             new Referrers(),
             new OperatingSystems(),
-            new Chart1B()
+            new Chart1B(),
+            new Chart2B()
         ]);
     }
 
@@ -211,6 +212,31 @@ class Chart1B extends APIController
         parent::__construct('Chart1');
 
         $this->model = new Chart1Model();
+    }
+
+    public function get()
+    {
+        $year = 2016;
+        if (isset($_GET['year']) && is_numeric($_GET['year']))
+            $year = $_GET['year'];
+
+        $month = 1;
+        if (isset($_GET['month']) && is_numeric($_GET['month'])  && $_GET['month']>0 && $_GET['month']<13)
+            $month = $_GET['month'];
+
+        return $this->model->search($year, $month);
+    }
+}
+
+class Chart2B extends APIController
+{
+    private $model;
+
+    public function __construct()
+    {
+        parent::__construct('Chart2');
+
+        $this->model = new Chart2Model();
     }
 
     public function get()
