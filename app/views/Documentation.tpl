@@ -51,7 +51,7 @@
         </div>
         <div id="cl" class="col s12">
             <div class="card-panel">
-                Add checklist here
+                <span><iframe src="documentation/Requirements_Checklist.pdf"></iframe></span>
             </div>
         </div>
     </div>

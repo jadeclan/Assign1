@@ -13,7 +13,7 @@
 
 
 <script type="text/javascript">
-    google.charts.load('current', {'packages':['geochart']});
+   // google.charts.load('current', {'packages':['geochart']});
     google.charts.setOnLoadCallback(drawRegionsMap);
     function drawRegionsMap() {
         $(function(){
