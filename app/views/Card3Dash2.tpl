@@ -25,7 +25,7 @@
 <script>
     $(function () {
 
-        //var $loading = $('<div class="progress">').append($('<div class="indeterminate"></div></div>')).appendTo("#contBody");
+        var $loading = $('<div class="progress">').append($('<div class="indeterminate"></div></div>')).appendTo("#contBody");
 
         $.get('<?= $siteurl ?>?url=api/continents')
                 .done(function(data) {
@@ -34,7 +34,6 @@
                     });
                 });
         var updateCard3 = function (){
-            $('#continentBox').attr("class", "");
             var uri = '<?= $siteurl ?>?url=api/card3Dash2';
             var countrySelection = $("#cSelection").val();
             if(countrySelection)
@@ -42,6 +41,9 @@
 
             $.get(uri)
                     .done(function(data){
+                        var $tableBody = $('#contBody');
+                        $tableBody.empty();
+                        $('#continentBox').attr("class", "");
                         data.forEach(function(item) {
                             var row = $('<tr>');
                             $('<td>').html(item.countryName).appendTo(row);
@@ -53,7 +55,7 @@
 
                     })
                     .always(function () {
-                        //$loading.remove();
+                        $loading.remove();
                     });
         };
 
