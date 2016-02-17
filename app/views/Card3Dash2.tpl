@@ -9,7 +9,7 @@
         </div>
 
 
-        <table id="continentBox" class="hide">
+        <table id="continentBox">
             <thead>
             <tr id="selectedContinent">
                 <th>Country</th>
@@ -24,15 +24,20 @@
 <!-- end Card3Dash2.tpl -->
 <script>
     $(function () {
-
         var $loading = $('<div class="progress">').append($('<div class="indeterminate"></div></div>')).appendTo("#contBody");
-
         $.get('<?= $siteurl ?>?url=api/continents')
                 .done(function(data) {
                     data.forEach(function(continent) {
                         $('<option>').val(continent.ContinentCode).text(continent.ContinentName).appendTo("#cSelection");
                     });
+                })
+                .fail(function () {
+
+                })
+                .always(function () {
+                    $loading.remove();
                 });
+        
         var updateCard3 = function (){
             var uri = '<?= $siteurl ?>?url=api/card3Dash2';
             var countrySelection = $("#cSelection").val();
@@ -43,7 +48,6 @@
                     .done(function(data){
                         var $tableBody = $('#contBody');
                         $tableBody.empty();
-                        $('#continentBox').attr("class", "");
                         data.forEach(function(item) {
                             var row = $('<tr>');
                             $('<td>').html(item.countryName).appendTo(row);
@@ -58,8 +62,6 @@
                         $loading.remove();
                     });
         };
-
         $('#cSelection').on('change', updateCard3);
-        updateCard3();
     });
 </script>
