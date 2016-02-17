@@ -22,6 +22,8 @@
 <script>
 $(document).ready(function() {
     var card2D2Data;
+    var $loading = $('<div class="progress">').append($('<div class="indeterminate"></div></div>')).appendTo("#deviceBox");
+
     (function () {
         //base url
         var uri = '<?= $siteurl ?>?url=api/card2Dash2';
@@ -43,7 +45,7 @@ $(document).ready(function() {
 
                 })
                 .always(function () {
-
+                    $loading.remove();
                 });
     })();
 

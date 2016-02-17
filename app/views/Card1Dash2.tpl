@@ -15,7 +15,6 @@
                         </tr>
                     </thead>
                     <tbody id="card1a">
-
                     </tbody>
                 </table>
             </div>
@@ -26,6 +25,8 @@
 <!-- end Card1Dash2.tpl -->
 <script>
     $(document).ready(function(){
+        var $loading = $('<div class="progress">').append($('<div class="indeterminate"></div></div>')).appendTo("#card1a");
+
         var updateCard1 = function() {
             //base url
             var uri = '<?= $siteurl ?>?url=api/card1Dash2';
@@ -55,7 +56,7 @@
 
                     })
                     .always(function () {
-
+                        $loading.remove();
                     });
         }
         updateCard1();
