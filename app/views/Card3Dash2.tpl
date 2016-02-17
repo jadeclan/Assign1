@@ -1,17 +1,10 @@
 <!-- begin Card3Dash2.tpl -->
-
-<script>
-    /* var continentData = <?php echo json_encode($continentData); ?>; */
-</script>
-
-
 <div class="card z-depth-1-half" id="card3">
     <div class="card-content hoverable">
         <span class="card-title">Country Statistics</span>
         <div class="input-field">
             <select id="cSelection" name="continent" class="initialized" style="display:block;">
                 <option value="" disabled selected>Select a Continent</option>
-                <option value="ADD VALUE">ADD CONTINENT DROPDOWN</option>
             </select>
         </div>
 
@@ -28,5 +21,38 @@
         </table>
     </div>
 </div>
-<script type="text/javascript" src="<?= $themedir ?>/js/card3.js"></script>
 <!-- end Card3Dash2.tpl -->
+<script>
+    $(function () {
+
+        //var $loading = $('<div class="progress">').append($('<div class="indeterminate"></div></div>')).appendTo("#contBody");
+
+        $.get('<?= $siteurl ?>?url=api/countries')
+                .done(function(data) {
+                    data.forEach(function(item) {
+                        $('<option>').val(item.ISO).text(item.CountryName).appendTo("#cSelection");
+                    });
+                });
+        var updateCard3 = function (){
+
+            var uri = '<?= $siteurl ?>?url=api/card3Dash2';
+            //var countrySelection = "AX";
+            //if(countrySelection)
+             //   uri += '&country=' + encodeURIComponent(countrySelection);
+
+            $.get(uri)
+                    .done(function(data){
+                        console.log(data);
+                    })
+                    .fail(function () {
+
+                    })
+                    .always(function () {
+                        //$loading.remove();
+                    });
+        };
+
+        $('#cSelection').on('change', updateCard3);
+        updateCard3();
+    });
+</script>
