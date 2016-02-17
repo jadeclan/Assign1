@@ -29,17 +29,16 @@ class Card3Dash2Model extends Model
     private function buildSearch($country = null)
     {
         $sql = "SELECT continentName, countryName, count(*) as hits
-        FROM continents, countries, visits
-        WHERE (counties.ISO = visits.country_code)
-        AND (continents.ContinentCode = countires.Continent)";
+         FROM continents, countries, visits
+         WHERE (countries.ISO = visits.country_code)
+         AND (continents.ContinentCode = countries.Continent)";
 
-        if($country != null) {
-            // Build filter
-            $sql .= " AND countries.Continent = '" . $country . "'";
-        }
+                if($country != null) {
+                    // Build filter
+                    $sql .= " AND countries.Continent = '" . $country . "'";
+                }
 
         $sql .= " GROUP BY countryName";
-
         return $sql;
 
     }

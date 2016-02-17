@@ -25,6 +25,7 @@ require_once "app/models/Chart2Model.php";
 require_once "app/models/Card1Dash2Model.php";
 require_once "app/models/Card2Dash2Model.php";
 require_once "app/models/Card3Dash2Model.php";
+require_once "app/models/Continent.php";
 
 require_once "app/models/Visit.php";
 
@@ -45,7 +46,8 @@ class API extends Controller
 //            new Chart3B(),
             new Card1D2(),
             new Card2D2(),
-            new Card3D2()
+            new Card3D2(),
+            new Continents(),
         ]);
     }
 
@@ -340,5 +342,25 @@ class Card3D2 extends APIController
         if (isset($_GET['country']))
             $country = $_GET['country'];
         return $this->model->search($country);
+    }
+}
+
+class Continents extends APIController
+{
+    private $model;
+
+    public function __construct()
+    {
+        parent::__construct('Continents');
+
+        $this->model = new ContinentsModel();
+    }
+
+    public function get()
+    {
+        if (count($this->arguments) > 0)
+            return $this->model->getByContinentCode($this->arguments[0]);
+        else
+            return $this->model->getAll();
     }
 }

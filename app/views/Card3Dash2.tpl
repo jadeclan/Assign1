@@ -27,22 +27,23 @@
 
         //var $loading = $('<div class="progress">').append($('<div class="indeterminate"></div></div>')).appendTo("#contBody");
 
-        $.get('<?= $siteurl ?>?url=api/countries')
+        $.get('<?= $siteurl ?>?url=api/continents')
                 .done(function(data) {
+                    //console.log(data);
                     data.forEach(function(item) {
-                        $('<option>').val(item.ISO).text(item.CountryName).appendTo("#cSelection");
+                        $('<option>').val(item.ContinentCode).text(item.ContinentName).appendTo("#cSelection");
                     });
                 });
         var updateCard3 = function (){
-
             var uri = '<?= $siteurl ?>?url=api/card3Dash2';
-            //var countrySelection = "AX";
-            //if(countrySelection)
-             //   uri += '&country=' + encodeURIComponent(countrySelection);
+            var countrySelection = $("#cSelection").val();
+            if(countrySelection)
+                uri += '&country=' + encodeURIComponent(countrySelection);
 
             $.get(uri)
                     .done(function(data){
-                        console.log(data);
+
+             
                     })
                     .fail(function () {
 
