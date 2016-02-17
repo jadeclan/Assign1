@@ -1,6 +1,6 @@
 <!-- Begin Chart One TPL -->
 
-            <div class="card z-depth-1-half" id="chart1Top">
+            <div class="card z-depth-1-half" id="card1">
                 <div class="card-content hoverable">
                     <span class="card-title">Site Visits By Day</span>
                     <div class="input-field">

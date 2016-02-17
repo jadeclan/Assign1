@@ -18,7 +18,8 @@
     function drawRegionsMap() {
         $(function(){
             var $loading = $('<div class="progress">').append($('<div class="indeterminate"></div></div>')).appendTo("#chart2Div");
-            //this is temp month array (needs to change in my opinion)
+
+            //this is temp month array
             var months = ['','January', 'February', 'March',
                 'April', 'May', 'June',
                 'July', 'August', 'September',
@@ -41,7 +42,7 @@
                     uri += '&year=' + encodeURIComponent(chartYear);
                 if(chartMonth)
                     uri += '&month=' + encodeURIComponent(chartMonth);
-                
+
                 $.get(uri)
                         .done(function (data) {
                             if(data.length){
