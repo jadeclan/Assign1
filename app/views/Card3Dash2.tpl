@@ -29,12 +29,12 @@
 
         $.get('<?= $siteurl ?>?url=api/continents')
                 .done(function(data) {
-                    //console.log(data);
-                    data.forEach(function(item) {
-                        $('<option>').val(item.ContinentCode).text(item.ContinentName).appendTo("#cSelection");
+                    data.forEach(function(continent) {
+                        $('<option>').val(continent.ContinentCode).text(continent.ContinentName).appendTo("#cSelection");
                     });
                 });
         var updateCard3 = function (){
+            $('#continentBox').attr("class", "");
             var uri = '<?= $siteurl ?>?url=api/card3Dash2';
             var countrySelection = $("#cSelection").val();
             if(countrySelection)
@@ -42,8 +42,12 @@
 
             $.get(uri)
                     .done(function(data){
-
-             
+                        data.forEach(function(item) {
+                            var row = $('<tr>');
+                            $('<td>').html(item.countryName).appendTo(row);
+                            $('<td>').html(item.hits).appendTo(row);
+                            row.appendTo('#contBody');
+                        });
                     })
                     .fail(function () {
 
