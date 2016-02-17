@@ -5,13 +5,18 @@
         <div class="card z-depth-1-half" id="card1">
             <div class="card-content hoverable">
                 <span class="card-title">Browser Statistics</span>
-                <table id="card1a" class="striped">
-                    <tr>
-                        <th>Browser ID</th>
-                        <th>Browser Name</th>
-                        <th>Number of Hits</th>
-                        <th>% of total</th>
-                    </tr>
+                <table class="striped">
+                    <thead>
+                        <tr>
+                            <th>Browser ID</th>
+                            <th>Browser Name</th>
+                            <th>Number of Hits</th>
+                            <th>% of total</th>
+                        </tr>
+                    </thead>
+                    <tbody id="card1a">
+
+                    </tbody>
                 </table>
             </div>
         </div>
@@ -27,7 +32,7 @@
             // ajax
             $.get(uri)
                     .done(function (data) {
-                        console.log(data);
+                        $('#card1a').find('tr').remove();
                         // data is an array of object
                         data.forEach(function (item, index) {
                             var newRow = document.createElement('tr');
@@ -44,7 +49,6 @@
                             $(newCol3).appendTo(newRow);
                             $(newCol4).appendTo(newRow);
                             $(newRow).appendTo('#card1a');
-                            console.log(newRow);
                         });
                     })
                     .fail(function () {

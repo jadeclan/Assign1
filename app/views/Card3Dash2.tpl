@@ -1,7 +1,7 @@
 <!-- begin Card3Dash2.tpl -->
 
 <script>
-    var continentData = <?php echo json_encode($continentData); ?>;
+    /* var continentData = <?php echo json_encode($continentData); ?>; */
 </script>
 
 
