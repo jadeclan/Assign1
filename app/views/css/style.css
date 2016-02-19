@@ -99,7 +99,6 @@ iframe{
 
 .side-nav{
     z-index: 999;
-    top: 64px;
     width: 190px;
     box-shadow: 0 2px 5px 0 #ff8a65;
     background-color: #bf360c;
@@ -133,4 +132,8 @@ body{
 
 .side-nav.fixed li.active a{
     color: black;
+}
+
+#nav-mobile{
+    top: inherit;
 }
