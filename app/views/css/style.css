@@ -10,7 +10,7 @@ nav .brand-logo{
 }
 
 footer.page-footer{
-    background-color: #bf360c;
+   background-color: #eceff1;
 }
 
 .card-panel{
@@ -93,6 +93,40 @@ input.select-dropdown{
 }
 
 iframe{
-    width: 843px;
+    width: 100%;
     height: 800px;
+}
+
+.side-nav{
+    z-index: 999;
+    top: 64px;
+    width: 190px;
+    box-shadow: 0 2px 5px 0 #ff8a65;
+    background-color: #bf360c;
+}
+
+.side-nav.fixed a{
+    color: white;
+}
+
+.side-nav.fixed a:hover{
+    color: #006064;
+}
+
+main, footer {
+    padding-left: 117px;
+}
+
+@media only screen and (max-width : 992px) {
+    main, footer {
+        padding-left: 0;
+    }
+}
+
+footer.page-footer span{
+    color: black;
+}
+
+nav a {
+    color: #bf360c;
 }

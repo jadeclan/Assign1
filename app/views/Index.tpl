@@ -21,15 +21,30 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script type="text/javascript" src="<?= $themedir ?>/assets/materialize/js/materialize.js"></script>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-
 </head>
 <body>
+<header>
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper">
+                <a href="?url=dashboard" class="brand-logo">POW-B Analytics</a>
+                <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+            </div>
+        </nav>
+    </div>
+</header>
 
-    <?= $c->Render("header"); ?>
+<div class="row">
+    <div class="col s12 m2">
+        <?= $c->Render("header"); ?>
+    </div>
+    <div class="col s12 m10">
+        <div>
+            <?= $c->Render("content"); ?>
+        </div>
+    </div>
+</div>
 
-    <?= $c->Render("content"); ?>
-
-    <?= $c->Render("footer"); ?>
-
+<?= $c->Render("footer"); ?>
 </body>
 </html>
