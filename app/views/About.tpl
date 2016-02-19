@@ -9,10 +9,13 @@
         <div class="col s12">
             <h5>Project Details</h5>
             <p>Group members involved with POW-B Analytics are Sonia Pitrola, Nolan Walker, Mark O'Donnell
-               and James Bergeron for more information about the developers below.<br />
-               POW-B Analytics was created for Randy Connelly web class.<br />
-               The code is located at <a href="https://github.com/jadeclan/Assign1">Github</a>. <br />
-               For more project detail please go to the <a href="?url=documentation">Documentation</a> page.
+               and James Bergeron.  For more information about the developers, see the brief bio's shown
+                below.  We pride ourselves on details and accuracy so enjoy.<br /><br />
+               POW-B Analytics was created as a partial requirement for the completion of the Mount Royal
+                University Comp4513 Web III course put on by Randy Connelly.<br />
+               The code we developed can be viewed and cloned with permission from our
+                <a href="https://github.com/jadeclan/Assign1">Github</a> repository. <br /><br />
+               For more project details please go to the <a href="?url=documentation">Documentation</a> page.
             </p>
         </div>
     </div>
@@ -31,9 +34,11 @@
                     Smart, committed, capable and hard working.  Oh wait .....
                     Cute, friendly, caring, wee bit shy, Italian chick.  Oh wait .....
                     Style queen, widget gadgeter, javaScript effect expert
-                    But does she keep her promises?
+                    But does she keep her promises?<br />
                     Where's the dress? One of her team mates from Web II
-                    wanted to know?
+                    wanted to know?<br />
+                    Like the side nav? How about that snazzy sidebar?  Inspiration at 2AM!!<br />
+                    Except for color and sleep choices, she's good!
                 </p>
 
             </div>
@@ -75,7 +80,7 @@
                     Wise, handsome, athletic, we could go on, but it would only embarass him.
                     Never does something in 30 minutes when a whole day is available.
                     When asked to add 2 and 2, he was observed to convert it to binary and
-                    end up with 100 perhaps that's why he's retired?  The team begged him
+                    end up with 100, perhaps that's why he's retired?  The team begged him
                     to do the color styling, but were not prepared for the post apocalyptic
                     neo modernistic clash style that he brought to the project.  He naturally
                     slid into his other roles -- poker, prodder, documenter and integrator.
