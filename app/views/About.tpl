@@ -8,7 +8,11 @@
     <div class="row">
         <div class="col s12">
             <h5>Project Details</h5>
-            <p>Group members involved with POW-B Analytics are Sonia Pitrola, Nolan Walker, Mark O'Donnell and James Bergeron for more information about the developers below. POW-B Analytics was created for Randy Connelly web class. The code is located at <a href="https://github.com/jadeclan/Assign1">Github</a>. For more project detail please go to the Documentation page (add link here). (JAMES EDIT THIS PLEASE).
+            <p>Group members involved with POW-B Analytics are Sonia Pitrola, Nolan Walker, Mark O'Donnell
+               and James Bergeron for more information about the developers below.<br />
+               POW-B Analytics was created for Randy Connelly web class.<br />
+               The code is located at <a href="https://github.com/jadeclan/Assign1">Github</a>. <br />
+               For more project detail please go to the <a href="?url=documentation">Documentation</a> page.
             </p>
         </div>
     </div>

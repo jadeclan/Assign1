@@ -34,16 +34,19 @@
                 <table class="centered">
                     <tr>
                         <td>
-                            Material Design
+                            <a href="http://materializecss.com/about.html">Material Design</a>
                         </td>
                         <td>
-                            Google Material Icons and Fonts
+                            <a href="https://design.google.com/icons/">Google Material Icons and Fonts</a>
                         </td>
                         <td>
-                            Google Charts
+                            <a href="https://developers.google.com/chart/">Google Charts</a>
                         </td>
                         <td>
-                            JQuery
+                            <a href="https://jquery.com/">JQuery</a>
+                        </td>
+                        <td>
+                            <a href="http://materializecss.com/preloader.html">Materialize Loading Animation</a>
                         </td>
                     </tr>
                 </table>
