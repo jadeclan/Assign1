@@ -30,7 +30,7 @@
     <div class="row">
         <div class="col s12 m6">
             <div class="card-panel medium">
-                <h5 class="center-align">Sonia Pitrola</h5>
+                <h5 class="center-align"><em>Sonia Pitrola</em></h5>
                 <img class="responsive-img center-block" src="<?= $themedir ?>/images/cat_mosaic.jpg" alt="Italian Cat Mosaic" title="Italian Cat Mosaic">
                 <p>
                     Smart, committed, capable and hard working.  Oh wait .....
@@ -48,7 +48,7 @@
 
         <div class="col s12 m6">
             <div class="card-panel medium">
-                <h5 class="center-align">Nolan Walker</h5>
+                <h5 class="center-align"><em>Nolan Walker</em></h5>
                 <img class="responsive-img center-block" src="<?= $themedir ?>/images/Philadelphia Flyers Banner.jpg" alt="Flyers Banner" title="Flyers Banner">
                 <p>
                     When the world sees red, Nolan sees orange.  When his buddies
@@ -66,7 +66,7 @@
     <div class="row">
         <div class="col s12 m6">
             <div class="card-panel medium">
-                <h5 class="center-align">Mark O'Donnell</h5>
+                <h5 class="center-align"><em>Mark O'Donnell</em></h5>
                 <img class="responsive-img center-block" src="<?= $themedir ?>/images/Donald-Trump-Wrestling-Rosie-O-Donnell.jpg" alt="Rosie and Donald" title="Rosie and Donald">
                 <p>
                     Crazy Irish?  Have you seen the code he wrote for the MVC  controller? Crazy Irish?  Did he really convince the group to follow him down the MVC rabbit hole? Crazy Irish?  Coach, educator, facilitator, thinker Need to see recursive code in action? Want to see minimalistic PHP coding style? Looking for obscure PHP commands to do a job perfectly? Yup Crazy is right!  No idea about the Irish part. The strong, silent type - almost apologetic about helping his team mates reach professional understandings of php /  javascript / mysql and server management. On top of all that flattery, he enjoys a good beer! Ooops wrong O'Donnell on the picture.
@@ -76,7 +76,7 @@
 
         <div class="col s12 m6">
             <div class="card-panel medium">
-                <h5 class="center-align">James Bergeron</h5>
+                <h5 class="center-align"><em>James Bergeron</em></h5>
                 <img class="responsive-img center-block" src="<?= $themedir ?>/images/fupfever.png" alt="Circular Loop" title="Circular Loop">
                 <p>
                     Wise, handsome, athletic, we could go on, but it would only embarass him.
