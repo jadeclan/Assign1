@@ -23,28 +23,18 @@
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 </head>
 <body>
-<header>
-    <div class="navbar-fixed">
-        <nav>
-            <div class="nav-wrapper">
-                <a href="?url=dashboard" class="brand-logo">POW-B Analytics</a>
-                <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+<?= $c->Render("header"); ?>
+<main>
+    <div>
+        <div class="row">
+            <div class="col offset-m1 s12 m11">
+                <?= $c->Render("content"); ?>
             </div>
-        </nav>
-    </div>
-</header>
-
-<div class="row">
-    <div class="col s12 m2">
-        <?= $c->Render("header"); ?>
-    </div>
-    <div class="col s12 m10">
-        <div>
-            <?= $c->Render("content"); ?>
         </div>
     </div>
-</div>
+</main>
 
 <?= $c->Render("footer"); ?>
+
 </body>
 </html>

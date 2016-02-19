@@ -20,7 +20,7 @@ class Header extends Controller
     {
         return new View('Header.tpl', [
             'nav' => $this->getRoot()->getNavLinks(),
-            'active' => $this->getRoot()->Route('content')->getId()
+            'active' => $this->getRoot()->Route('content')->getRoute()
         ]);
     }
 }
