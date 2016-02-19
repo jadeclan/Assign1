@@ -7,16 +7,18 @@
 
     <div class="row">
         <div class="col s12">
-            <h5>Project Details</h5>
-            <p>Group members involved with POW-B Analytics are Sonia Pitrola, Nolan Walker, Mark O'Donnell
-               and James Bergeron.  For more information about the developers, see the brief bio's shown
-                below.  We pride ourselves on details and accuracy so enjoy.<br /><br />
-               POW-B Analytics was created as a partial requirement for the completion of the Mount Royal
-                University Comp4513 Web III course put on by Randy Connelly.<br />
-               The code we developed can be viewed and cloned with permission from our
-                <a href="https://github.com/jadeclan/Assign1">Github</a> repository. <br /><br />
-               For more project details please go to the <a href="?url=documentation">Documentation</a> page.
-            </p>
+            <div class="card-panel hoverable">
+                <h5>Project Details</h5>
+                <blockquote>Group members involved with POW-B Analytics are Sonia Pitrola, Nolan Walker, Mark O'Donnell
+                   and James Bergeron.  For more information about the developers, see the brief bio's shown
+                    below.  We pride ourselves on details and accuracy so enjoy.<br /><br />
+                   POW-B Analytics was created as a partial requirement for the completion of the Mount Royal
+                    University Comp4513 Web III, taught by Randy Connelly.<br />
+                   The code we developed can be viewed and cloned with permission from our
+                    <a href="https://github.com/jadeclan/Assign1">Github</a> repository. <br /><br />
+                   For more project details please go to the <a href="?url=documentation">Documentation</a> page.
+                </blockquote>
+            <div>
         </div>
     </div>
     <hr>
@@ -35,9 +37,9 @@
                     Cute, friendly, caring, wee bit shy, Italian chick.  Oh wait .....
                     Style queen, widget gadgeter, javaScript effect expert
                     But does she keep her promises?<br />
-                    Where's the dress? One of her team mates from Web II
+                    <em>Where's the dress?</em> one of her team mates from Web II
                     wanted to know?<br />
-                    Like the side nav? How about that snazzy sidebar?  Inspiration at 2AM!!<br />
+                    Like the side nav? How about that snazzy loading animation?  Inspiration at 2AM!!
                     Except for color and sleep choices, she's good!
                 </p>
 
