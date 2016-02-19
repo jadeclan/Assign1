@@ -1,4 +1,4 @@
-<ul id="nav-mobile" class="hide-on-med-and-down">
+<ul class="hide-on-med-and-down">
     <?php foreach($nav as $label => $link): ?>
 
     <li><a href="<?= $link ?>"><?= $label ?></a></li>
@@ -7,9 +7,11 @@
 </ul>
 <ul id="slide-out" class="side-nav fixed">
     <?php foreach($nav as $label => $link): ?>
-
-    <li><a href="<?= $link ?>"><?= $label ?></a></li>
-
+    <?php if($active == $link){ ?>
+            <li class="active"><a href="<?= $link ?>"><?= $label ?></a></li>
+    <?php }else{ ?>
+            <li><a href="<?= $link ?>"><?= $label ?></a></li>
+    <?php } ?>
     <?php endforeach; ?>
 </ul>
 

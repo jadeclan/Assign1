@@ -19,7 +19,8 @@ class Header extends Controller
     public function Content()
     {
         return new View('Header.tpl', [
-            'nav' => $this->getRoot()->getNavLinks()
+            'nav' => $this->getRoot()->getNavLinks(),
+            'active' => $this->getRoot()->Route('content')->getId()
         ]);
     }
 }
