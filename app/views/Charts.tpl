@@ -1,5 +1,5 @@
 <div>
-    <div class="row">
+    <div class="row hide-on-med-and-up">
         <div class="col s12">
             <h2 class="center-align">Charts</h2>
         </div>

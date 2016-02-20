@@ -2,8 +2,11 @@
     <div class="navbar-fixed">
         <nav>
             <div class="nav-wrapper">
-                <a href="?url=dashboard" class="brand-logo">POW-B Analytics</a>
                 <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+                <a href="?url=dashboard" class="brand-logo">POW-B Analytics</a>
+                <div class="center-align hide-on-med-and-down">
+                    <span id="page-title"><?= $title ?></span>
+                </div>
             </div>
         </nav>
     </div>

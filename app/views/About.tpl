@@ -1,10 +1,9 @@
 <div>
-    <div class="row">
-        <div class="col s12 center-align">
-            <h2>About Us</h2>
+    <div class="row hide-on-med-and-up">
+        <div class="col s12">
+            <h2 class="center-align">About</h2>
         </div>
     </div>
-
     <div class="row">
         <div class="col s12">
             <div class="card-panel hoverable">

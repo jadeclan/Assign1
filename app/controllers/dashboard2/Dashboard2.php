@@ -31,7 +31,7 @@ class Dashboard2 extends Controller implements Navable
      */
     public function getNavString()
     {
-        return "Dashboard-2";
+        return "Dashboard #2";
     }
 
     public function Content(){

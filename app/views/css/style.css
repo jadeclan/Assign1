@@ -2,7 +2,7 @@ nav{
     color: #bf360c;
     background-color: #fff;
     margin-bottom: 2%;
-    box-shadow: 0 2px 5px 0 #ff8a65;
+    box-shadow: 0 2px 5px 0 #ff7043;
 }
 
 nav .brand-logo{
@@ -14,7 +14,7 @@ footer.page-footer{
 }
 
 .card-panel{
-    box-shadow: 0 2px 5px 0 #ff8a65, 0 2px 10px 0 #ff8a65;
+    box-shadow: 0 2px 5px 0 #ff7043, 0 2px 10px 0 #ff7043;
 }
 
 h1, h2, h3, h4, h5, h6{
@@ -100,7 +100,7 @@ iframe{
 .side-nav{
     z-index: 999;
     width: 190px;
-    box-shadow: 0 2px 5px 0 #ff8a65;
+    box-shadow: 0 2px 5px 0 #ff7043;
     background-color: #bf360c;
 }
 
@@ -136,4 +136,17 @@ body{
 
 #nav-mobile{
     top: inherit;
+}
+
+.side-nav li.active{
+    border: solid 0.5px #ff7043;
+}
+
+#page-title{
+    font-size: 34px;
+    color: #006064;
+}
+
+#content{
+    margin-top: 2%;
 }
