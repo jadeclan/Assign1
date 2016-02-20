@@ -45,11 +45,12 @@
         $(function() {
             var $loading = $('<div class="progress">').append($('<div class="indeterminate"></div></div>')).appendTo("#chart3");
 
-            var $country1 = $('#countries1');
-            var $country2 = $('#countries2');
-            var $country3 = $('#countries3');
+            var $country1 = $('#countries1').val();
+            var $country2 = $('#countries2').val();
+            var $country3 = $('#countries3').val();
 
-            var months = ['Janurary', 'May', 'September'];
+            var months = [['Janurary', 'May', 'September'],
+                          [1,5,8]];
 
             var data = google.visualization.arrayToDataTable([
                 ['Year', 'Sales', 'Expenses', 'Profit'],
@@ -60,26 +61,40 @@
             ]);
 
 
+            $.get('<?= $siteurl ?>?url=api/countries/topten')
+                    .done(function(data) {
+                        data.forEach(function (country) {
+                            $('<option>').val(country.ISO).text(country.CountryName).appendTo('#countries1');
+                            $('<option>').val(country.ISO).text(country.CountryName).appendTo('#countries2');
+                            $('<option>').val(country.ISO).text(country.CountryName).appendTo('#countries3');
+                        });
+                    });
+
+
+            //button.onclick(click, updatechart3);
+
 
             var updateChart3 = function() {
 
                 var countryArray= [
                     {label: "Country", type: "string"},
-                    {label: "Visits", type: "number"}
+                    {label: "Visits", type: "number"},
+                    {label: "Months", type: "number"}
                 ];
 
-                $.get('<?= $siteurl ?>?url=api/chart3')
-                        .done(function (data) {
-                            data.forEach(function (country) {
-                                countryArray.push([country.countryName, country.visitsCount]);
-                                countryArray.sort();
-                            });
+                var uri = '<?= $siteurl ?>?url=api/chart3';
+                if($country1)
+                    uri += '&country1=' + encodeURIComponent($country1);
+                if($country2)
+                    uri += '&country2=' + encodeURIComponent($country2);
+                if($country3)
+                    uri += '&country3=' + encodeURIComponent($country3);
 
-                            for(var index in countryArray){
-                                    $('<option>').html(countryArray[index]).appendTo($country1);
-                                    $('<option>').html(countryArray[index]).appendTo($country2);
-                                    $('<option>').html(countryArray[index]).appendTo($country3);
-                            }
+                $.get(uri)
+                        .done(function (data) {
+                            var chart3DataTable = google.visualization.arrayToDataTable(dataArray);
+                            var chart = new google.charts.Bar(document.getElementById('chart3'));
+                            googleChart1.draw(chart3DataTable, options);
                         })
                         .fail(function () {
 
@@ -120,12 +135,10 @@
                 //$('<option>').text(item.CountryName).appendTo($country1, $country2, $country3);
                 //});
 
-                //var chart3DataTable = google.visualization.arrayToDataTable(dataArray);
-               // var chart = new google.charts.Bar(document.getElementById('chart3'));
-               // googleChart1.draw(chart3DataTable, options);
+
                 //} else {
                 //$('#chart3').firstChild.remove();
-               // $('#noChart3Data').text('No data available for this month');
+                //$('#noChart3Data').text('No data available for this month');
 
                // }
                // })

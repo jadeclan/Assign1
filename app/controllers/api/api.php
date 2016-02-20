@@ -63,7 +63,9 @@ class Countries extends APIController
 
     public function __construct()
     {
-        parent::__construct('Countries');
+        parent::__construct('Countries',[
+            new TopTen()]
+        );
 
         $this->model = new CountryModel();
     }
@@ -77,6 +79,23 @@ class Countries extends APIController
     }
 }
 
+
+class TopTen extends APIController
+{
+    private $model;
+
+    public function __construct()
+    {
+        parent::__construct('TopTen');
+
+        $this->model = new CountryModel();
+    }
+
+    public function get()
+    {
+        return $this->model->getTopTen();
+    }
+}
 
 class DeviceTypes extends APIController
 {
@@ -275,15 +294,19 @@ class Chart3B extends APIController
 
     public function get()
     {
-        $year = 2016;
-        if (isset($_GET['year']) && is_numeric($_GET['year']))
-            $year = $_GET['year'];
+        $country1 = "";
+        if ( isset($_GET['country1']) )
+            $country1 = $_GET['country1'];
 
-        $month = 1;
-        if (isset($_GET['month']) && is_numeric($_GET['month'])  && $_GET['month']>0 && $_GET['month']<13)
-            $month = $_GET['month'];
+        $country2 = "";
+        if ( isset($_GET['country2']) )
+            $country2 = $_GET['country2'];
 
-        return $this->model->search($year, $month);
+        $country3 = "";
+        if ( isset($_GET['country3']) )
+            $country3 = $_GET['country3'];
+
+        return $this->model->search($country1, $country2, $country3);
     }
 }
 
