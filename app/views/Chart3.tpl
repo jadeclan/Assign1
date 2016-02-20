@@ -63,10 +63,10 @@
 
             var updateChart3 = function() {
 
-                var countryArray= [[
+                var countryArray= [
                     {label: "Country", type: "string"},
                     {label: "Visits", type: "number"}
-                ]];
+                ];
 
                 $.get('<?= $siteurl ?>?url=api/chart3')
                         .done(function (data) {
@@ -75,11 +75,11 @@
                                 countryArray.sort();
                             });
 
-                            $.each(countryArray, function(key, value){
-                                    $('<option>').html(value).appendTo($country1);
+                            for(var index in countryArray){
+                                    $('<option>').html(countryArray[index]).appendTo($country1);
                                     $('<option>').html(countryArray[index]).appendTo($country2);
                                     $('<option>').html(countryArray[index]).appendTo($country3);
-                            });
+                            }
                         })
                         .fail(function () {
 

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="58bed283-dc96-4e22-b63a-e5d5ddc38182" name="Default" comment="creating/working on chart3 select statement and dropdown lists" />
+    <list default="true" id="58bed283-dc96-4e22-b63a-e5d5ddc38182" name="Default" comment="creating/working on chart3 select statement and dropdown lists">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/Chart3.tpl" afterPath="$PROJECT_DIR$/app/views/Chart3.tpl" />
+    </list>
     <ignored path="Assign1.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -57,8 +59,8 @@
       <file leaf-file-name="Chart3.tpl" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/Chart3.tpl">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.09026549">
-              <caret line="66" column="55" selection-start-line="66" selection-start-column="55" selection-end-line="66" selection-end-column="55" />
+            <state vertical-scroll-proportion="0.39115044">
+              <caret line="67" column="53" selection-start-line="67" selection-start-column="53" selection-end-line="67" selection-end-column="53" />
               <folding>
                 <element signature="n#style#0;n#select#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#select#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -754,8 +756,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/Chart3.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09026549">
-          <caret line="66" column="55" selection-start-line="66" selection-start-column="55" selection-end-line="66" selection-end-column="55" />
+        <state vertical-scroll-proportion="0.39115044">
+          <caret line="67" column="53" selection-start-line="67" selection-start-column="53" selection-end-line="67" selection-end-column="53" />
           <folding>
             <element signature="n#style#0;n#select#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#select#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
