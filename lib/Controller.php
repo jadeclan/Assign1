@@ -4,7 +4,6 @@ namespace Framework;
 
 use Exception;
 use RuntimeException;
-use ReflectionClass;
 
 
 /**
@@ -71,17 +70,14 @@ abstract class Controller
 	 */
 	public function __construct($id, array $children = [])
 	{
-		$reflection = new ReflectionClass($this);
-		$this->id = strtolower($reflection->getShortName());
-
 		// Sanity check
-		assert($this->id !== "content", "Invalid controller id: $id");
+		assert(!empty($id) && is_string($id) && strtolower($id) !== "content", "Invalid controller id: $id");
 
 		// Name
 		$this->name = $id;
 		
 		// The ID will determine routing, so force lower case
-		//$this->id = strtolower($id);
+		$this->id = strtolower($id);
 
 
 		// Set parent (build controller hierarchy)
