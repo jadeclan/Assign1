@@ -14,15 +14,15 @@ use Framework\Model;
  */
 class Chart3Model extends Model
 {
-    public function getSomeDataForYourChart() {
-        /*  $result = $this->db->query("SELECT browsers.id,
-                                             name,
-                                             count(*) AS hits,
-                                             ((count(*)/(SELECT count(*) FROM visits)) * 100) AS percentage
-                                      FROM browsers
-                                        JOIN visits ON browsers.id = visits.browser_id
-                                      GROUP BY name");
-
-          return $result->fetchAll(); */
+    public function search($year, $month) {
+        $result = $this->db->query("SELECT countryName, count(*) AS visitsCount
+                                        FROM countries,visits
+                                        WHERE countries.ISO = visits.country_code
+                                        AND (EXTRACT(year from visits.visit_date) = $year)
+                                        AND (EXTRACT( month from visits.visit_date) = $month)
+                                        GROUP BY countryName
+                                        ORDER BY visitsCount DESC
+                                        LIMIT 10");
+        return $result->fetchAll();
     }
 }
