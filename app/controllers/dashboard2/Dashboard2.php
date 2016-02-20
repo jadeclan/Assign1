@@ -15,7 +15,7 @@ class Dashboard2 extends Controller implements Navable
 {
     public function __construct()
     {
-        parent::__construct('Dashboard2', [
+        parent::__construct('You can now put anything you want in here!!!!! +_)(*&^%$#@!<>,./;', [
             new Card1(),
             new Card2(),
             new Card3()
