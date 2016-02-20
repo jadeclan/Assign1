@@ -1,13 +1,10 @@
 <?php
 namespace Application;
 
-use RuntimeException;
+require_once "app/models/Chart3Model.php";
 
 use Framework\Controller;
-use Framework\Model;
 use Framework\View;
-
-require_once "app/models/Chart3Model.php";
 /*
  * Chart3 class used to create the Chart3 view using
  * data obtained from the Chart3Model.
@@ -25,6 +22,6 @@ class Chart3 extends Controller
 
     public function Content()
     {
-        return new View('Chart3.tpl');
+        return new View('charts/Chart3.tpl');
     }
 }

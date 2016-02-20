@@ -4,7 +4,6 @@ namespace Application;
 
 use Framework\View;
 use Framework\Controller;
-
 /*
  * Constructs the Header function from the header.tpl file
  */

@@ -3,7 +3,6 @@
 namespace Application;
 
 use Framework\Model;
-
 class ReferrerModel extends Model
 {
     public function getAll()

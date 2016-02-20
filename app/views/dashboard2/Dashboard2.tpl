@@ -8,17 +8,17 @@
         <div class="col s12 m6">
             <div class="row">
                 <div class="col s12">
-                    <?= $c->Render("card1dash2") ?>
+                    <?= $c->Render("card1") ?>
                 </div>
             </div>
             <div class="row">
                 <div class="col s12">
-                    <?= $c->Render("card2dash2") ?>
+                    <?= $c->Render("card2") ?>
                 </div>
             </div>
         </div> <!-- /.col -->
         <div class="col s12 m6">
-            <?= $c->Render("card3dash2") ?>
+            <?= $c->Render("card3") ?>
         </div>
     </div><!-- /.row -->
 

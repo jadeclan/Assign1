@@ -1,4 +1,4 @@
-<!-- begin Card1Dash2.tpl -->
+<!-- begin Card1.tpl -->
 
 <div class="row">
     <div class="col12 m6">
@@ -22,7 +22,7 @@
     </div>
 </div>
 
-<!-- end Card1Dash2.tpl -->
+<!-- end Card1.tpl -->
 <script>
     $(document).ready(function(){
         var $loading = $('<div class="progress">').append($('<div class="indeterminate"></div></div>')).appendTo("#card1a");
@@ -58,7 +58,7 @@
                     .always(function () {
                         $loading.remove();
                     });
-        }
+        };
         updateCard1();
     });
 </script>

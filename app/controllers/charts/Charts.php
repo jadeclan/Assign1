@@ -1,18 +1,13 @@
 <?php
 namespace Application;
 
-use RuntimeException;
-
-use Framework\Controller;
-use Framework\Model;
-use Framework\View;
-use Framework\Navable;
-
 require_once "Chart1.php";
 require_once "Chart2.php";
 require_once "Chart3.php";
 
-
+use Framework\Controller;
+use Framework\View;
+use Framework\Navable;
 /*
  *
  */
@@ -36,6 +31,6 @@ class Charts extends Controller implements Navable
     }
 
     public function Content(){
-        return new View('Charts.tpl');
+        return new View('charts/Charts.tpl');
     }
 }

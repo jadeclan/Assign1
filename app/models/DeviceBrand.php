@@ -3,7 +3,6 @@
 namespace Application;
 
 use Framework\Model;
-
 class DeviceBrandModel extends Model
 {
     public function getAll()

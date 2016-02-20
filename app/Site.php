@@ -7,9 +7,6 @@
  */
 namespace Application;
 
-use Framework\Application;
-use Framework\View;
-
 include "controllers/About.php";
 include "controllers/Visits.php";
 include "controllers/dashboard1/Dashboard.php";
@@ -19,6 +16,10 @@ include "controllers/Footer.php";
 include "controllers/api/api.php";
 include "controllers/charts/Charts.php";
 include "controllers/dashboard2/Dashboard2.php";
+
+use Framework\Application;
+use Framework\View;
+use Application\Dashboard2;
 /**
  * The Site class. This class will serve as the root of the controller hierarchy.
  */
@@ -36,7 +37,7 @@ class Site extends Application
             new Header(),
             new Footer(),
             new Dashboard(),
-            new Dashboard2(),
+            new Dashboard2\Dashboard2(),
             new VisitBrowser(),
             new Charts(),
             new Documentation(),

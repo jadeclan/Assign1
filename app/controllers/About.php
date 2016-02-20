@@ -2,10 +2,8 @@
 
 namespace Application;
 
-use Framework\Model;
 use Framework\View;
 use Framework\Controller;
-
 use Framework\Navable;
 
 class About extends Controller implements Navable

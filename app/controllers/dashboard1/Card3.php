@@ -2,12 +2,10 @@
 
 namespace Application;
 
-use Framework\Model;
-use Framework\View;
-use Framework\Controller;
-
 require_once "app/models/Card3.php";
 
+use Framework\View;
+use Framework\Controller;
 /*
  * Class that controls the creation of Card3 view
  * with data obtained from the Card3Model.
@@ -28,7 +26,7 @@ class Card3 extends Controller
      */
     public function Content()
     {
-        return new View('Card3.tpl', [
+        return new View('dashboard1/Card3.tpl', [
             'continents' => $this->model->getContinents(),
             'continentData' => $this->model->getContinentList()
         ]);

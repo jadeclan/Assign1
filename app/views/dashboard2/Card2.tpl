@@ -1,4 +1,4 @@
-<!-- begin Card2Dash2.tpl -->
+<!-- begin Card2.tpl -->
 <div class="row">
     <div class="col12 m6">
         <div class="card z-depth-1-half" id="card2">
@@ -62,4 +62,4 @@ $(document).ready(function() {
     });
 });
 </script>
-<!-- end Card2Dash2.tpl -->
+<!-- end Card2.tpl -->

@@ -4,7 +4,6 @@ namespace Application;
 
 use Framework\View;
 use Framework\Controller;
-
 /*
  * Constructs the Footer function from the footer.tpl file
  */

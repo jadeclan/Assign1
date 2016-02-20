@@ -3,7 +3,6 @@
 namespace Application;
 
 use Framework\Model;
-
 /**
  * The Card3Model class. Extends the model class (Database Access)
  * Provides the functionality to query the database

@@ -5,8 +5,6 @@ namespace Application;
 use Framework\Controller;
 use Framework\Navable;
 use Framework\View;
-use Framework\Model;
-
 class VisitBrowser extends Controller implements Navable
 {
     public function __construct() {

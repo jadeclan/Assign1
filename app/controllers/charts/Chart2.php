@@ -7,13 +7,10 @@
  */
 namespace Application;
 
-use RuntimeException;
+require_once "app/models/Chart2Model.php";
 
 use Framework\Controller;
-use Framework\Model;
 use Framework\View;
-
-require_once "app/models/Chart2Model.php";
 /*
  * Chart2 class used to create the Chart view using
  * data obtained from the Chart2Model.
@@ -31,6 +28,6 @@ class Chart2 extends Controller
 
     public function Content()
     {
-        return new View('Chart2.tpl');
+        return new View('charts/Chart2.tpl');
     }
 }
