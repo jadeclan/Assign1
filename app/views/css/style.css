@@ -10,7 +10,7 @@ nav .brand-logo{
 }
 
 footer.page-footer{
-    background-color: #bf360c;
+   background-color: #eceff1;
 }
 
 .card-panel{
@@ -25,7 +25,7 @@ h1, h2, h3, h4, h5, h6{
     overflow-x: hidden;
 }
 
-a, .tabs .tab a, nav ul a{
+a, .tabs .tab a, nav ul a, nav a{
     color: #bf360c;
 }
 
@@ -51,6 +51,8 @@ a:hover, .tabs .tab a:hover{
 
 #card3{
     box-shadow: 0 5px 11px 0 #6a1b9a, 0 4px 15px 0 #6a1b9a;
+    max-height: 845px;
+    overflow-y: auto;
 }
 
 #card3 .card-title{
@@ -91,6 +93,47 @@ input.select-dropdown{
 }
 
 iframe{
-    width: 843px;
+    width: 100%;
     height: 800px;
+}
+
+.side-nav{
+    z-index: 999;
+    width: 190px;
+    box-shadow: 0 2px 5px 0 #ff8a65;
+    background-color: #bf360c;
+}
+
+.side-nav.fixed a{
+    color: white;
+}
+
+.side-nav.fixed a:hover{
+    color: #006064;
+}
+
+main, footer {
+    padding-left: 117px;
+}
+
+@media only screen and (max-width : 992px) {
+    main, footer {
+        padding-left: 0;
+    }
+}
+
+footer.page-footer span{
+    color: black;
+}
+
+body{
+    background-color: #fafafa;
+}
+
+.side-nav.fixed li.active a{
+    color: black;
+}
+
+#nav-mobile{
+    top: inherit;
 }

@@ -21,15 +21,20 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script type="text/javascript" src="<?= $themedir ?>/assets/materialize/js/materialize.js"></script>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-
 </head>
 <body>
+<?= $c->Render("header"); ?>
+<main>
+    <div>
+        <div class="row">
+            <div class="col offset-m1 s12 m11">
+                <?= $c->Render("content"); ?>
+            </div>
+        </div>
+    </div>
+</main>
 
-    <?= $c->Render("header"); ?>
-
-    <?= $c->Render("content"); ?>
-
-    <?= $c->Render("footer"); ?>
+<?= $c->Render("footer"); ?>
 
 </body>
 </html>

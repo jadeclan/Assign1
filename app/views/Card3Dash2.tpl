@@ -8,8 +8,8 @@
             </select>
         </div>
 
-
-        <table id="continentBox">
+        <div id="loadanimation"></div>
+        <table id="continentBox" class="hide">
             <thead>
             <tr id="selectedContinent">
                 <th>Country</th>
@@ -24,7 +24,7 @@
 <!-- end Card3Dash2.tpl -->
 <script>
     $(function () {
-        var $loading = $('<div class="progress">').append($('<div class="indeterminate"></div></div>')).appendTo("#contBody");
+        var $loading = $('<div class="progress">').append($('<div class="indeterminate"></div></div>')).appendTo("#loadanimation");
         $.get('<?= $siteurl ?>?url=api/continents')
                 .done(function(data) {
                     data.forEach(function(continent) {
@@ -37,7 +37,7 @@
                 .always(function () {
                     $loading.remove();
                 });
-        
+
         var updateCard3 = function (){
             var uri = '<?= $siteurl ?>?url=api/card3Dash2';
             var countrySelection = $("#cSelection").val();
@@ -46,6 +46,7 @@
 
             $.get(uri)
                     .done(function(data){
+                        $('#continentBox').attr("class", "");
                         var $tableBody = $('#contBody');
                         $tableBody.empty();
                         data.forEach(function(item) {

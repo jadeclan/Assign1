@@ -1,12 +1,12 @@
 <!-- Begin Chart Two TPL -->
 <div class="card" id="card3">
     <div class="card-content hoverable">
-        <span class="card-title">Geo Chart - Visits per Country</span>
+        <span class="card-title">Visits per Country</span>
         <div class="input-field">
             <select id="months" name="monthPicked" class="initialized" style="display: inline-block"></select>
         </div>
         <div id="nodata"></div>
-        <div id="chart2Div" style="width: 670px; height: 500px;">
+        <div id="chart2Div" style="width: 100%; height: 100%;">
         </div>
     </div>
 </div>
