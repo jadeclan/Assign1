@@ -8,7 +8,6 @@ Data Driven PHP and JavaScript ![GitHubLogo](app/views/images/logo.jpg)
 
  - :arrow_right: [Contributors](#contributors)
  - :arrow_right: [Some Stats](#some-stats)
- - :arrow_right: [Special Thanks](#special-thanks)
 
 ## *Contributors*
 
@@ -21,10 +20,7 @@ Data Driven PHP and JavaScript ![GitHubLogo](app/views/images/logo.jpg)
 ### [Git Status in Command Line Prompt Documentation](documentation/showBranchInPrompt.md)
 
 ## **Some Stats**
- - Look at **CHANGELOG.MD** for this project (TBD)
- - Look at **PUNCHCARD.MD** for this project (TBD)
-
-## _**Special Thanks**_
- - Hmmmmmmm
- - Hmmmmmm2
- - Hmmmmmm3
+ - [Commits by James Bergeron](https://github.com/jadeclan/Assign1/commits/master?author=jadeclan)
+ - [Commits by Mark O'Donnell](https://github.com/jadeclan/Assign1/commits/master?author=CrazyIrish)
+ - [Commits by Sonia Pitrola](https://github.com/jadeclan/Assign1/commits/master?author=spitrola)
+ - [Commits by Nolan Walker](https://github.com/jadeclan/Assign1/commits/master?author=Nwalk957)
