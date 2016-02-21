@@ -8,9 +8,8 @@
     </div>
     <div class="row">
         <div class="input-field col m2">
-            <select id="countryFilter" class="filter">
-                <option value="" selected>All Countries</option>
-            </select>
+            <input id="countryAutocomplete" placeholder="All Countries"/>
+            <input type="hidden" id="countryFilter"/>
         </div>
         <div class="input-field col m2">
             <select id="deviceTypeFilter" class="filter">
@@ -39,7 +38,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col s12 m8 offset-m2">
+        <div class="col s12 m8 offset-m2" style="position: relative">
             <table id="visits">
                 <thead>
                 <tr>
@@ -47,16 +46,19 @@
                     <th>Visit Time</th>
                     <th>IP Address</th>
                     <th>Country</th>
-                    <th></th>
+                    <th>Details</th>
                 </tr>
                 </thead>
                 <tbody>
+                <!-- this is kind of hackish... but it works (helps position the loading animation correctly when the table is empty)... -->
+                <tr><td>&nbsp;</td></tr>
                 </tbody>
             </table>
         </div>
     </div>
     <div class="row">
-        <div class="col m6 offset-m3 center">
+        <div class="col s12 m8 offset-m2 center">
+            <hr/>
             <ul class="pagination">
             </ul>
         </div>
@@ -65,7 +67,7 @@
 
 <div id="visit-details-modal" class="modal">
     <div class="modal-content">
-        <h4>Visits</h4>
+        <h4>Visit Details</h4>
         <hr>
         <div class="row">
             <div class="col s6">
@@ -164,14 +166,21 @@
             if (page)
                 uri += '&page=' + encodeURIComponent(page);
 
-            // Apparently, the $("#visits tbody") syntax is horribly inefficient...
-            // see: http://stackoverflow.com/questions/12674591/inefficient-jquery-usage-warnings-in-phpstorm-ide
 
-            // clear table
-            $("#visits").find('tbody').empty();
+            // Loading... (animation, gray and disable)
+            var $loading = $('<div>')
+                    .addClass('progress')
+                    .css('position', 'absolute')
+                    .css('left', '45%')
+                    .css('top', '50%')
+                    .css('width', '10%')
+                    .css('height', '10px')
+                    .append($('<div>').addClass('indeterminate')).appendTo($('#visits').parent());
 
-            // TODO: loading animation...
-            var $loading = $('<div class="progress">').append($('<div class="indeterminate"></div></div>')).appendTo("#visits");
+            $('#visits').find('button').prop('disabled', true);
+            $('#visits').fadeTo(0, 0.2);
+            $('#pagination').fadeTo(0, 0.2);
+            $('#pagination').find('li').off();
 
             // ajax
             $.get(uri)
@@ -179,6 +188,9 @@
                     .done(function (data) {
                         // save for later...
                         var visits = data.visits;
+
+                        // clear table
+                        $("#visits").find('tbody').empty();
 
                         // add results
                         if (visits.length) {
@@ -188,25 +200,25 @@
                                     $('<td>').text(item.visitTime),
                                     $('<td>').text(item.ipAddress),
                                     $('<td>').text(item.countryName),
-                                    $('<td>').append($('<button>').addClass('btn').data('index', index).text('Details').on('click', function() {
-                                        // details event handler
-                                        var visit = visits[$(this).data('index')];
+                                    $('<td>').append($('<button>').addClass('btn').data('index', index).append($('<i>').addClass('large material-icons').text('view_list'))
+                                        .on('click', function() {
+                                            // details event handler
+                                            var visit = visits[$(this).data('index')];
 
-                                        // update modal details
-                                        $("#visitDate").text(visit.visitDate);
-                                        $("#visitTime").text(visit.visitTime);
-                                        $("#ipAddress").text(visit.ipAddress);
-                                        $("#country").text(visit.countryName);
-                                        $("#deviceType").text(visit.deviceType);
-                                        $("#deviceBrand").text(visit.deviceBrand);
-                                        $("#browser").text(visit.browserName);
-                                        $("#referrer").text(visit.referrerName);
-                                        $("#os").text(visit.operatingSystem);
+                                            // update modal details
+                                            $("#visitDate").text(visit.visitDate);
+                                            $("#visitTime").text(visit.visitTime);
+                                            $("#ipAddress").text(visit.ipAddress);
+                                            $("#country").text(visit.countryName);
+                                            $("#deviceType").text(visit.deviceType);
+                                            $("#deviceBrand").text(visit.deviceBrand);
+                                            $("#browser").text(visit.browserName);
+                                            $("#referrer").text(visit.referrerName);
+                                            $("#os").text(visit.operatingSystem);
 
-                                        // show modal
-                                        $('#visit-details-modal').openModal();
-                                    }))
-                                ).appendTo('#visits');
+                                            // show modal
+                                            $('#visit-details-modal').openModal();
+                                        }))).appendTo('#visits');
                             });
 
                         } else {
@@ -223,10 +235,13 @@
                     })
 
                     .always(function(data) {
-                        $loading.remove();
-
-                        // pagination
+                        // update pagination
                         updatePagination(data.page, data.pages);
+
+                        // remove loading animation
+                        $loading.remove();
+                        $('#visits').fadeTo(0, 1);
+                        $('#pagination').fadeTo(0, 1);
                     });
         };
 
@@ -234,11 +249,33 @@
         $.get('<?= $siteurl ?>?url=api/countries')
 
                 .done(function(data) {
+                    var array = [];
+
                     data.forEach(function(item) {
-                        $('<option>').val(item.ISO).text(item.CountryName).appendTo("#countryFilter");
+                        array.push({ value: item.ISO, label: item.CountryName });
                     });
 
-                    $("#countryFilter").material_select();
+                    $("#countryAutocomplete").autocomplete({
+                        source: array,
+                        autoFocus: true,
+                        select: function(event, ui) {
+                            event.preventDefault();
+
+                            $(this).val(ui.item.label);
+                            $("#countryFilter").val(ui.item.value);
+
+                            updateVisits();
+                        }
+                    });
+
+                    // the jQuery UI autocomplete plugin doesn't support clearing the field, so...
+                    $("#countryAutocomplete").on('keyup', function (e) {
+                        if ( /* e.keyCode == 13 && */ !$(this).val()) {
+                            $("#countryFilter").val("");
+                            updateVisits();
+                        }
+                    });
+
                 });
 
         // populate device type filter
@@ -297,7 +334,7 @@
                 });
 
         // attach event handlers
-        $('select').on('change', updateVisits);
+        $('.filter').on('change', updateVisits);
 
         // do initial load
         updateVisits();
