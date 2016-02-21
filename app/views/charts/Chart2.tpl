@@ -15,6 +15,7 @@
 <script type="text/javascript">
 
     google.charts.setOnLoadCallback(drawRegionsMap);
+
     function drawRegionsMap() {
         $(function(){
             var $loading = $('<div class="progress">').append($('<div class="indeterminate"></div></div>')).appendTo("#chart2Div");

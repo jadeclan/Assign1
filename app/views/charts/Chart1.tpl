@@ -15,10 +15,8 @@
                 </div>
             </div>
 
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script>
-    google.charts.load("current", {packages:['corechart']});
+    google.charts.load("current", {packages:['corechart', 'bar']});
     google.charts.setOnLoadCallback(drawDailyVisits);
     function drawDailyVisits(){
         $(function() {

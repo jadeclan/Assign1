@@ -39,64 +39,70 @@
 </div>
 <!-- End of Chart of Chart3 -->
 <script type="text/javascript">
-    
-    google.charts.setOnLoadCallback(drawChart);
-    function drawChart() {
-        $(function() {
+
+    $(function() {
+        // populate drop downs
+        $.get('<?= $siteurl ?>?url=api/countries/topten')
+                .done(function (data) {
+                    data.forEach(function (country) {
+                        $('<option>').val(country.ISO).text(country.CountryName).appendTo('#countries1');
+                        $('<option>').val(country.ISO).text(country.CountryName).appendTo('#countries2');
+                        $('<option>').val(country.ISO).text(country.CountryName).appendTo('#countries3');
+                    });
+                });
+
+        var drawChart = function() {
 
             var $country1 = $('#countries1').val();
             var $country2 = $('#countries2').val();
             var $country3 = $('#countries3').val();
 
-            $.get('<?= $siteurl ?>?url=api/countries/topten')
-                    .done(function(data) {
-                        data.forEach(function (country) {
-                            $('<option>').val(country.ISO).text(country.CountryName).appendTo('#countries1');
-                            $('<option>').val(country.ISO).text(country.CountryName).appendTo('#countries2');
-                            $('<option>').val(country.ISO).text(country.CountryName).appendTo('#countries3');
-                        });
+            var uri = '<?= $siteurl ?>?url=api/chart3';
+            if ($country1)
+                uri += '&country1=' + encodeURIComponent($country1);
+            if ($country2)
+                uri += '&country2=' + encodeURIComponent($country2);
+            if ($country3)
+                uri += '&country3=' + encodeURIComponent($country3);
+
+            var $loading = $('<div class="progress">').append($('<div class="indeterminate"></div></div>')).appendTo("#loadable");
+
+            $.get(uri)
+                .done(function(data) {
+                    var chart3DataTable = [['Country', 'Jan', 'May', 'Aug']];
+
+                    data.forEach(function(item) {
+                        chart3DataTable.push([item.countryName, parseInt(item.Jan), parseInt(item.May), parseInt(item.Aug)]);
                     });
 
-            $('#theButton').on('click',function updateChart3(){
-                    var $loading = $('<div class="progress">').append($('<div class="indeterminate"></div></div>')).appendTo("#loadable");
+                    chart3DataTable = google.visualization.arrayToDataTable(chart3DataTable);
 
-                    //data-object layout
-                    //var countryArray = [
-                    //    {label: "Country", type: "string"},
-                    //    {label: "Visits", type: "number"},
-                    //    {label: "Months", type: "number"}
-                    //];
+                    var options = {
+                        chart: {
+                            title: 'Population of Largest U.S. Cities'
+                        },
+                        hAxis: {
+                            title: 'Total Population',
+                            minValue: 0
+                        },
+                        vAxis: {
+                            title: 'City'
+                        },
+                        bars: 'horizontal'
+                    };
 
-                    var uri = '<?= $siteurl ?>?url=api/chart3';
-                    if ($country1)
-                        uri += '&country1=' + encodeURIComponent($country1);
-                    if ($country2)
-                        uri += '&country2=' + encodeURIComponent($country2);
-                    if ($country3)
-                        uri += '&country3=' + encodeURIComponent($country3);
-
-                    $.get(uri)
-                            .done(function (data) {
-                                var chart3DataTable = google.visualization.arrayToDataTable(data);
-
-                                var options = {
-                                    chart:{
-                                        title: 'Site Visits',
-                                        subtitle: '2016' },
-                                    legend:{position: 'bottom' },
-                                    hAxis: {title: 'Year'},
-                                 };
-
-                                var googleChart3 = new google.charts.Bar( document.getElementById('chart3') );
-                                googleChart3.draw(chart3DataTable, options);
-                            })
-                            .fail(function () {
-                                $('div').append($('span').text('Error loading data.').appendTo('#chart3'));
-                            })
-                            .always(function () {
-                                $loading.remove();
-                            });
+                    var chart = new google.visualization.BarChart(document.getElementById('chart3'));
+                    chart.draw(chart3DataTable, options);
+                })
+                .fail(function () {
+                    $('div').append($('span').text('Error loading data.').appendTo('#chart3'));
+                })
+                .always(function () {
+                    $loading.remove();
                 });
-        });
-    }
+        };
+
+        $('#theButton').on('click', drawChart);
+        google.charts.setOnLoadCallback(drawChart);
+    });
 </script>

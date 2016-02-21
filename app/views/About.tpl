@@ -67,7 +67,7 @@
                         <img class="responsive-img center-block" src="<?= $themedir ?>/images/Donald-Trump-Wrestling-Rosie-O-Donnell.jpg" alt="Rosie and Donald" title="Rosie and Donald">
                         <p>
                             CrazyIrish? Have you seen the code he wrote for the MVC controller? CrazyIrish?
-                            Did he really convince the group to follow him down the MVC rabbit hole? Crazy Irish?
+                            Did he really convince the group to follow him down the MVC rabbit hole? CrazyIrish?
                             Coach, educator, facilitator, thinker. Need to see recursive code in action?
                             Want to see minimalistic PHP coding style? Looking for obscure PHP commands to do
                             a job perfectly? Yup Crazy is right! No idea about the Irish part. The strong,
