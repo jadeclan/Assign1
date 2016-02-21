@@ -8,7 +8,6 @@ Data Driven PHP and JavaScript ![GitHubLogo](app/views/images/logo.jpg)
 
  - :arrow_right: [Contributors](#contributors)
  - :arrow_right: [Some Stats](#some-stats)
- - :arrow_right: [Special Thanks](#special-thanks)
 
 ## *Contributors*
 
@@ -21,10 +20,4 @@ Data Driven PHP and JavaScript ![GitHubLogo](app/views/images/logo.jpg)
 ### [Git Status in Command Line Prompt Documentation](documentation/showBranchInPrompt.md)
 
 ## **Some Stats**
- - Look at **CHANGELOG.MD** for this project (TBD)
- - Look at **PUNCHCARD.MD** for this project (TBD)
-
-## _**Special Thanks**_
- - Hmmmmmmm
- - Hmmmmmm2
- - Hmmmmmm3
+ - [Commits by James Bergeron](https://github.com/rails/rails/commits/master?author=jadeclan)

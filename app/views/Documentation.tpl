@@ -53,6 +53,20 @@
                         <td>
                             <a href="http://materializecss.com/preloader.html">Materialize Loading Animation</a>
                         </td>
+                        <td>
+                            <!-- Dropdown Trigger -->
+                            <a class='dropdown-button' data-hover="true" data-alignment="right" href='#' data-activates='dropdown1'>Images Used</a>
+
+                            <!-- Dropdown Structure -->
+                            <ul id='dropdown1' class='dropdown-content'>
+                                <li><a href="https://commons.wikimedia.org/wiki/File:Cat_mosaic.JPG">Cat Mosaic</a></li>
+                                <li><a href="https://www.gpsgiftgallery.com/index.php?main_page=index&cPath=199">Philadelphia Flyers Banner</a></li>
+                                <li><a href="http://www.freakingnews.com/Donald-Trump-vs-Rosie-O-Donnell-Pictures----1290.asp">Rosie and Donald</a></li>
+                                <li><a href="http://www.theprofitablefirm.com/blog/category/prospecting-leads/">Circular Analysis</a></li>
+                                <li class="divider"></li>
+                                <li><a href="http://duallygirl1748.deviantart.com/art/kitten-play-270925938">Read Me Logo</a></li>
+                            </ul>
+                        </td>
                     </tr>
                 </table>
             </div>
