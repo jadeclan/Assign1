@@ -67,14 +67,15 @@ abstract class Controller
 	 * Constructor.
 	 * @param string $id Used as both the name (unmodified) and route (lowercase) for this controller.
 	 * @param array $children An array of controllers below this controller.
+	 * @param string $title Optional, specify a title for the page, if not set the controllers ID will be used.
 	 */
-	public function __construct($id, array $children = [])
+	public function __construct($id, array $children = [], $title = "")
 	{
 		// Sanity check
 		assert(!empty($id) && is_string($id) && strtolower($id) !== "content", "Invalid controller id: $id");
 
 		// Name
-		$this->name = $id;
+		$this->name = empty($title) ? $id : $title;
 		
 		// The ID will determine routing, so force lower case
 		$this->id = strtolower($id);
