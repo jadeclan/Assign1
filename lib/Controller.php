@@ -79,6 +79,7 @@ abstract class Controller
 		// The ID will determine routing, so force lower case
 		$this->id = strtolower($id);
 
+
 		// Set parent (build controller hierarchy)
 		if (!empty($children)) {
 			foreach ($children as $child) {

@@ -51,8 +51,6 @@ a:hover, .tabs .tab a:hover{
 
 #card3{
     box-shadow: 0 5px 11px 0 #6a1b9a, 0 4px 15px 0 #6a1b9a;
-    max-height: 845px;
-    overflow-y: auto;
 }
 
 #card3 .card-title{
@@ -149,4 +147,9 @@ body{
 
 #content{
     margin-top: 2%;
+}
+
+#card3 .card-content{
+    max-height: 845px;
+    overflow-y: auto;
 }
