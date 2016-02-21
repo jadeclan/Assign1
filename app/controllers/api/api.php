@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: mark
- * Date: 2/6/16
- * Time: 5:01 PM
- */
-
 namespace Application;
 
 use RuntimeException;
@@ -13,18 +6,23 @@ use RuntimeException;
 use Framework\Controller;
 use Framework\APIController;
 
+require_once "Continents.php";
+require_once "Card3D2.php";
+require_once "Card2D2.php";
+require_once "Card1D2.php";
+
 require_once "app/models/Country.php";
 require_once "app/models/DeviceType.php";
 require_once "app/models/DeviceBrand.php";
 require_once "app/models/Browser.php";
 require_once "app/models/Referrer.php";
 require_once "app/models/OperatingSystem.php";
-require_once "app/models/Chart1Model.php";
-require_once "app/models/Chart2Model.php";
-require_once "app/models/Chart3Model.php";
-require_once "app/models/Card1Dash2Model.php";
-require_once "app/models/Card2Dash2Model.php";
-require_once "app/models/Card3Dash2Model.php";
+require_once "app/models/charts/Chart1Model.php";
+require_once "app/models/charts/Chart2Model.php";
+require_once "app/models/charts/Chart3Model.php";
+require_once "app/models/dashboard2/Card1Dash2Model.php";
+require_once "app/models/dashboard2/Card2Dash2Model.php";
+require_once "app/models/dashboard2/Card3Dash2Model.php";
 require_once "app/models/Continent.php";
 
 require_once "app/models/Visit.php";
@@ -307,83 +305,5 @@ class Chart3B extends APIController
             $country3 = $_GET['country3'];
 
         return $this->model->search($country1, $country2, $country3);
-    }
-}
-
-class Card1D2 extends APIController
-{
-    private $model;
-
-    public function __construct()
-    {
-        parent::__construct('Card1Dash2');
-
-        $this->model = new Card1Dash2Model();
-    }
-
-    public function get()
-    {
-        return $this->model->search();
-    }
-}
-
-class Card2D2 extends APIController
-{
-    private $model;
-
-    public function __construct()
-    {
-        parent::__construct('Card2Dash2');
-
-        $this->model = new Card2Dash2Model();
-    }
-
-    public function get()
-    {
-        $brand='';
-        if (isset($_GET['brand']))
-            $brand = $_GET['brand'];
-
-        return $this->model->search($brand);
-    }
-}
-
-class Card3D2 extends APIController
-{
-    private $model;
-
-    public function __construct()
-    {
-        parent::__construct('Card3Dash2');
-
-        $this->model = new Card3Dash2Model();
-    }
-
-    public function get()
-    {
-        $country = '';
-        if (isset($_GET['country']))
-            $country = $_GET['country'];
-        return $this->model->search($country);
-    }
-}
-
-class Continents extends APIController
-{
-    private $model;
-
-    public function __construct()
-    {
-        parent::__construct('Continents');
-
-        $this->model = new ContinentsModel();
-    }
-
-    public function get()
-    {
-        if (count($this->arguments) > 0)
-            return $this->model->getByContinentCode($this->arguments[0]);
-        else
-            return $this->model->getAll();
     }
 }

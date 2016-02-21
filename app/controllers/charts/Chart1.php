@@ -7,7 +7,7 @@
  */
 namespace Application;
 
-require_once "app/models/Chart1Model.php";
+require_once "app/models/charts/Chart1Model.php";
 
 use Framework\Controller;
 use Framework\View;

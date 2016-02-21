@@ -2,7 +2,7 @@
 
 namespace Application\Dashboard2;
 
-require_once "app/models/Card2Dash2Model.php";
+require_once "app/models/dashboard2/Card2Dash2Model.php";
 
 use Framework\Controller;
 use Framework\View;
