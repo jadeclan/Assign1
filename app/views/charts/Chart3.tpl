@@ -79,14 +79,14 @@
 
                     var options = {
                         chart: {
-                            title: 'Population of Largest U.S. Cities'
+                            title: 'Visits per Month'
                         },
                         hAxis: {
-                            title: 'Total Population',
+                            title: 'Total Visits',
                             minValue: 0
                         },
                         vAxis: {
-                            title: 'City'
+                            title: 'Country'
                         },
                         bars: 'horizontal'
                     };
