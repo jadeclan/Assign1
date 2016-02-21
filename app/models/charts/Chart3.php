@@ -1,10 +1,8 @@
 <?php
 
-namespace Application;
+namespace Application\API\Model;
 
 use Framework\Model;
-
-
 /**
  * The Chart3Model class. Extends the model class (Database Access)
  * Provides the functionality to query the database

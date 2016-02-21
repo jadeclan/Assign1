@@ -4,7 +4,6 @@ namespace Application;
 use RuntimeException;
 
 use Framework\Controller;
-use Framework\APIController;
 
 require_once "Browsers.php";
 require_once "Continents.php";
@@ -28,12 +27,12 @@ require_once "app/models/DeviceBrand.php";
 require_once "app/models/Browser.php";
 require_once "app/models/Referrer.php";
 require_once "app/models/OperatingSystem.php";
-require_once "app/models/charts/Chart1Model.php";
-require_once "app/models/charts/Chart2Model.php";
-require_once "app/models/charts/Chart3Model.php";
-require_once "app/models/dashboard2/Card1Dash2Model.php";
-require_once "app/models/dashboard2/Card2Dash2Model.php";
-require_once "app/models/dashboard2/Card3Dash2Model.php";
+require_once "app/models/charts/Chart1.php";
+require_once "app/models/charts/Chart2.php";
+require_once "app/models/charts/Chart3.php";
+require_once "app/models/dashboard2/Card1.php";
+require_once "app/models/dashboard2/Card2.php";
+require_once "app/models/dashboard2/Card3.php";
 require_once "app/models/Continent.php";
 
 require_once "app/models/Visit.php";
@@ -47,15 +46,15 @@ class API extends Controller
             new Countries(),
             new DeviceTypes(),
             new DeviceBrands(),
-            new Browsers(),
+            new API\Controller\Browsers(),
             new Referrers(),
             new OperatingSystems(),
-            new Chart1B(),
-            new Chart2B(),
-            new Chart3B(),
-            new Card1D2(),
-            new Card2D2(),
-            new Card3D2(),
+            new API\Controller\Chart1(),
+            new API\Controller\Chart2B(),
+            new API\Controller\Chart3B(),
+            new API\Controller\Card1D2(),
+            new API\Controller\Card2D2(),
+            new API\Controller\Card3D2(),
             new Continents(),
         ]);
     }

@@ -1,16 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: james
- * Date: 12/02/16
- * Time: 4:36 PM
- */
 namespace Application;
 
-require_once "app/models/charts/Chart2Model.php";
+require_once "app/models/charts/Chart2.php";
 
 use Framework\Controller;
 use Framework\View;
+use Application\API\Model;
 /*
  * Chart2 class used to create the Chart view using
  * data obtained from the Chart2Model.
@@ -23,7 +18,7 @@ class Chart2 extends Controller
     {
         parent::__construct('Chart2');
 
-        $this->model = new Chart2Model();
+        $this->model = new Model\Chart2Model();
     }
 
     public function Content()

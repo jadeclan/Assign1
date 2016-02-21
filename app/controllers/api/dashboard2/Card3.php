@@ -1,7 +1,8 @@
 <?php
-namespace Application;
+namespace Application\API\Controller;
 
 use Framework\APIController;
+use Application\API\Model;
 class Card3D2 extends APIController
 {
     private $model;
@@ -10,7 +11,7 @@ class Card3D2 extends APIController
     {
         parent::__construct('Card3Dash2');
 
-        $this->model = new Card3Dash2Model();
+        $this->model = new Model\Card3Dash2Model();
     }
 
     public function get()

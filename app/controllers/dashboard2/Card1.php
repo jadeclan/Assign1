@@ -1,11 +1,11 @@
 <?php
 namespace Application\Dashboard2;
 
-require_once "app/models/dashboard2/Card1Dash2Model.php";
+require_once "app/models/dashboard2/Card1.php";
 
 use Framework\Controller;
 use Framework\View;
-use Application;
+use Application\API\Model;
 /*
  * Card1 for dashboard2 class used to create the Card1Dash2 view using
  * data obtained from the Card1Dash2Model.
@@ -18,7 +18,7 @@ class Card1 extends Controller
     {
         parent::__construct('Card1');
 
-        $this->model = new Application\Card1Dash2Model();
+        $this->model = new Model\Card1Dash2Model();
 
     }
 

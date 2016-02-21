@@ -1,8 +1,9 @@
 <?php
-namespace Application;
+namespace Application\API\Controller;
 
 use Framework\APIController;
-class Chart1B extends APIController
+use Application\API\Model;
+class Chart1 extends APIController
 {
     private $model;
 
@@ -10,7 +11,7 @@ class Chart1B extends APIController
     {
         parent::__construct('Chart1');
 
-        $this->model = new Chart1Model();
+        $this->model = new Model\Chart1();
     }
 
     public function get()

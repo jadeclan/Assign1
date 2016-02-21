@@ -1,6 +1,5 @@
 <?php
-
-namespace Application;
+namespace Application\API\Model;
 
 use Framework\Model;
 class BrowserModel extends Model

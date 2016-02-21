@@ -1,13 +1,7 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: james
- * Date: 12/02/16
- * Time: 4:36 PM
- */
 namespace Application;
 
-require_once "app/models/charts/Chart1Model.php";
+require_once "app/models/charts/Chart1.php";
 
 use Framework\Controller;
 use Framework\View;

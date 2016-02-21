@@ -1,6 +1,6 @@
 <?php
 
-namespace Application;
+namespace Application\API\Model;
 
 use Framework\Model;
 /**

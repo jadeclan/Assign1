@@ -1,6 +1,5 @@
 <?php
-
-namespace Application;
+namespace Application\API\Model;
 
 use Framework\Model;
 /**
@@ -10,7 +9,7 @@ use Framework\Model;
  * Developed by: Bergeron, O'Donnell, Pitrolia, Walker
  * January - February, 2016
  */
-class Chart1Model extends Model
+class Chart1 extends Model
 {
     public function search($year = 2016, $month = 1)
     {

@@ -8,6 +8,7 @@ require_once "Card3.php";
 use Framework\Controller;
 use Framework\View;
 use Framework\Navable;
+use Application\API\Model;
 /*
  *
  */
