@@ -21,3 +21,6 @@ Data Driven PHP and JavaScript ![GitHubLogo](app/views/images/logo.jpg)
 
 ## **Some Stats**
  - [Commits by James Bergeron](https://github.com/jadeclan/Assign1/commits/master?author=jadeclan)
+ - [Commits by Mark O'Donnell](https://github.com/jadeclan/Assign1/commits/master?author=CrazyIrish)
+ - [Commits by Sonia Pitrola](https://github.com/jadeclan/Assign1/commits/master?author=spitrola)
+ - [Commits by Nolan Walker](https://github.com/jadeclan/Assign1/commits/master?author=Nwalk957)
