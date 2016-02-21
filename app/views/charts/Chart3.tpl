@@ -104,6 +104,5 @@
         };
 
         $('#theButton').on('click', drawChart);
-        google.charts.setOnLoadCallback(drawChart);
     });
 </script>
