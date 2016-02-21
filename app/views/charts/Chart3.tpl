@@ -1,5 +1,5 @@
 <!-- Begin Chart Of Three TPL -->
-<div class="card" id="chart3Div">
+<div class="card" id="card2">
 
     <div class="card-content hoverable">
         <div class="row"><span class="card-title">Column Chart - Visits per Country</span></div>
@@ -30,7 +30,7 @@
         <div class="row">
             <div id="loadable"></div>
             <div id="noChart3Data"></div>
-            <div id="chart3" style="width: 900px; height: 500px;">
+            <div id="chart3" style="width: 100%; height: 500px;">
                 <!-- Google Script Will Populate this Div with Graph -->
             </div>
         </div>
