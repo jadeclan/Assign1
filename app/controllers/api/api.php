@@ -55,7 +55,7 @@ class API extends Controller
             new API\Controller\Card1(),
             new API\Controller\Card2(),
             new API\Controller\Card3(),
-            new Continents(),
+            new Continents()
         ]);
     }
 
