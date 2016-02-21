@@ -1,7 +1,7 @@
 <!-- Begin Chart Two TPL -->
 <div class="card" id="card3">
     <div class="card-content hoverable">
-        <span class="card-title">Visits per Country</span>
+        <span class="card-title">Visits per Country Map</span>
         <div class="input-field">
             <select id="months" name="monthPicked" class="initialized" style="display: inline-block"></select>
         </div>

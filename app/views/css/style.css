@@ -149,7 +149,7 @@ body{
     margin-top: 2%;
 }
 
-#card3 .card-content{
+#card3Scroll{
     max-height: 845px;
     overflow-y: auto;
 }

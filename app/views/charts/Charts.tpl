@@ -6,22 +6,16 @@
     </div>
 
     <div class="row">
-        <div class="col s12 m5">
-            <div class="row">
-                <div class="col s12">
-                    <?= $c->Render("chart1") ?>
-                </div>
-            </div>
-        </div> <!-- /.col -->
-        <div class="col s12 m7">
+        <div class="col s12">
+            <?= $c->Render("chart1") ?>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12 m6">
             <?= $c->Render("chart2") ?>
         </div>
-    </div><!-- /.row -->
-
-    <div class="row">
-        <div class="col s8 offset-s2">
+        <div class="col s12 m6">
             <?= $c->Render("chart3") ?>
         </div>
     </div>
-
 </div><!-- /.container -->

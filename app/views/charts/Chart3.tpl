@@ -2,35 +2,36 @@
 <div class="card" id="card2">
 
     <div class="card-content hoverable">
-        <div class="row"><span class="card-title">Column Chart - Visits per Country</span></div>
+        <div class="row"><span class="card-title">Visits per Country Column Chart</span></div>
 
         <!--Dropdown list for top 10 countries -->
         <div class="row">
-            <div class="col s3">
+            <div class="col s12 m4">
                 <select id="countries1" name="firstCountryPicked" style="display: inline-block">
-                    <option value="" disabled selected>Select First Country</option>
+                    <option value="" disabled selected>First Country</option>
                 </select>
             </div>
-            <div class="col s3">
+            <div class="col s12 m4">
                 <select id="countries2" name="SecondCountryPicked" style="display: inline-block">
-                    <option value="" disabled selected>Select Second Country</option>
+                    <option value="" disabled selected>Second Country</option>
                 </select>
             </div>
-            <div class="col s3">
+            <div class="col s12 m4">
                 <select id="countries3" name="ThirdCountryPicked" style="display: inline-block">
-                    <option value="" disabled selected>Select Third Country</option>
+                    <option value="" disabled selected>Third Country</option>
                 </select>
             </div>
-            <div class="col s3 center-align">
-                <button id="theButton" class="btn waves-effect waves-light btn-large" type="submit" name="action">Chart It
-                    <!--<i class="material-icons right">send</i>-->
+        </div>
+        <div class="row">
+            <div class="col s12 center-align">
+                <button id="theButton" class="btn waves-effect waves-light btn-large" type="submit" name="action">Chart It <!--<i class="material-icons right">send</i>-->
                 </button>
             </div>
         </div>
         <div class="row">
             <div id="loadable"></div>
             <div id="noChart3Data"></div>
-            <div id="chart3" style="width: 100%; height: 500px;">
+            <div id="chart3" style="width: 100%; height: 380px;">
                 <!-- Google Script Will Populate this Div with Graph -->
             </div>
         </div>
