@@ -20,4 +20,4 @@ Data Driven PHP and JavaScript ![GitHubLogo](app/views/images/logo.jpg)
 ### [Git Status in Command Line Prompt Documentation](documentation/showBranchInPrompt.md)
 
 ## **Some Stats**
- - [Commits by James Bergeron](https://github.com/jadeclan/Assign1.git/commits/master?author=jadeclan)
+ - [Commits by James Bergeron](https://github.com/jadeclan/Assign1/commits/master?author=jadeclan)
