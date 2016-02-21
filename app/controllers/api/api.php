@@ -15,12 +15,12 @@ require_once "OperatingSystems.php";
 require_once "Referrers.php";
 require_once "TopTen.php";
 require_once "Visits.php";
-require_once "Card3D2.php";
-require_once "Card2D2.php";
-require_once "Card1D2.php";
-require_once "Chart3B.php";
-require_once "Chart2B.php";
-require_once "Chart1B.php";
+require_once "dashboard2/Card3.php";
+require_once "dashboard2/Card2.php";
+require_once "dashboard2/Card1.php";
+require_once "charts/Chart3.php";
+require_once "charts/Chart2.php";
+require_once "charts/Chart1.php";
 
 require_once "app/models/Country.php";
 require_once "app/models/DeviceType.php";
