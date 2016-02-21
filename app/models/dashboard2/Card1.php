@@ -10,7 +10,7 @@ use Framework\Model;
  * Developed by: Bergeron, O'Donnell, Pitrolia, Walker
  * January - February, 2016
  */
-class Card1Dash2Model extends Model
+class Card1 extends Model
 {
     public function search()
     {

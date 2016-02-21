@@ -3,7 +3,7 @@ namespace Application\API\Controller;
 
 use Framework\APIController;
 use Application\API\Model;
-class Chart2B extends APIController
+class Chart2 extends APIController
 {
     private $model;
 

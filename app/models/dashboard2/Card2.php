@@ -10,7 +10,7 @@ use Framework\Model;
  * Developed by: Bergeron, O'Donnell, Pitrolia, Walker
  * January - February, 2016
  */
-class Card2Dash2Model extends Model
+class Card2 extends Model
 {
     public function search($brand = null)
     {

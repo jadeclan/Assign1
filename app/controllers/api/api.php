@@ -50,11 +50,11 @@ class API extends Controller
             new Referrers(),
             new OperatingSystems(),
             new API\Controller\Chart1(),
-            new API\Controller\Chart2B(),
-            new API\Controller\Chart3B(),
-            new API\Controller\Card1D2(),
-            new API\Controller\Card2D2(),
-            new API\Controller\Card3D2(),
+            new API\Controller\Chart2(),
+            new API\Controller\Chart3(),
+            new API\Controller\Card1(),
+            new API\Controller\Card2(),
+            new API\Controller\Card3(),
             new Continents(),
         ]);
     }

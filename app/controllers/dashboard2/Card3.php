@@ -19,7 +19,7 @@ class Card3 extends Controller
     {
         parent::__construct('Card3');
 
-        $this->model = new Model\Card3Dash2Model();
+        $this->model = new Model\Card3();
 
     }
 
