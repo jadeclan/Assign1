@@ -3,7 +3,6 @@
 namespace Application;
 
 use Framework\Model;
-
 class VisitModel extends Model
 {
     public function search($countryCode = null, $deviceTypeId = null, $deviceBrandId = null, $browserId = null, $referrerId = null, $osId = null, $page = 1, $limit = 10)

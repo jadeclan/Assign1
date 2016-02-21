@@ -3,8 +3,6 @@
 namespace Application;
 
 use Framework\Model;
-
-
 /**
  * The Chart1Model class. Extends the model class (Database Access)
  * Provides the functionality to query the database

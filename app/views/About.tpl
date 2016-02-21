@@ -1,10 +1,9 @@
 <div>
-    <div class="row">
-        <div class="col s12 center-align">
-            <h2>About Us</h2>
+    <div class="row hide-on-med-and-up">
+        <div class="col s12">
+            <h2 class="center-align">About</h2>
         </div>
     </div>
-
     <div class="row">
         <div class="col s12">
             <div class="card-panel hoverable">
@@ -13,7 +12,7 @@
                             and James Bergeron.  For more information about the developers, see the brief bio's shown
                             below.  We pride ourselves on details and accuracy so enjoy.<br /><br />
                             POW-B Analytics was created as a partial requirement for the completion of the Mount Royal
-                            University Comp4513 Web III, taught by Randy Connelly.<br />
+                            University Comp4513 Web III, taught by Randy Connolly.<br />
                             The code we developed can be viewed and cloned with permission from our
                     <a href="https://github.com/jadeclan/Assign1">Github</a> repository. <br /><br />
                             For more project details please go to the <a href="?url=documentation">Documentation</a> page.
@@ -67,7 +66,14 @@
                         <h5 class="center-align"><em>Mark O'Donnell</em></h5>
                         <img class="responsive-img center-block" src="<?= $themedir ?>/images/Donald-Trump-Wrestling-Rosie-O-Donnell.jpg" alt="Rosie and Donald" title="Rosie and Donald">
                         <p>
-                            Crazy Irish?  Have you seen the code he wrote for the MVC  controller? Crazy Irish?  Did he really convince the group to follow him down the MVC rabbit hole? Crazy Irish?  Coach, educator, facilitator, thinker Need to see recursive code in action? Want to see minimalistic PHP coding style? Looking for obscure PHP commands to do a job perfectly? Yup Crazy is right!  No idea about the Irish part. The strong, silent type - almost apologetic about helping his team mates reach professional understandings of php /  javascript / mysql and server management. On top of all that flattery, he enjoys a good beer! Ooops wrong O'Donnell on the picture.
+                            CrazyIrish? Have you seen the code he wrote for the MVC controller? CrazyIrish?
+                            Did he really convince the group to follow him down the MVC rabbit hole? Crazy Irish?
+                            Coach, educator, facilitator, thinker. Need to see recursive code in action?
+                            Want to see minimalistic PHP coding style? Looking for obscure PHP commands to do
+                            a job perfectly? Yup Crazy is right! No idea about the Irish part. The strong,
+                            silent type - almost apologetic about helping his team mates reach professional
+                            understandings of php / javascript / mysql and server management. On top of all
+                            that flattery, he enjoys a good beer! Ooops wrong O'Donnell on the picture.
                         </p>
                     </div>
                 </div>

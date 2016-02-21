@@ -1,12 +1,10 @@
 <?php
 namespace Application;
 
-use Framework\Model;
-use Framework\Controller;
-use Framework\View;
-
 require_once "app/models/Card1.php";
 
+use Framework\Controller;
+use Framework\View;
 /*
  * Card1 class used to create the Card1 view using
  * data obtained from the Card1Model.
@@ -27,7 +25,7 @@ class Card1 extends Controller
      */
     public function Content()
     {
-        return new View('Card1.tpl', [
+        return new View('dashboard1/Card1.tpl', [
             'browsers' => $this->model->getBrowserVisits()
         ]);
     }

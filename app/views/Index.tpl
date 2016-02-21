@@ -25,7 +25,7 @@
 <body>
 <?= $c->Render("header"); ?>
 <main>
-    <div>
+    <div id="content">
         <div class="row">
             <div class="col offset-m1 s12 m11">
                 <?= $c->Render("content"); ?>

@@ -3,7 +3,6 @@
 namespace Application;
 
 use Framework\Model;
-
 class ContinentsModel extends Model
 {
     public function getAll()

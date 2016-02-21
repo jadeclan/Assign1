@@ -1,4 +1,4 @@
-<!-- begin Card3Dash2.tpl -->
+<!-- begin Card3.tpl -->
 <div class="card z-depth-1-half" id="card3">
     <div class="card-content hoverable">
         <span class="card-title">Country Statistics</span>
@@ -21,7 +21,7 @@
         </table>
     </div>
 </div>
-<!-- end Card3Dash2.tpl -->
+<!-- end Card3.tpl -->
 <script>
     $(function () {
         var $loading = $('<div class="progress">').append($('<div class="indeterminate"></div></div>')).appendTo("#loadanimation");

@@ -3,7 +3,6 @@
 namespace Application;
 
 use Framework\Model;
-
 class BrowserModel extends Model
 {
     public function getAll()

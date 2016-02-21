@@ -2,15 +2,13 @@
 
 namespace Application;
 
-use Framework\View;
-use Framework\Controller;
-use Framework\Navable;
-
 require_once "Card1.php";
 require_once "Card2.php";
 require_once "Card3.php";
 
-
+use Framework\View;
+use Framework\Controller;
+use Framework\Navable;
 /*
  * Dashboard controller pulls together the needed models and controllers
  * in order to create content to deliver to the dashboard view.
@@ -37,6 +35,6 @@ class Dashboard extends Controller implements Navable
      */
     public function Content()
     {
-        return new View('Dashboard.tpl');
+        return new View('dashboard1/Dashboard.tpl');
     }
 }

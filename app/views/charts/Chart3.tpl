@@ -39,7 +39,7 @@
 </div>
 <!-- End of Chart of Chart3 -->
 <script type="text/javascript">
-    //google.charts.load('current', {'packages':['bar']});
+    
     google.charts.setOnLoadCallback(drawChart);
     function drawChart() {
         $(function() {

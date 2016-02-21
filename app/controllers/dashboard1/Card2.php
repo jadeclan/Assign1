@@ -2,12 +2,10 @@
 
 namespace Application;
 
-use Framework\Model;
-use Framework\View;
-use FRamework\Controller;
-
 require_once "app/models/Card2.php";
 
+use Framework\View;
+use FRamework\Controller;
 /*
  * Class used to control the creation of Card2 from
  * the Card2Model and Card2 view.
@@ -28,7 +26,7 @@ class Card2 extends Controller
      */
     public function Content()
     {
-        return new View('Card2.tpl', [
+        return new View('dashboard1/Card2.tpl', [
         'devices' => $this->model->getDeviceBrandUsage()
         ]);
     }

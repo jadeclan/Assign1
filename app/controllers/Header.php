@@ -4,7 +4,6 @@ namespace Application;
 
 use Framework\View;
 use Framework\Controller;
-
 /*
  * Constructs the Header function from the header.tpl file
  */
@@ -20,7 +19,8 @@ class Header extends Controller
     {
         return new View('Header.tpl', [
             'nav' => $this->getRoot()->getNavLinks(),
-            'active' => $this->getRoot()->Route('content')->getRoute()
+            'active' => $this->getRoot()->Route('content')->getRoute(),
+            'title' => $this->getRoot()->Route('content')->getName()
         ]);
     }
 }

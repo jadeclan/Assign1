@@ -1,17 +1,13 @@
 <?php
-namespace Application;
+namespace Application\Dashboard2;
 
-use RuntimeException;
+require_once "Card1.php";
+require_once "Card2.php";
+require_once "Card3.php";
 
 use Framework\Controller;
-use Framework\Model;
 use Framework\View;
 use Framework\Navable;
-
-require_once "Card1Dash2.php";
-require_once "Card2Dash2.php";
-require_once "Card3Dash2.php";
-
 /*
  *
  */
@@ -20,9 +16,9 @@ class Dashboard2 extends Controller implements Navable
     public function __construct()
     {
         parent::__construct('Dashboard2', [
-            new Card1Dash2(),
-            new Card2Dash2(),
-            new Card3Dash2()
+            new Card1(),
+            new Card2(),
+            new Card3()
         ]);
     }
 
@@ -31,10 +27,10 @@ class Dashboard2 extends Controller implements Navable
      */
     public function getNavString()
     {
-        return "Dashboard-2";
+        return "Dashboard #2";
     }
 
     public function Content(){
-        return new View('Dashboard2.tpl');
+        return new View('dashboard2/Dashboard2.tpl');
     }
 }
