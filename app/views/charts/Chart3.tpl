@@ -5,6 +5,7 @@
         <div class="row"><span class="card-title">Visits per Country Column Chart</span></div>
 
         <!--Dropdown list for top 10 countries -->
+        
         <div class="row">
             <div class="col s12 m4">
                 <select id="countries1" name="firstCountryPicked">
@@ -36,7 +37,8 @@
             </div>
             <div class="col s12 center-align" id="switch">
                 <label>Switch X Axis</label>
-                <div class="switch"><label>Country<input type="checkbox" checked><span class="lever"></span>Months</label></div>
+
+                <div class="switch"><label>Country<input id="graphSwitcher" type="checkbox" checked><span class="lever"></span>Months</label></div>
             </div>
         </div>
     </div>
@@ -46,6 +48,7 @@
 <script type="text/javascript">
 
     $(function() {
+
         // populate drop downs
         $.get('<?= $siteurl ?>?url=api/countries/topten')
                 .done(function (data) {
@@ -61,6 +64,9 @@
 
         var drawChart = function() {
             $('#switch').show();
+
+            var chartDiv = document.getElementById('chart3');
+            var changeButton  = document.getElementById('graphSwitcher');
 
             var $country1 = $('#countries1').val();
             var $country2 = $('#countries2').val();
@@ -81,13 +87,6 @@
 
                     var chart3DataTable = [['Country', 'Jan', 'May', 'Sept']];
 
-//                    var monthChart = [
-//                        ['Month', 'Brazil','China','France'],
-//                        ['Jan',217,243,564],
-//                        ['May',2324,323,643],
-//                        ['Sept',2347,4543,5264]
-//                    ];
-
                     var monthChart = [['Month']];
                     console.log(monthChart);
 
@@ -105,20 +104,14 @@
                     monthChart.push(["Aug"]);
                     monthChart.push(["Sept"]);
 
+                    for(var row = 1; row < monthChart.length; row++){
+                        for(var column = 1; column < chart3DataTable.length; column ++ ){
+                            monthChart[row].push(chart3DataTable[row][column]);
+                        }
+                    }
 
-                    monthChart[1].push(chart3DataTable[1][1]);
-                    monthChart[1].push(chart3DataTable[1][2]);
-                    monthChart[1].push(chart3DataTable[1][3]);
-                    monthChart[2].push(chart3DataTable[2][1]);
-                    monthChart[2].push(chart3DataTable[2][2]);
-                    monthChart[2].push(chart3DataTable[2][3]);
-                    monthChart[3].push(chart3DataTable[3][1]);
-                    monthChart[3].push(chart3DataTable[3][2]);
-                    monthChart[3].push(chart3DataTable[3][3]);
-
-
-                    chart3DataTable = google.visualization.arrayToDataTable(chart3DataTable);
-                    monthChart = google.visualization.arrayToDataTable(monthChart);
+                    var googleCountryData  = google.visualization.arrayToDataTable(chart3DataTable);
+                    var googleMonthData = google.visualization.arrayToDataTable(monthChart);
 
 
                     var options = {
@@ -149,30 +142,20 @@
                         }
                     };
 
-                    function drawDefaultChart(){
-                        chart3DataTable = google.visualization.arrayToDataTable(chart3DataTable);
-                        var chart = new google.visualization.ColumnChart(document.getElementById('chart3'));
-                        chart.draw(chart3DataTable, options);
-                        $('.switch').on('click', drawMonthChart() );
+
+                    function drawMonthChart() {
+                        var monthChart = new google.visualization.ColumnChart(chartDiv);
+                        monthChart.draw(googleMonthData, monthOptions);
+                        changeButton.onclick = drawCountryChart;
                     }
 
+                    function drawCountryChart() {
+                        var countryChart = new google.visualization.ColumnChart(chartDiv);
+                        countryChart.draw(googleCountryData, options);
+                        changeButton.onclick = drawMonthChart;
+                    }
 
-                        $('.switch').on('click', function() {
-
-
-
-                            var chart = new google.visualization.ColumnChart(document.getElementById('chart3'));
-                            chart.draw(monthChart, monthOptions);
-                        });
-
-                    var chart = new google.visualization.ColumnChart(document.getElementById('chart3'));
-                    chart.draw(chart3DataTable, options);
-
-                    //var chart = new google.visualization.ColumnChart(document.getElementById('chart3'));
-                    //chart.draw(monthChart, monthOptions);
-
-                    //monthChart = google.visualization.arrayToDataTable(monthChart);
-                    //var chart = new google.visualization.ColumnChart(document.getElementById('chart3'));
+                    drawMonthChart();
 
                 })
                 .fail(function () {
