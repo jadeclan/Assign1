@@ -78,29 +78,42 @@
 
             $.get(uri)
                 .done(function(data) {
-                    var chart3DataTable = [['Country', 'Jan', 'May', 'Aug']];
+
+                    var chart3DataTable = [['Country', 'Jan', 'May', 'Sept']];
+                    var monthChart = [ [],[],[] ];
 
                     data.forEach(function(item) {
-                        chart3DataTable.push([item.countryName, parseInt(item.Jan), parseInt(item.May), parseInt(item.Aug)]);
+                        chart3DataTable.push([item.countryName, parseInt(item.Jan), parseInt(item.May), parseInt(item.Sept)]);
                     });
 
                     chart3DataTable = google.visualization.arrayToDataTable(chart3DataTable);
 
+                    data.forEach(function(item){
+                        monthChart[0]['Month'] = 'Jan';
+                        monthChart[0][item.countryName] = item.Jan;
+                        monthChart[1]['Month'] = 'Aug';
+                        monthChart[1][item.countryName] = item.May;
+                        monthChart[2]['Month'] = 'Sept';
+                        monthChart[2][item.countryName] = item.Sept;
+                    });
+
+                    
+
                     var options = {
                         chart: {
-                            title: 'Visits per Month'
+                            title: 'Site Visits',
+                            subtitle:'2016',
                         },
                         hAxis: {
-                            title: 'Total Visits',
+                            title: 'Country',
                             minValue: 0
                         },
                         vAxis: {
-                            title: 'Country'
+                            title: 'Total Visits'
                         },
-                        bars: 'horizontal'
                     };
 
-                    var chart = new google.visualization.BarChart(document.getElementById('chart3'));
+                    var chart = new google.visualization.ColumnChart(document.getElementById('chart3'));
                     chart.draw(chart3DataTable, options);
                 })
                 .fail(function () {
