@@ -2,12 +2,20 @@
 <div class="card" id="card3">
     <div class="card-content hoverable">
         <span class="card-title">Visits per Country Map</span>
-        <div class="input-field">
-            <select id="months" name="monthPicked" class="initialized"></select>
+        <div class="row">
+            <div class="col s12 m3">
+                <div id="chartInput" class="input-field">
+                    <select id="months" name="monthPicked" class="initialized"></select>
+                </div>
+            </div>
         </div>
-        <div id="nodata"></div>
-        <div id="chart2Div" style="width: 100%; height: 100%;">
+        <div class="row">
+            <div class="col s12">
+                <div id="nodata"></div>
+                <div id="chart2Div" style="width: 100%; height: 100%;"></div>
+            </div>
         </div>
+
     </div>
 </div>
 
@@ -85,6 +93,7 @@
 
         google.charts.setOnLoadCallback(drawRegionsMap);
         $('#months').on('change', drawRegionsMap);
+        $(window).resize(drawRegionsMap);
     });
 </script>
 
