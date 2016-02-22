@@ -31,7 +31,7 @@
         <div class="row">
             <div id="loadable"></div>
             <div id="noChart3Data"></div>
-            <div id="chart3" style="width: 100%; height: 380px;">
+            <div id="chart3" style="width: 100%; height: 100%;">
                 <!-- Google Script Will Populate this Div with Graph -->
             </div>
             <div class="col s12 center-align" id="switch">

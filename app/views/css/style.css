@@ -161,3 +161,15 @@ body{
 #deviceBox{
     font-size: 19px;
 }
+
+.switch label input[type=checkbox]:checked + .lever {
+    background-color: #ff7043;
+}
+
+.switch label input[type=checkbox]:checked + .lever:after {
+    background-color: #bf360c;
+}
+
+.btn:focus{
+    background-color: #006064;
+}
