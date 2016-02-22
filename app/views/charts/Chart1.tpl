@@ -88,5 +88,6 @@
 
         google.charts.setOnLoadCallback(drawDailyVisits);
         $('#mSelect').on('change', drawDailyVisits);
+        $(window).resize(drawDailyVisits);
     });
 </script>

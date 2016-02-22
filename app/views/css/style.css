@@ -137,7 +137,7 @@ body{
 }
 
 .side-nav li.active{
-    border: solid 0.5px #ff7043;
+    border: solid 1px #ff7043;
 }
 
 #page-title{
