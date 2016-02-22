@@ -80,22 +80,46 @@
                 .done(function(data) {
 
                     var chart3DataTable = [['Country', 'Jan', 'May', 'Sept']];
-                    var monthChart = [ [],[],[] ];
+
+//                    var monthChart = [
+//                        ['Month', 'Brazil','China','France'],
+//                        ['Jan',217,243,564],
+//                        ['May',2324,323,643],
+//                        ['Sept',2347,4543,5264]
+//                    ];
+
+                    var monthChart = [['Month']];
+                    console.log(monthChart);
+
 
                     data.forEach(function(item) {
                         chart3DataTable.push([item.countryName, parseInt(item.Jan), parseInt(item.May), parseInt(item.Sept)]);
                     });
 
-                    chart3DataTable = google.visualization.arrayToDataTable(chart3DataTable);
+                    data.forEach(function(item) {
+                        monthChart[0].push(item.countryName);
 
-                    data.forEach(function(item){
-                        monthChart[0]['Month'] = 'Jan';
-                        monthChart[0][item.countryName] = item.Jan;
-                        monthChart[1]['Month'] = 'Aug';
-                        monthChart[1][item.countryName] = item.May;
-                        monthChart[2]['Month'] = 'Sept';
-                        monthChart[2][item.countryName] = item.Sept;
                     });
+
+                    monthChart.push(["Jan"]);
+                    monthChart.push(["Aug"]);
+                    monthChart.push(["Sept"]);
+
+
+                    monthChart[1].push(chart3DataTable[1][1]);
+                    monthChart[1].push(chart3DataTable[1][2]);
+                    monthChart[1].push(chart3DataTable[1][3]);
+                    monthChart[2].push(chart3DataTable[2][1]);
+                    monthChart[2].push(chart3DataTable[2][2]);
+                    monthChart[2].push(chart3DataTable[2][3]);
+                    monthChart[3].push(chart3DataTable[3][1]);
+                    monthChart[3].push(chart3DataTable[3][2]);
+                    monthChart[3].push(chart3DataTable[3][3]);
+
+
+                    chart3DataTable = google.visualization.arrayToDataTable(chart3DataTable);
+                    monthChart = google.visualization.arrayToDataTable(monthChart);
+
 
                     var options = {
                         chart: {
@@ -132,15 +156,24 @@
                         $('.switch').on('click', drawMonthChart() );
                     }
 
-                    function drawMonthChart(){
-                         monthChart = google.visualization.arrayToDataTable(monthChart);
-                        var chart = new google.visualization.ColumnChart(document.getElementById('chart3'));
-                        chart.draw(monthChart, monthOptions);
-                        $('.switch').on('click', drawDefaultChart() );
-                    }
+
+                        $('.switch').on('click', function() {
+
+
+
+                            var chart = new google.visualization.ColumnChart(document.getElementById('chart3'));
+                            chart.draw(monthChart, monthOptions);
+                        });
 
                     var chart = new google.visualization.ColumnChart(document.getElementById('chart3'));
                     chart.draw(chart3DataTable, options);
+
+                    //var chart = new google.visualization.ColumnChart(document.getElementById('chart3'));
+                    //chart.draw(monthChart, monthOptions);
+
+                    //monthChart = google.visualization.arrayToDataTable(monthChart);
+                    //var chart = new google.visualization.ColumnChart(document.getElementById('chart3'));
+
                 })
                 .fail(function () {
                     $('div').append($('span').text('Error loading data.').appendTo('#chart3'));
