@@ -8,7 +8,7 @@
     </div>
     <div class="row">
         <div class="input-field col m2">
-            <input id="countryAutocomplete" placeholder="All Countries"/>
+            <input id="countryAutocomplete" placeholder="Type Country Name"/>
             <input type="hidden" id="countryFilter"/>
         </div>
         <div class="input-field col m2">
