@@ -7,17 +7,17 @@
         <!--Dropdown list for top 10 countries -->
         <div class="row">
             <div class="col s12 m4">
-                <select id="countries1" name="firstCountryPicked" style="display: inline-block">
+                <select id="countries1" name="firstCountryPicked">
                     <option value="" disabled selected>First Country</option>
                 </select>
             </div>
             <div class="col s12 m4">
-                <select id="countries2" name="SecondCountryPicked" style="display: inline-block">
+                <select id="countries2" name="SecondCountryPicked">
                     <option value="" disabled selected>Second Country</option>
                 </select>
             </div>
             <div class="col s12 m4">
-                <select id="countries3" name="ThirdCountryPicked" style="display: inline-block">
+                <select id="countries3" name="ThirdCountryPicked">
                     <option value="" disabled selected>Third Country</option>
                 </select>
             </div>
@@ -50,6 +50,9 @@
                         $('<option>').val(country.ISO).text(country.CountryName).appendTo('#countries2');
                         $('<option>').val(country.ISO).text(country.CountryName).appendTo('#countries3');
                     });
+                    $('#countries1').material_select();
+                    $('#countries2').material_select();
+                    $('#countries3').material_select();
                 });
 
         var drawChart = function() {

@@ -5,7 +5,7 @@
                     <span class="card-title">Site Visits By Day</span>
                     <div class="input-field">
                         <!--TODO add drop down for choosing a year -->
-                        <select id="mSelect" name="chosenMonth" class="initialized" style="display:block;">
+                        <select id="mSelect" name="chosenMonth" class="initialized">
                         </select>
                     </div>
                     <div id="noChart1Data"></div>
@@ -28,6 +28,7 @@
             var monthOption = $('<option></option>').attr("value", i).html(months[0][i]);
             $('#mSelect').append(monthOption);
         }
+        $('#mSelect').material_select();
 
         var drawDailyVisits = function() {
             var chart1Year = '2016';

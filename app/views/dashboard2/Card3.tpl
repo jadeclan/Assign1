@@ -1,24 +1,26 @@
 <!-- begin Card3.tpl -->
 <div class="card z-depth-1-half" id="card3">
-    <div id="card3Scroll" class="card-content hoverable">
+    <div class="card-content hoverable">
         <span class="card-title">Country Statistics</span>
         <div class="input-field">
-            <select id="cSelection" name="continent" class="initialized" style="display:block;">
+            <select id="cSelection" name="continent" class="initialized">
                 <option value="" disabled selected>Select a Continent</option>
             </select>
         </div>
 
         <div id="loadanimation"></div>
-        <table id="continentBox" class="hide">
-            <thead>
-            <tr id="selectedContinent">
-                <th>Country</th>
-                <th>Visits</th>
-            </tr>
-            </thead>
-            <tbody id="contBody">
-            </tbody>
-        </table>
+        <div id="card3Scroll">
+            <table id="continentBox" class="hide">
+                <thead>
+                <tr id="selectedContinent">
+                    <th>Country</th>
+                    <th>Visits</th>
+                </tr>
+                </thead>
+                <tbody id="contBody">
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 <!-- end Card3.tpl -->
@@ -30,6 +32,7 @@
                     data.forEach(function(continent) {
                         $('<option>').val(continent.ContinentCode).text(continent.ContinentName).appendTo("#cSelection");
                     });
+                    $('#cSelection').material_select();
                 })
                 .fail(function () {
 
