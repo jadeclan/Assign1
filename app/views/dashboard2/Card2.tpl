@@ -18,7 +18,6 @@
     </div>
 </div>
 
-<!-- <script type="text/javascript" src="<?= $themedir ?>/js/card2d2.js"></script>  -->
 <script>
 $(document).ready(function() {
     var card2D2Data;
