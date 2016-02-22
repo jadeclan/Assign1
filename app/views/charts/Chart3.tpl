@@ -5,7 +5,7 @@
         <div class="row"><span class="card-title">Visits per Country Column Chart</span></div>
 
         <!--Dropdown list for top 10 countries -->
-        
+
         <div class="row">
             <div class="col s12 m4">
                 <select id="countries1" name="firstCountryPicked">
@@ -86,10 +86,7 @@
                 .done(function(data) {
 
                     var chart3DataTable = [['Country', 'Jan', 'May', 'Sept']];
-
-                    var monthChart = [['Month']];
-                    console.log(monthChart);
-
+                    var monthChart = [['Month'],["Jan"],["Aug"],["Sept"]];
 
                     data.forEach(function(item) {
                         chart3DataTable.push([item.countryName, parseInt(item.Jan), parseInt(item.May), parseInt(item.Sept)]);
@@ -100,9 +97,6 @@
 
                     });
 
-                    monthChart.push(["Jan"]);
-                    monthChart.push(["Aug"]);
-                    monthChart.push(["Sept"]);
 
                     for(var row = 1; row < monthChart.length; row++){
                         for(var column = 1; column < chart3DataTable.length; column ++ ){
