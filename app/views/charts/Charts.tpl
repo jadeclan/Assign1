@@ -1,3 +1,13 @@
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+<script>
+    $(function () {
+        google.charts.load("current", {packages:['corechart', 'bar']});
+    });
+</script>
+
 <div>
     <div class="row hide-on-med-and-up">
         <div class="col s12">
@@ -18,4 +28,4 @@
             <?= $c->Render("chart3") ?>
         </div>
     </div>
-</div><!-- /.container -->
+</div>

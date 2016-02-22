@@ -16,77 +16,76 @@
             </div>
 
 <script>
-    google.charts.load("current", {packages:['corechart', 'bar']});
-    google.charts.setOnLoadCallback(drawDailyVisits);
-    function drawDailyVisits(){
-        $(function() {
-            var $loading = $('<div class="progress">').append($('<div class="indeterminate"></div></div>')).appendTo("#chart1");
+    $(function() {
+        // Month Names with number of days in the month
+        var months = [["", "January", "February", "March", "April",
+            "May", "June", "July", "August",
+            "September", "October", "November", "December"],
+            [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]];
 
-            // Month Names with number of days in the month
-            var months = [["", "January", "February", "March", "April",
-                "May", "June", "July", "August",
-                "September", "October", "November", "December"],
-                [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]];
+        // Drop down for selection of a month
+        for (var i = 1; i <= 12; i++) {
+            var monthOption = $('<option></option>').attr("value", i).html(months[0][i]);
+            $('#mSelect').append(monthOption);
+        }
 
-            // Drop down for selection of a month
-            for (var i = 1; i <= 12; i++) {
-                var monthOption = $('<option></option>').attr("value", i).html(months[0][i]);
-                $('#mSelect').append(monthOption);
-            }
-            var updateChart1 = function () {
-                var chart1Year = '2016';
-                var chart1Month = $("#mSelect").val();
-                var chart1Title = months[0][chart1Month] + ', ' + chart1Year;
-                //base url
-                var uri = '<?= $siteurl ?>?url=api/chart1';
+        var drawDailyVisits = function() {
+            var chart1Year = '2016';
+            var chart1Month = $("#mSelect").val();
+            var chart1Title = months[0][chart1Month] + ', ' + chart1Year;
 
-                if (chart1Year)
-                    uri += '&year=' + encodeURIComponent(chart1Year);
-                if (chart1Month)
-                    uri += '&month=' + encodeURIComponent(chart1Month);
+            //base url
+            var uri = '<?= $siteurl ?>?url=api/chart1';
 
-                // ajax
+            if (chart1Year)
+                uri += '&year=' + encodeURIComponent(chart1Year);
+            if (chart1Month)
+                uri += '&month=' + encodeURIComponent(chart1Month);
 
-                $.get(uri)
-                        .done(function (data) {
-                            // data is an array of objects
-                            if (data.length) {
+            var $loading = $('<div class="progress">').append($('<div class="indeterminate">')).appendTo("#chart1");
 
-                                $("#noChart1Data").text = "";
+            // ajax
+            $.get(uri)
+                .done(function (data) {
+                    // data is an array of objects
+                    if (data.length) {
 
-                                var dataArray= [[
-                                    {label: "Day", type: "number"},
-                                    {label: "Visits", type: "number"}]];
-                                var options = {
-                                    title: chart1Title,
-                                    legend: {position: 'bottom' },
-                                    hAxis: {title: 'Day of Month' },
-                                    vAxis: {title: 'Number of Visits' }
-                                };
+                        $("#noChart1Data").text = "";
 
-                                data.forEach(function (item, index) {
-                                    dataArray.push([parseInt(item.day), parseInt(item.monthDailyVisits)]);
-                                });
+                        var dataArray = [[
+                            {label: "Day", type: "number"},
+                            {label: "Visits", type: "number"}]];
+                        var options = {
+                            title: chart1Title,
+                            legend: {position: 'bottom' },
+                            hAxis: {title: 'Day of Month' },
+                            vAxis: {title: 'Number of Visits' }
+                        };
 
-                                var chart1DataTable = google.visualization.arrayToDataTable(dataArray);
-                                var googleChart1 = new google.visualization.AreaChart(document.getElementById('chart1'));
-                                googleChart1.draw(chart1DataTable, options);
-                            } else {
-                                $('#chart1').firstChild.remove();
-                                $('#noChart1Data').text('No data available for this month');
-
-                            }
-                        })
-                        .fail(function () {
-                            $('div').append($('span').text('Error loading data.').appendTo('#chart1'));
-                        })
-                        .always(function () {
-                            $loading.remove();
+                        data.forEach(function (item) {
+                            dataArray.push([parseInt(item.day), parseInt(item.monthDailyVisits)]);
                         });
-            };
 
-            $('#mSelect').on('change', updateChart1);
-            updateChart1();
-        });
-    }
+                        var chart1DataTable = google.visualization.arrayToDataTable(dataArray);
+                        var googleChart1 = new google.visualization.AreaChart(document.getElementById('chart1'));
+                        googleChart1.draw(chart1DataTable, options);
+                    } else {
+                        $('#chart1').firstChild.remove();
+                        $('#noChart1Data').text('No data available for this month');
+
+                    }
+                })
+
+                .fail(function () {
+                    $('div').append($('span').text('Error loading data.').appendTo('#chart1'));
+                })
+
+                .always(function () {
+                    $loading.remove();
+                });
+        };
+
+        google.charts.setOnLoadCallback(drawDailyVisits);
+        $('#mSelect').on('change', drawDailyVisits);
+    });
 </script>
