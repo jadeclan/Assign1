@@ -34,6 +34,10 @@
             <div id="chart3" style="width: 100%; height: 380px;">
                 <!-- Google Script Will Populate this Div with Graph -->
             </div>
+            <div class="col s12 center-align" id="switch">
+                <label>Switch X Axis</label>
+                <div class="switch"><label>Country<input type="checkbox" checked><span class="lever"></span>Total Visit</label></div>
+            </div>
         </div>
     </div>
 
@@ -56,6 +60,7 @@
                 });
 
         var drawChart = function() {
+            $('#switch').show();
 
             var $country1 = $('#countries1').val();
             var $country2 = $('#countries2').val();
@@ -107,5 +112,6 @@
         };
 
         $('#theButton').on('click', drawChart);
+        $('#switch').hide();
     });
 </script>
