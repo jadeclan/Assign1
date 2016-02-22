@@ -66,7 +66,7 @@
             if ($country3)
                 uri += '&country3=' + encodeURIComponent($country3);
 
-            var $loading = $('<div class="progress">').append($('<div class="indeterminate"></div></div>')).appendTo("#loadable");
+            var $loading = $('<div class="progress">').append($('<div class="indeterminate">')).appendTo("#loadable");
 
             $.get(uri)
                 .done(function(data) {
