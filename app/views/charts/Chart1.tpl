@@ -3,21 +3,15 @@
             <div class="card z-depth-1-half" id="card1">
                 <div class="card-content hoverable">
                     <span class="card-title">Site Visits By Day</span>
-                    <div class="row">
-                        <div class="col s12 m6 offset-m3">
-                            <div class="input-field">
-                                <!--TODO add drop down for choosing a year -->
-                                <select id="mSelect" name="chosenMonth" class="initialized">
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col s12">
+                    <div class="input-field">
+                        <!--TODO add drop down for choosing a year -->
+                        <select id="mSelect" name="chosenMonth" class="initialized">
+                        </select>
+                    </div>
                             <div id="noChart1Data"></div>
-                            <div id="chart1" style="width: 100%; height: 200px;">
+                            <div id="chart1" style="width: 100%; height: 300px;">
                                 <!-- Google Script Will Populate this Div with Graph -->
                             </div>
-                        </div>
-                    </div>
                 </div>
             </div>
 
