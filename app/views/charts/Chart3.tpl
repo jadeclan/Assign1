@@ -36,7 +36,7 @@
             </div>
             <div class="col s12 center-align" id="switch">
                 <label>Switch X Axis</label>
-                <div class="switch"><label>Country<input type="checkbox" checked><span class="lever"></span>Total Visit</label></div>
+                <div class="switch"><label>Country<input type="checkbox" checked><span class="lever"></span>Months</label></div>
             </div>
         </div>
     </div>
@@ -97,8 +97,6 @@
                         monthChart[2][item.countryName] = item.Sept;
                     });
 
-                    
-
                     var options = {
                         chart: {
                             title: 'Site Visits',
@@ -110,8 +108,36 @@
                         },
                         vAxis: {
                             title: 'Total Visits'
-                        },
+                        }
                     };
+
+                    var monthOptions = {
+                        chart: {
+                            title: 'Site Visits',
+                            subtitle:'2016',
+                        },
+                        hAxis: {
+                            title: 'Months',
+                            minValue: 0
+                        },
+                        vAxis: {
+                            title: 'Total Visits'
+                        }
+                    };
+
+                    function drawDefaultChart(){
+                        chart3DataTable = google.visualization.arrayToDataTable(chart3DataTable);
+                        var chart = new google.visualization.ColumnChart(document.getElementById('chart3'));
+                        chart.draw(chart3DataTable, options);
+                        $('.switch').on('click', drawMonthChart() );
+                    }
+
+                    function drawMonthChart(){
+                         monthChart = google.visualization.arrayToDataTable(monthChart);
+                        var chart = new google.visualization.ColumnChart(document.getElementById('chart3'));
+                        chart.draw(monthChart, monthOptions);
+                        $('.switch').on('click', drawDefaultChart() );
+                    }
 
                     var chart = new google.visualization.ColumnChart(document.getElementById('chart3'));
                     chart.draw(chart3DataTable, options);
