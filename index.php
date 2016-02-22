@@ -25,6 +25,7 @@
 define('DEBUG', true);
 
 // Disable SEO by default (requires mod_rewrite)
+// NOTE: I've enabled this on the live site so we have clean URLs :)
 define('SEO', false);
 
 // Set appropriate error reporting
