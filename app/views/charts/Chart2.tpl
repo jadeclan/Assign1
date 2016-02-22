@@ -3,7 +3,7 @@
     <div class="card-content hoverable">
         <span class="card-title">Visits per Country Map</span>
         <div class="row">
-            <div class="col s12 m6 offset-m3">
+            <div class="col s12 m3">
                 <div class="input-field">
                     <select id="months" name="monthPicked" class="initialized"></select>
                 </div>
