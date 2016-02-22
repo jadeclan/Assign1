@@ -20,7 +20,7 @@ class Dashboard2 extends Controller implements Navable
             new Card1(),
             new Card2(),
             new Card3()
-        ], "My super awesome title!");
+        ], "Dashboard #2");
     }
 
     /*

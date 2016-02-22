@@ -5,8 +5,8 @@
             <div class="card-content hoverable">
                 <span class="card-title">Device Brands</span>
 
-                <select id="dSelection" name="deviceName" style="display: block">
-                    <option>Select a Device</option>
+                <select id="dSelection" name="deviceName">
+                    <option value="" disabled selected>Select a Device</option>
 
                 </select>
                 <div class="card-action">
@@ -40,6 +40,7 @@ $(document).ready(function() {
                         var brandOption = $('<option></option>').attr("value", card2D2Data[i].deviceBrand).html(card2D2Data[i].deviceBrand);
                         $('#dSelection').append(brandOption);
                     }
+                    $('#dSelection').material_select();
                 })
                 .fail(function () {
 

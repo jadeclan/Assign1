@@ -3,7 +3,7 @@
     <div class="card-content hoverable">
         <span class="card-title">Visits per Country Map</span>
         <div class="input-field">
-            <select id="months" name="monthPicked" class="initialized" style="display: inline-block"></select>
+            <select id="months" name="monthPicked" class="initialized"></select>
         </div>
         <div id="nodata"></div>
         <div id="chart2Div" style="width: 100%; height: 100%;">
@@ -25,6 +25,7 @@
             var countryOpt = $('<option></option>').attr("value", i).html(months[i]);
             $(selectElement).append(countryOpt);
         }
+        $('#months').material_select();
 
         var drawRegionsMap = function() {
             var $loading = $('<div class="progress">').append($('<div class="indeterminate">')).appendTo("#chart2Div");
