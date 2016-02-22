@@ -14,7 +14,7 @@
                             <th>% of total</th>
                         </tr>
                     </thead>
-                    <tbody id="card1a">
+                    <tbody id="card1Content">
                     </tbody>
                 </table>
             </div>
@@ -25,7 +25,7 @@
 <!-- end Card1.tpl -->
 <script>
     $(document).ready(function(){
-        var $loading = $('<div class="progress">').append($('<div class="indeterminate"></div></div>')).appendTo("#card1a");
+        var $loading = $('<div class="progress">').append($('<div class="indeterminate"></div></div>')).appendTo("#card1Content");
 
         var updateCard1 = function() {
             //base url
@@ -33,7 +33,7 @@
             // ajax
             $.get(uri)
                     .done(function (data) {
-                        $('#card1a').find('tr').remove();
+                        $('#card1Content').find('tr').remove();
                         // data is an array of object
                         data.forEach(function (item, index) {
                             var newRow = document.createElement('tr');
@@ -49,7 +49,7 @@
                             $(newCol2).appendTo(newRow);
                             $(newCol3).appendTo(newRow);
                             $(newCol4).appendTo(newRow);
-                            $(newRow).appendTo('#card1a');
+                            $(newRow).appendTo('#card1Content');
                         });
                     })
                     .fail(function () {

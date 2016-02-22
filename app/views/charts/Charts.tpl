@@ -11,7 +11,7 @@
 <div>
     <div class="row hide-on-med-and-up">
         <div class="col s12">
-            <h2 class="center-align">Charts</h2>
+            <h3 class="center-align">Charts</h3>
         </div>
     </div>
 

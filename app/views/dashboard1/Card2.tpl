@@ -9,8 +9,8 @@
             <div class="card-content hoverable">
                 <span class="card-title">Device Brands</span>
 
-                <select id="dSelection" name="deviceName" style="display: block">
-                    <option>Select a Device</option>
+                <select id="dSelection" name="deviceName">
+                    <option value="" disabled selected>Select a Device</option>
 
                     <?php foreach($devices as $device): ?>
 
@@ -19,7 +19,7 @@
                     <?php endforeach; ?>
 
                 </select>
-                <div class="card-action">
+                <div class="card-action center">
                     <span id="deviceBox"></span>
                 </div>
             </div>
@@ -31,3 +31,8 @@
 <script type="text/javascript" src="<?= $themedir ?>/js/card2.js"></script>
 
 <!-- end Card2.tpl -->
+<script>
+    $(function(){
+        $('#dSelection').material_select();
+    });
+</script>

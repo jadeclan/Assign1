@@ -20,7 +20,7 @@ class Dashboard2 extends Controller implements Navable
             new Card1(),
             new Card2(),
             new Card3()
-        ], "Dashboard #2");
+        ], "Async Dashboard");
     }
 
     /*
@@ -28,7 +28,7 @@ class Dashboard2 extends Controller implements Navable
      */
     public function getNavString()
     {
-        return "Dashboard #2";
+        return "Async Dashboard";
     }
 
     public function Content(){

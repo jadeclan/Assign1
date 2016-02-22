@@ -49,7 +49,7 @@
 
             $.get(uri)
                     .done(function(data){
-                        $('#continentBox').attr("class", "");
+                        $('#continentBox').attr("class", "striped");
                         var $tableBody = $('#contBody');
                         $tableBody.empty();
                         data.forEach(function(item) {

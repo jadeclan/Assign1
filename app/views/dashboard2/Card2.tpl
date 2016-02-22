@@ -9,7 +9,7 @@
                     <option value="" disabled selected>Select a Device</option>
 
                 </select>
-                <div class="card-action">
+                <div class="card-action center">
                     <span id="deviceBox"></span>
                 </div>
             </div>

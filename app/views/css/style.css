@@ -62,7 +62,7 @@ a:hover, .tabs .tab a:hover{
 }
 
 .striped #contBody tr:nth-child(odd){
-    background-color: #e1bee7;
+    background-color: #f3e5f5;
 }
 
 #continentBox thead tr th{
@@ -150,6 +150,14 @@ body{
 }
 
 #card3Scroll{
-    max-height: 845px;
+    max-height: 720px;
     overflow-y: auto;
+}
+
+#card1 .striped #card1Content tr:nth-child(odd){
+    background-color: #e3f2fd;
+}
+
+#deviceBox{
+    font-size: 19px;
 }

@@ -3,7 +3,7 @@ var $cSelection = $('#cSelection');
 $cSelection.on('change',function() {
     var $tableBody = $('#contBody');
     $tableBody.empty();
-    $('#continentBox').attr("class", "");
+    $('#continentBox').attr("class", "striped");
 
     for (i = 0; i < continentData.length; i++) {
         if (continentData[i].continentName == $cSelection.val() ){

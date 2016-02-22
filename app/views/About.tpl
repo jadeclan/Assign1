@@ -1,7 +1,7 @@
 <div>
     <div class="row hide-on-med-and-up">
         <div class="col s12">
-            <h2 class="center-align">About</h2>
+            <h3 class="center-align">About</h3>
         </div>
     </div>
     <div class="row">
