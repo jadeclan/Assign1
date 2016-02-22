@@ -173,3 +173,7 @@ body{
 .btn:focus{
     background-color: #006064;
 }
+
+#chartInput{
+    margin-top: 0;
+}
