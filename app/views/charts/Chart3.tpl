@@ -46,9 +46,8 @@
 </div>
 <!-- End of Chart of Chart3 -->
 <script type="text/javascript">
-
     $(function() {
-
+        var isoList = new Array();
         // populate drop downs
         $.get('<?= $siteurl ?>?url=api/countries/topten')
                 .done(function (data) {
@@ -56,6 +55,7 @@
                         $('<option>').val(country.ISO).text(country.CountryName).appendTo('#countries1');
                         $('<option>').val(country.ISO).text(country.CountryName).appendTo('#countries2');
                         $('<option>').val(country.ISO).text(country.CountryName).appendTo('#countries3');
+                        isoList.push(country.ISO);
                     });
                     $('#countries1').material_select();
                     $('#countries2').material_select();
@@ -162,7 +162,14 @@
                 });
         };
 
-        $('#theButton').on('click', drawChart);
+        $('#theButton').on('click', function(){
+            if( (jQuery.inArray($('#countries1').val(), isoList) > -1) &&
+                (jQuery.inArray($('#countries2').val(), isoList) > -1) &&
+                (jQuery.inArray($('#countries3').val(), isoList) > -1) ) {
+               drawChart();
+            }
+        });
+
         $('#graphSwitcher').hide();
     });
 </script>
