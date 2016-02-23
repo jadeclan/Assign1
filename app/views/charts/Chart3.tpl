@@ -111,7 +111,7 @@
                     var options = {
                         chart: {
                             title: 'Site Visits',
-                            subtitle:'2016',
+                            subtitle:'2016'
                         },
                         hAxis: {
                             title: 'Country',
@@ -120,13 +120,13 @@
                         vAxis: {
                             title: 'Total Visits'
                         },
-                        legend: { position: 'top'}
+                        legend: { position: 'top', alignment: 'end'}
                     };
 
                     var monthOptions = {
                         chart: {
-                            title: 'Site Visits',
-                            subtitle:'2016',
+                           title: 'Site Visits',
+                           subtitle: '2016'
                         },
                         hAxis: {
                             title: 'Months',
@@ -135,7 +135,7 @@
                         vAxis: {
                             title: 'Total Visits'
                         },
-                        legend: { position: 'top'}
+                        legend: { position: 'top', alignment: 'end'}
                     };
 
 
