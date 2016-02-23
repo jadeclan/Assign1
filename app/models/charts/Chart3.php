@@ -34,7 +34,7 @@ class Chart3Model extends Model
         $sql = "SELECT countryName,
                        MAX(IF(theMonth = 1, visits, NULL)) as Jan,
                        MAX(IF(theMonth = 5, visits, NULL)) as May,
-                       MAX(IF(theMonth = 8, visits, NULL)) as Sept
+                       MAX(IF(theMonth = 9, visits, NULL)) as Sept
                 FROM ($sql) visits
                 GROUP BY countryName";
 
