@@ -101,7 +101,7 @@
 
 
                     var options = {
-                        title: 'Site Visits',
+                        title: 'Site Visits 2016',
                         hAxis: {
                             title: 'Country',
                             minValue: 0
