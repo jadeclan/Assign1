@@ -23,7 +23,6 @@
                 </select>
             </div>
         </div>
-
         <div class="row">
             <div class="col s12 center-align">
                 <button id="theButton" class="btn waves-effect waves-light btn-large" type="submit" name="action">Chart It <!--<i class="material-icons right">send</i>-->
@@ -49,6 +48,7 @@
 <script type="text/javascript">
 
     $(function() {
+
         // populate drop downs
         $.get('<?= $siteurl ?>?url=api/countries/topten')
                 .done(function (data) {
@@ -96,6 +96,7 @@
                         monthChart[0].push(item.countryName);
 
                     });
+
 
                     for(var row = 1; row < monthChart.length; row++){
                         for(var column = 1; column < chart3DataTable.length; column ++ ){
@@ -161,28 +162,7 @@
                 });
         };
 
-        var validation = ['BR','CN','FR','ID','PH','PL','PT','RU','SE','US'];
-
-        console.log(validation);
-
-        $('#theButton').on('click', function() {
-            console.log($('#countries1').find('option:selected').val());
-            console.log($('#countries2').find('option:selected').val());
-            console.log($('#countries3').find('option:selected').val());
-
-
-
-
-            console.log ($('#countries1 option:selected').length);
-            if ($.inArray($('#countries1 option:selected').val, validation) ){
-                    console.log("made it into the if");
-                    //|| $('#countries option:selected').val != "" || $('#countries option:selected').val != "")
-                drawChart();
-            } else {
-                console.log('made it to the else');
-                //$('<div><p>Please seect 3 options from the Drop Down Menus</p></div>').appendTo('#theButton');
-            }
-        });
+        $('#theButton').on('click', drawChart);
         $('#graphSwitcher').hide();
     });
 </script>
