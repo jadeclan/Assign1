@@ -8,7 +8,6 @@
                 <table class="striped">
                     <thead>
                         <tr>
-                            <th>Browser ID</th>
                             <th>Browser Name</th>
                             <th>Number of Hits</th>
                             <th>% of total</th>
@@ -17,10 +16,9 @@
                     <tbody id="card1Content">
                     <?php foreach($browsers as $browser): ?>
                         <tr>
-                            <td><?= $browser['id'] ?></td>
                             <td><?= $browser['name'] ?></td>
                             <td><?= $browser['hits'] ?></td>
-                            <td><?= $browser['percentage'] ?></td>
+                            <td><?= $browser['percentage']?></td>
                         </tr>
                     <?php endforeach; ?>
                     </tbody>

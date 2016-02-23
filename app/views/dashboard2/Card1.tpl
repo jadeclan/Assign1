@@ -8,7 +8,6 @@
                 <table class="striped">
                     <thead>
                         <tr>
-                            <th>Browser ID</th>
                             <th>Browser Name</th>
                             <th>Number of Hits</th>
                             <th>% of total</th>
@@ -37,15 +36,12 @@
                         // data is an array of object
                         data.forEach(function (item, index) {
                             var newRow = document.createElement('tr');
-                            var newCol1 = document.createElement('td');
-                                newCol1.innerText = item.id;
                             var newCol2 = document.createElement('td');
                                 newCol2.innerText = item.name;
                             var newCol3 = document.createElement('td');
                                 newCol3.innerText = item.hits;
                             var newCol4 = document.createElement('td');
                                 newCol4.innerText = item.percentage;
-                            $(newCol1).appendTo(newRow);
                             $(newCol2).appendTo(newRow);
                             $(newCol3).appendTo(newRow);
                             $(newCol4).appendTo(newRow);
