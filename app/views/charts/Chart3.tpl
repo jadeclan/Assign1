@@ -35,7 +35,7 @@
             <div id="chart3" style="width: 100%; height: 100%;">
                 <!-- Google Script Will Populate this Div with Graph -->
             </div>
-            <div class="col s12 center-align" id="switch">
+            <div class="col s12 center-align">
                 <label>Switch X Axis</label>
 
                 <div class="switch"><label>Country<input id="graphSwitcher" type="checkbox" checked><span class="lever"></span>Months</label></div>
@@ -63,7 +63,7 @@
                 });
 
         var drawChart = function() {
-            $('#switch').show();
+            $('#graphSwitcher').show().prop('checked',true);
 
             var chartDiv = document.getElementById('chart3');
             var changeButton  = document.getElementById('graphSwitcher');
@@ -163,6 +163,6 @@
         };
 
         $('#theButton').on('click', drawChart);
-        $('#switch').hide();
+        $('#graphSwitcher').hide();
     });
 </script>
