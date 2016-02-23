@@ -94,7 +94,7 @@
                                 monthChart[row].push(chart3DataTable[column][row]);
                             }
                         }
-                    }
+
 
                     var googleCountryData  = google.visualization.arrayToDataTable(chart3DataTable);
                     var googleMonthData = google.visualization.arrayToDataTable(monthChart);
@@ -152,55 +152,8 @@
                 .always(function () {
                     $loading.remove();
                 });
-                        var googleCountryData  = google.visualization.arrayToDataTable(chart3DataTable);
-                        var googleMonthData = google.visualization.arrayToDataTable(monthChart);
-                        var options = {
-                            chart: {
-                                title: 'Site Visits',
-                                subtitle:'2016'
-                            },
-                            hAxis: {
-                                title: 'Country',
-                                minValue: 0
-                            },
-                            vAxis: {
-                                title: 'Total Visits'
-                            },
-                            legend: { position: 'top', alignment: 'end'}
-                        };
-                        var monthOptions = {
-                            chart: {
-                                title: 'Site Visits',
-                                subtitle: '2016'
-                            },
-                            hAxis: {
-                                title: 'Months',
-                                minValue: 0
-                            },
-                            vAxis: {
-                                title: 'Total Visits'
-                            },
-                            legend: { position: 'top', alignment: 'end'}
-                        };
-                        function drawMonthChart() {
-                            var monthChart = new google.visualization.ColumnChart(chartDiv);
-                            monthChart.draw(googleMonthData, monthOptions);
-                            changeButton.onclick = drawCountryChart;
-                        }
-                        function drawCountryChart() {
-                            var countryChart = new google.visualization.ColumnChart(chartDiv);
-                            countryChart.draw(googleCountryData, options);
-                            changeButton.onclick = drawMonthChart;
-                        }
-                        drawMonthChart();
-                    })
-                    .fail(function () {
-                        $('div').append($('span').text('Error loading data.').appendTo('#chart3'));
-                    })
-                    .always(function () {
-                        $loading.remove();
-                    });
-        };
+
+        }
         $('#theButton').on('click', function(){
 
             $('#loadable').empty();
