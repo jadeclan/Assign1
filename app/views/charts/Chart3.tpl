@@ -35,7 +35,7 @@
             <div id="chart3" style="width: 100%; height: 100%;">
                 <!-- Google Script Will Populate this Div with Graph -->
             </div>
-            <div class="col s12 center-align">
+            <div class="col s12 center-align" id="theSwitch">
                 <label>Switch X Axis</label>
 
                 <div class="switch"><label>Country<input id="graphSwitcher" type="checkbox" checked><span class="lever"></span>Months</label></div>
@@ -46,9 +46,8 @@
 </div>
 <!-- End of Chart of Chart3 -->
 <script type="text/javascript">
-
     $(function() {
-
+        var isoList = new Array();
         // populate drop downs
         $.get('<?= $siteurl ?>?url=api/countries/topten')
                 .done(function (data) {
@@ -56,18 +55,18 @@
                         $('<option>').val(country.ISO).text(country.CountryName).appendTo('#countries1');
                         $('<option>').val(country.ISO).text(country.CountryName).appendTo('#countries2');
                         $('<option>').val(country.ISO).text(country.CountryName).appendTo('#countries3');
+                        isoList.push(country.ISO);
                     });
                     $('#countries1').material_select();
                     $('#countries2').material_select();
                     $('#countries3').material_select();
                 });
-
         var drawChart = function() {
-            $('#graphSwitcher').show().prop('checked',true);
+            $('#graphSwitcher').prop('checked',true);
+            $('#theSwitch').show();
 
             var chartDiv = document.getElementById('chart3');
             var changeButton  = document.getElementById('graphSwitcher');
-
             var $country1 = $('#countries1').val();
             var $country2 = $('#countries2').val();
             var $country3 = $('#countries3').val();
@@ -79,28 +78,21 @@
                 uri += '&country2=' + encodeURIComponent($country2);
             if ($country3)
                 uri += '&country3=' + encodeURIComponent($country3);
-
             var $loading = $('<div class="progress">').append($('<div class="indeterminate">')).appendTo("#loadable");
-
             $.get(uri)
-                .done(function(data) {
-
-                    var chart3DataTable = [['Country', 'Jan', 'May', 'Sept']];
-                    var monthChart = [['Month'],["Jan"],["May"],["Sept"]];
-
-                    data.forEach(function(item) {
-                        chart3DataTable.push([item.countryName, parseInt(item.Jan), parseInt(item.May), parseInt(item.Sept)]);
-                    });
-
-                    data.forEach(function(item) {
-                        monthChart[0].push(item.countryName);
-
-                    });
-
-
-                    for(var row = 1; row < monthChart.length; row++){
-                        for(var column = 1; column < chart3DataTable.length; column ++ ){
-                            monthChart[row].push(chart3DataTable[column][row]);
+                    .done(function(data) {
+                        var chart3DataTable = [['Country', 'Jan', 'May', 'Sept']];
+                        var monthChart = [['Month'],["Jan"],["May"],["Sept"]];
+                        data.forEach(function(item) {
+                            chart3DataTable.push([item.countryName, parseInt(item.Jan), parseInt(item.May), parseInt(item.Sept)]);
+                        });
+                        data.forEach(function(item) {
+                            monthChart[0].push(item.countryName);
+                        });
+                        for(var row = 1; row < monthChart.length; row++){
+                            for(var column = 1; column < chart3DataTable.length; column ++ ){
+                                monthChart[row].push(chart3DataTable[column][row]);
+                            }
                         }
                     }
 
@@ -160,9 +152,67 @@
                 .always(function () {
                     $loading.remove();
                 });
+                        var googleCountryData  = google.visualization.arrayToDataTable(chart3DataTable);
+                        var googleMonthData = google.visualization.arrayToDataTable(monthChart);
+                        var options = {
+                            chart: {
+                                title: 'Site Visits',
+                                subtitle:'2016'
+                            },
+                            hAxis: {
+                                title: 'Country',
+                                minValue: 0
+                            },
+                            vAxis: {
+                                title: 'Total Visits'
+                            },
+                            legend: { position: 'top', alignment: 'end'}
+                        };
+                        var monthOptions = {
+                            chart: {
+                                title: 'Site Visits',
+                                subtitle: '2016'
+                            },
+                            hAxis: {
+                                title: 'Months',
+                                minValue: 0
+                            },
+                            vAxis: {
+                                title: 'Total Visits'
+                            },
+                            legend: { position: 'top', alignment: 'end'}
+                        };
+                        function drawMonthChart() {
+                            var monthChart = new google.visualization.ColumnChart(chartDiv);
+                            monthChart.draw(googleMonthData, monthOptions);
+                            changeButton.onclick = drawCountryChart;
+                        }
+                        function drawCountryChart() {
+                            var countryChart = new google.visualization.ColumnChart(chartDiv);
+                            countryChart.draw(googleCountryData, options);
+                            changeButton.onclick = drawMonthChart;
+                        }
+                        drawMonthChart();
+                    })
+                    .fail(function () {
+                        $('div').append($('span').text('Error loading data.').appendTo('#chart3'));
+                    })
+                    .always(function () {
+                        $loading.remove();
+                    });
         };
+        $('#theButton').on('click', function(){
 
-        $('#theButton').on('click', drawChart);
-        $('#graphSwitcher').hide();
+            $('#loadable').empty();
+
+            if( (jQuery.inArray($('#countries1').val(), isoList) > -1) &&
+                    (jQuery.inArray($('#countries2').val(), isoList) > -1) &&
+                    (jQuery.inArray($('#countries3').val(), isoList) > -1) ) {
+                drawChart();
+            }else{
+                $('<div id=theErrorMessage">Please Select 3 Countries from the DropDown Lists</div>').appendTo('#loadable');
+            }
+        });
+        $('#theSwitch').hide();
     });
 </script>
