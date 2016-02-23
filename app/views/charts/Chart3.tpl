@@ -101,10 +101,7 @@
 
 
                     var options = {
-                        chart: {
-                            title: 'Site Visits',
-                            subtitle:'2016',
-                        },
+                        title: 'Site Visits',
                         hAxis: {
                             title: 'Country',
                             minValue: 0
@@ -112,14 +109,11 @@
                         vAxis: {
                             title: 'Total Visits'
                         },
-                        legend: { position: 'top'}
+                        legend: { position: 'top', alignment: 'end'}
                     };
 
                     var monthOptions = {
-                        chart: {
-                            title: 'Site Visits',
-                            subtitle:'2016',
-                        },
+                        title: 'Site Visits 2016',
                         hAxis: {
                             title: 'Months',
                             minValue: 0
@@ -127,18 +121,18 @@
                         vAxis: {
                             title: 'Total Visits'
                         },
-                        legend: { position: 'top'}
+                        legend: { position: 'top', alignment: 'end'}
                     };
 
 
                     function drawMonthChart() {
-                        var monthChart = new google.charts.Bar(chartDiv);
+                        var monthChart = new google.visualization.ColumnChart(chartDiv);
                         monthChart.draw(googleMonthData, monthOptions);
                         changeButton.onclick = drawCountryChart;
                     }
 
                     function drawCountryChart() {
-                        var countryChart = new google.charts.Bar(chartDiv);
+                        var countryChart = new google.visualization.ColumnChart(chartDiv);
                         countryChart.draw(googleCountryData, options);
                         changeButton.onclick = drawMonthChart;
                     }
@@ -153,7 +147,7 @@
                     $loading.remove();
                 });
 
-        }
+        };
         $('#theButton').on('click', function(){
 
             $('#loadable').empty();
@@ -163,7 +157,7 @@
                     (jQuery.inArray($('#countries3').val(), isoList) > -1) ) {
                 drawChart();
             }else{
-                $('<div id=theErrorMessage">Please Select 3 Countries from the DropDown Lists</div>').appendTo('#loadable');
+                $('<div id=theErrorMessage"><span>Please Select 3 Countries from the DropDown Lists</span></div>').appendTo('#loadable');
             }
         });
         $('#theSwitch').hide();
