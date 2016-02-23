@@ -35,7 +35,9 @@
                     $('#cSelection').material_select();
                 })
                 .fail(function () {
-
+                    $('<tr>').append(
+                            $('<td>').text('Error loading data.')
+                    ).appendTo('#contBody');
                 })
                 .always(function () {
                     $loading.remove();
@@ -60,7 +62,9 @@
                         });
                     })
                     .fail(function () {
-
+                        $('<tr>').append(
+                                $('<td>').text('Error loading data.')
+                        ).appendTo('#contBody');
                     })
                     .always(function () {
                         $loading.remove();

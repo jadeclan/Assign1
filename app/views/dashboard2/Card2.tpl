@@ -42,7 +42,7 @@ $(document).ready(function() {
                     $('#dSelection').material_select();
                 })
                 .fail(function () {
-
+                    $('div').append($('span').text('Error loading data.').appendTo('#deviceBox'));
                 })
                 .always(function () {
                     $loading.remove();

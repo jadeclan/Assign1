@@ -49,7 +49,9 @@
                         });
                     })
                     .fail(function () {
-
+                        $('<tr>').append(
+                                $('<td>').text('Error loading data.')
+                        ).appendTo('#card1Content');
                     })
                     .always(function () {
                         $loading.remove();
