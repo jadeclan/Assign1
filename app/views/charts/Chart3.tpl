@@ -157,7 +157,7 @@
                     (jQuery.inArray($('#countries3').val(), isoList) > -1) ) {
                 drawChart();
             }else{
-                $('<div id=theErrorMessage"><span>Please Select 3 Countries from the DropDown Lists</span></div>').appendTo('#loadable');
+                $('<span id=theErrorMessage">Please Select 3 Countries from the DropDown Lists</span>').appendTo('#loadable');
             }
         });
         $('#theSwitch').hide();
