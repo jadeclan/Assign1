@@ -86,7 +86,7 @@
                 .done(function(data) {
 
                     var chart3DataTable = [['Country', 'Jan', 'May', 'Sept']];
-                    var monthChart = [['Month'],["Jan"],["Aug"],["Sept"]];
+                    var monthChart = [['Month'],["Jan"],["May"],["Sept"]];
 
                     data.forEach(function(item) {
                         chart3DataTable.push([item.countryName, parseInt(item.Jan), parseInt(item.May), parseInt(item.Sept)]);
@@ -100,7 +100,7 @@
 
                     for(var row = 1; row < monthChart.length; row++){
                         for(var column = 1; column < chart3DataTable.length; column ++ ){
-                            monthChart[row].push(chart3DataTable[row][column]);
+                            monthChart[row].push(chart3DataTable[column][row]);
                         }
                     }
 
@@ -119,7 +119,8 @@
                         },
                         vAxis: {
                             title: 'Total Visits'
-                        }
+                        },
+                        legend: { position: 'top'}
                     };
 
                     var monthOptions = {
@@ -133,7 +134,8 @@
                         },
                         vAxis: {
                             title: 'Total Visits'
-                        }
+                        },
+                        legend: { position: 'top'}
                     };
 
 

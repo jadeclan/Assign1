@@ -24,7 +24,7 @@ class Chart3Model extends Model
                 FROM visits
                   JOIN countries ON visits.country_code = countries.ISO
                 WHERE (EXTRACT(year from visits.visit_date) = 2016)
-                  AND (EXTRACT(month from visits.visit_date) IN (1,5,8))
+                  AND (EXTRACT(month from visits.visit_date) IN (1,5,9))
                   AND (countries.ISO = $country1 OR countries.ISO = $country2 OR countries.ISO = $country3 )
                 GROUP BY countryName, theMonth
                 ORDER BY visits DESC
