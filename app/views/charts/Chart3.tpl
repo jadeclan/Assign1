@@ -140,13 +140,13 @@
 
 
                     function drawMonthChart() {
-                        var monthChart = new google.visualization.ColumnChart(chartDiv);
+                        var monthChart = new google.charts.Bar(chartDiv);
                         monthChart.draw(googleMonthData, monthOptions);
                         changeButton.onclick = drawCountryChart;
                     }
 
                     function drawCountryChart() {
-                        var countryChart = new google.visualization.ColumnChart(chartDiv);
+                        var countryChart = new google.charts.Bar(chartDiv);
                         countryChart.draw(googleCountryData, options);
                         changeButton.onclick = drawMonthChart;
                     }
